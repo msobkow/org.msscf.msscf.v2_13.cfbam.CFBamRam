@@ -8,7 +8,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -45,6 +45,7 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 import org.msscf.msscf.v2_13.cfbam.CFBam.*;

@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -44,6 +44,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 import org.msscf.msscf.v2_13.cfbam.CFBam.*;
@@ -86,6 +87,30 @@ public class CFBamRamSchema
 		tableDateCol = new CFBamRamDateColTable( this );
 		tableDateDef = new CFBamRamDateDefTable( this );
 		tableDateType = new CFBamRamDateTypeTable( this );
+		tableDbKeyHash128Col = new CFBamRamDbKeyHash128ColTable( this );
+		tableDbKeyHash128Def = new CFBamRamDbKeyHash128DefTable( this );
+		tableDbKeyHash128Gen = new CFBamRamDbKeyHash128GenTable( this );
+		tableDbKeyHash128Type = new CFBamRamDbKeyHash128TypeTable( this );
+		tableDbKeyHash160Col = new CFBamRamDbKeyHash160ColTable( this );
+		tableDbKeyHash160Def = new CFBamRamDbKeyHash160DefTable( this );
+		tableDbKeyHash160Gen = new CFBamRamDbKeyHash160GenTable( this );
+		tableDbKeyHash160Type = new CFBamRamDbKeyHash160TypeTable( this );
+		tableDbKeyHash224Col = new CFBamRamDbKeyHash224ColTable( this );
+		tableDbKeyHash224Def = new CFBamRamDbKeyHash224DefTable( this );
+		tableDbKeyHash224Gen = new CFBamRamDbKeyHash224GenTable( this );
+		tableDbKeyHash224Type = new CFBamRamDbKeyHash224TypeTable( this );
+		tableDbKeyHash256Col = new CFBamRamDbKeyHash256ColTable( this );
+		tableDbKeyHash256Def = new CFBamRamDbKeyHash256DefTable( this );
+		tableDbKeyHash256Gen = new CFBamRamDbKeyHash256GenTable( this );
+		tableDbKeyHash256Type = new CFBamRamDbKeyHash256TypeTable( this );
+		tableDbKeyHash384Col = new CFBamRamDbKeyHash384ColTable( this );
+		tableDbKeyHash384Def = new CFBamRamDbKeyHash384DefTable( this );
+		tableDbKeyHash384Gen = new CFBamRamDbKeyHash384GenTable( this );
+		tableDbKeyHash384Type = new CFBamRamDbKeyHash384TypeTable( this );
+		tableDbKeyHash512Col = new CFBamRamDbKeyHash512ColTable( this );
+		tableDbKeyHash512Def = new CFBamRamDbKeyHash512DefTable( this );
+		tableDbKeyHash512Gen = new CFBamRamDbKeyHash512GenTable( this );
+		tableDbKeyHash512Type = new CFBamRamDbKeyHash512TypeTable( this );
 		tableDelDep = new CFBamRamDelDepTable( this );
 		tableDelSubDep1 = new CFBamRamDelSubDep1Table( this );
 		tableDelSubDep2 = new CFBamRamDelSubDep2Table( this );
@@ -205,6 +230,10 @@ public class CFBamRamSchema
 		tableUInt64Def = new CFBamRamUInt64DefTable( this );
 		tableUInt64Type = new CFBamRamUInt64TypeTable( this );
 		tableURLProtocol = new CFBamRamURLProtocolTable( this );
+		tableUuid6Col = new CFBamRamUuid6ColTable( this );
+		tableUuid6Def = new CFBamRamUuid6DefTable( this );
+		tableUuid6Gen = new CFBamRamUuid6GenTable( this );
+		tableUuid6Type = new CFBamRamUuid6TypeTable( this );
 		tableUuidCol = new CFBamRamUuidColTable( this );
 		tableUuidDef = new CFBamRamUuidDefTable( this );
 		tableUuidGen = new CFBamRamUuidGenTable( this );

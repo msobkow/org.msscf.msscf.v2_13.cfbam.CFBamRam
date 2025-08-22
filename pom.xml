@@ -12,7 +12,7 @@
   <version>2.13.11197</version>
   <name>org.msscf.msscf.v2_13.cfbam.CFBamRam</name>
   <description>msscf CFBamRam 2.13 CFBam RAM persistence</description>
-  <url>https://msscode.com/msscf/</url>
+  <url>https://msscf.org/msscf/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
