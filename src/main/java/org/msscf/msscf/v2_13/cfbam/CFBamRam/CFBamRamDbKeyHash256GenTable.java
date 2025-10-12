@@ -66,6 +66,12 @@ public class CFBamRamDbKeyHash256GenTable
 				CFBamDbKeyHash256GenBuff > dictByPKey
 		= new HashMap< CFBamValuePKey,
 				CFBamDbKeyHash256GenBuff >();
+	private Map< CFBamDbKeyHash256GenByDispIdxKey,
+				Map< CFBamValuePKey,
+					CFBamDbKeyHash256GenBuff >> dictByDispIdx
+		= new HashMap< CFBamDbKeyHash256GenByDispIdxKey,
+				Map< CFBamValuePKey,
+					CFBamDbKeyHash256GenBuff >>();
 
 	public CFBamRamDbKeyHash256GenTable( ICFBamSchema argSchema ) {
 		schema = argSchema;
@@ -102,6 +108,10 @@ public class CFBamRamDbKeyHash256GenTable
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
+		CFBamDbKeyHash256GenByDispIdxKey keyDispIdx = schema.getFactoryDbKeyHash256Gen().newDispIdxKey();
+		keyDispIdx.setOptionalDispenserTenantId( Buff.getOptionalDispenserTenantId() );
+		keyDispIdx.setOptionalDispenserId( Buff.getOptionalDispenserId() );
+
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
@@ -132,6 +142,16 @@ public class CFBamRamDbKeyHash256GenTable
 		// Proceed with adding the new record
 
 		dictByPKey.put( pkey, Buff );
+
+		Map< CFBamValuePKey, CFBamDbKeyHash256GenBuff > subdictDispIdx;
+		if( dictByDispIdx.containsKey( keyDispIdx ) ) {
+			subdictDispIdx = dictByDispIdx.get( keyDispIdx );
+		}
+		else {
+			subdictDispIdx = new HashMap< CFBamValuePKey, CFBamDbKeyHash256GenBuff >();
+			dictByDispIdx.put( keyDispIdx, subdictDispIdx );
+		}
+		subdictDispIdx.put( pkey, Buff );
 
 		if( tail != null ) {
 			String tailClassCode = tail.getClassCode();
@@ -1145,6 +1165,35 @@ public class CFBamRamDbKeyHash256GenTable
 		}
 	}
 
+	public CFBamDbKeyHash256GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "CFBamRamDbKeyHash256Gen.readDerivedByDispIdx";
+		CFBamDbKeyHash256GenByDispIdxKey key = schema.getFactoryDbKeyHash256Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+
+		CFBamDbKeyHash256GenBuff[] recArray;
+		if( dictByDispIdx.containsKey( key ) ) {
+			Map< CFBamValuePKey, CFBamDbKeyHash256GenBuff > subdictDispIdx
+				= dictByDispIdx.get( key );
+			recArray = new CFBamDbKeyHash256GenBuff[ subdictDispIdx.size() ];
+			Iterator< CFBamDbKeyHash256GenBuff > iter = subdictDispIdx.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFBamValuePKey, CFBamDbKeyHash256GenBuff > subdictDispIdx
+				= new HashMap< CFBamValuePKey, CFBamDbKeyHash256GenBuff >();
+			dictByDispIdx.put( key, subdictDispIdx );
+			recArray = new CFBamDbKeyHash256GenBuff[0];
+		}
+		return( recArray );
+	}
+
 	public CFBamDbKeyHash256GenBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -1389,6 +1438,25 @@ public class CFBamRamDbKeyHash256GenTable
 		return( filteredList.toArray( new CFBamDbKeyHash256GenBuff[0] ) );
 	}
 
+	public CFBamDbKeyHash256GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "CFBamRamDbKeyHash256Gen.readBuffByDispIdx() ";
+		CFBamDbKeyHash256GenBuff buff;
+		ArrayList<CFBamDbKeyHash256GenBuff> filteredList = new ArrayList<CFBamDbKeyHash256GenBuff>();
+		CFBamDbKeyHash256GenBuff[] buffList = readDerivedByDispIdx( Authorization,
+			DispenserTenantId,
+			DispenserId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a847" ) ) {
+				filteredList.add( (CFBamDbKeyHash256GenBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamDbKeyHash256GenBuff[0] ) );
+	}
+
 	/**
 	 *	Read a page array of the specific DbKeyHash256Gen buffer instances identified by the duplicate key SchemaIdx.
 	 *
@@ -1409,6 +1477,29 @@ public class CFBamRamDbKeyHash256GenTable
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffBySchemaIdx";
+		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+	}
+
+	/**
+	 *	Read a page array of the specific DbKeyHash256Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash256Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash256Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	public CFBamDbKeyHash256GenBuff[] pageBuffByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId,
+		Long priorTenantId,
+		Long priorId )
+	{
+		final String S_ProcName = "pageBuffByDispIdx";
 		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
@@ -6846,6 +6937,14 @@ public class CFBamRamDbKeyHash256GenTable
 				"DbKeyHash256Gen",
 				pkey );
 		}
+		CFBamDbKeyHash256GenByDispIdxKey existingKeyDispIdx = schema.getFactoryDbKeyHash256Gen().newDispIdxKey();
+		existingKeyDispIdx.setOptionalDispenserTenantId( existing.getOptionalDispenserTenantId() );
+		existingKeyDispIdx.setOptionalDispenserId( existing.getOptionalDispenserId() );
+
+		CFBamDbKeyHash256GenByDispIdxKey newKeyDispIdx = schema.getFactoryDbKeyHash256Gen().newDispIdxKey();
+		newKeyDispIdx.setOptionalDispenserTenantId( Buff.getOptionalDispenserTenantId() );
+		newKeyDispIdx.setOptionalDispenserId( Buff.getOptionalDispenserId() );
+
 		// Check unique indexes
 
 		// Validate foreign keys
@@ -6874,6 +6973,19 @@ public class CFBamRamDbKeyHash256GenTable
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
+
+		subdict = dictByDispIdx.get( existingKeyDispIdx );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictByDispIdx.containsKey( newKeyDispIdx ) ) {
+			subdict = dictByDispIdx.get( newKeyDispIdx );
+		}
+		else {
+			subdict = new HashMap< CFBamValuePKey, CFBamDbKeyHash256GenBuff >();
+			dictByDispIdx.put( newKeyDispIdx, subdict );
+		}
+		subdict.put( pkey, Buff );
 
 	}
 
@@ -8262,6 +8374,10 @@ public class CFBamRamDbKeyHash256GenTable
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
 		}
+		CFBamDbKeyHash256GenByDispIdxKey keyDispIdx = schema.getFactoryDbKeyHash256Gen().newDispIdxKey();
+		keyDispIdx.setOptionalDispenserTenantId( existing.getOptionalDispenserTenantId() );
+		keyDispIdx.setOptionalDispenserId( existing.getOptionalDispenserId() );
+
 		// Validate reverse foreign keys
 
 		// Delete is valid
@@ -8269,9 +8385,54 @@ public class CFBamRamDbKeyHash256GenTable
 
 		dictByPKey.remove( pkey );
 
+		subdict = dictByDispIdx.get( keyDispIdx );
+		subdict.remove( pkey );
+
 		schema.getTableDbKeyHash256Type().deleteDbKeyHash256Type( Authorization,
 			Buff );
 	}
+	public void deleteDbKeyHash256GenByDispIdx( CFSecAuthorization Authorization,
+		Long argDispenserTenantId,
+		Long argDispenserId )
+	{
+		CFBamDbKeyHash256GenByDispIdxKey key = schema.getFactoryDbKeyHash256Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( argDispenserTenantId );
+		key.setOptionalDispenserId( argDispenserId );
+		deleteDbKeyHash256GenByDispIdx( Authorization, key );
+	}
+
+	public void deleteDbKeyHash256GenByDispIdx( CFSecAuthorization Authorization,
+		CFBamDbKeyHash256GenByDispIdxKey argKey )
+	{
+		CFBamDbKeyHash256GenBuff cur;
+		boolean anyNotNull = false;
+		if( argKey.getOptionalDispenserTenantId() != null ) {
+			anyNotNull = true;
+		}
+		if( argKey.getOptionalDispenserId() != null ) {
+			anyNotNull = true;
+		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamDbKeyHash256GenBuff> matchSet = new LinkedList<CFBamDbKeyHash256GenBuff>();
+		Iterator<CFBamDbKeyHash256GenBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamDbKeyHash256GenBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableDbKeyHash256Gen().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteDbKeyHash256Gen( Authorization, cur );
+		}
+	}
+
 	public void deleteDbKeyHash256GenBySchemaIdx( CFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId )
