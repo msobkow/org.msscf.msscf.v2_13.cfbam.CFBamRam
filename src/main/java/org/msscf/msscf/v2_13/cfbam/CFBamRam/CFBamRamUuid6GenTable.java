@@ -66,6 +66,12 @@ public class CFBamRamUuid6GenTable
 				CFBamUuid6GenBuff > dictByPKey
 		= new HashMap< CFBamValuePKey,
 				CFBamUuid6GenBuff >();
+	private Map< CFBamUuid6GenByDispIdxKey,
+				Map< CFBamValuePKey,
+					CFBamUuid6GenBuff >> dictByDispIdx
+		= new HashMap< CFBamUuid6GenByDispIdxKey,
+				Map< CFBamValuePKey,
+					CFBamUuid6GenBuff >>();
 
 	public CFBamRamUuid6GenTable( ICFBamSchema argSchema ) {
 		schema = argSchema;
@@ -102,6 +108,10 @@ public class CFBamRamUuid6GenTable
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
+		CFBamUuid6GenByDispIdxKey keyDispIdx = schema.getFactoryUuid6Gen().newDispIdxKey();
+		keyDispIdx.setOptionalDispenserTenantId( Buff.getOptionalDispenserTenantId() );
+		keyDispIdx.setOptionalDispenserId( Buff.getOptionalDispenserId() );
+
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
@@ -132,6 +142,16 @@ public class CFBamRamUuid6GenTable
 		// Proceed with adding the new record
 
 		dictByPKey.put( pkey, Buff );
+
+		Map< CFBamValuePKey, CFBamUuid6GenBuff > subdictDispIdx;
+		if( dictByDispIdx.containsKey( keyDispIdx ) ) {
+			subdictDispIdx = dictByDispIdx.get( keyDispIdx );
+		}
+		else {
+			subdictDispIdx = new HashMap< CFBamValuePKey, CFBamUuid6GenBuff >();
+			dictByDispIdx.put( keyDispIdx, subdictDispIdx );
+		}
+		subdictDispIdx.put( pkey, Buff );
 
 		if( tail != null ) {
 			String tailClassCode = tail.getClassCode();
@@ -1145,6 +1165,35 @@ public class CFBamRamUuid6GenTable
 		}
 	}
 
+	public CFBamUuid6GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "CFBamRamUuid6Gen.readDerivedByDispIdx";
+		CFBamUuid6GenByDispIdxKey key = schema.getFactoryUuid6Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+
+		CFBamUuid6GenBuff[] recArray;
+		if( dictByDispIdx.containsKey( key ) ) {
+			Map< CFBamValuePKey, CFBamUuid6GenBuff > subdictDispIdx
+				= dictByDispIdx.get( key );
+			recArray = new CFBamUuid6GenBuff[ subdictDispIdx.size() ];
+			Iterator< CFBamUuid6GenBuff > iter = subdictDispIdx.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFBamValuePKey, CFBamUuid6GenBuff > subdictDispIdx
+				= new HashMap< CFBamValuePKey, CFBamUuid6GenBuff >();
+			dictByDispIdx.put( key, subdictDispIdx );
+			recArray = new CFBamUuid6GenBuff[0];
+		}
+		return( recArray );
+	}
+
 	public CFBamUuid6GenBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -1389,6 +1438,25 @@ public class CFBamRamUuid6GenTable
 		return( filteredList.toArray( new CFBamUuid6GenBuff[0] ) );
 	}
 
+	public CFBamUuid6GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "CFBamRamUuid6Gen.readBuffByDispIdx() ";
+		CFBamUuid6GenBuff buff;
+		ArrayList<CFBamUuid6GenBuff> filteredList = new ArrayList<CFBamUuid6GenBuff>();
+		CFBamUuid6GenBuff[] buffList = readDerivedByDispIdx( Authorization,
+			DispenserTenantId,
+			DispenserId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a889" ) ) {
+				filteredList.add( (CFBamUuid6GenBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamUuid6GenBuff[0] ) );
+	}
+
 	/**
 	 *	Read a page array of the specific Uuid6Gen buffer instances identified by the duplicate key SchemaIdx.
 	 *
@@ -1409,6 +1477,29 @@ public class CFBamRamUuid6GenTable
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffBySchemaIdx";
+		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+	}
+
+	/**
+	 *	Read a page array of the specific Uuid6Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	public CFBamUuid6GenBuff[] pageBuffByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId,
+		Long priorTenantId,
+		Long priorId )
+	{
+		final String S_ProcName = "pageBuffByDispIdx";
 		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
@@ -6846,6 +6937,14 @@ public class CFBamRamUuid6GenTable
 				"Uuid6Gen",
 				pkey );
 		}
+		CFBamUuid6GenByDispIdxKey existingKeyDispIdx = schema.getFactoryUuid6Gen().newDispIdxKey();
+		existingKeyDispIdx.setOptionalDispenserTenantId( existing.getOptionalDispenserTenantId() );
+		existingKeyDispIdx.setOptionalDispenserId( existing.getOptionalDispenserId() );
+
+		CFBamUuid6GenByDispIdxKey newKeyDispIdx = schema.getFactoryUuid6Gen().newDispIdxKey();
+		newKeyDispIdx.setOptionalDispenserTenantId( Buff.getOptionalDispenserTenantId() );
+		newKeyDispIdx.setOptionalDispenserId( Buff.getOptionalDispenserId() );
+
 		// Check unique indexes
 
 		// Validate foreign keys
@@ -6874,6 +6973,19 @@ public class CFBamRamUuid6GenTable
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
+
+		subdict = dictByDispIdx.get( existingKeyDispIdx );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictByDispIdx.containsKey( newKeyDispIdx ) ) {
+			subdict = dictByDispIdx.get( newKeyDispIdx );
+		}
+		else {
+			subdict = new HashMap< CFBamValuePKey, CFBamUuid6GenBuff >();
+			dictByDispIdx.put( newKeyDispIdx, subdict );
+		}
+		subdict.put( pkey, Buff );
 
 	}
 
@@ -8262,6 +8374,10 @@ public class CFBamRamUuid6GenTable
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
 		}
+		CFBamUuid6GenByDispIdxKey keyDispIdx = schema.getFactoryUuid6Gen().newDispIdxKey();
+		keyDispIdx.setOptionalDispenserTenantId( existing.getOptionalDispenserTenantId() );
+		keyDispIdx.setOptionalDispenserId( existing.getOptionalDispenserId() );
+
 		// Validate reverse foreign keys
 
 		// Delete is valid
@@ -8269,9 +8385,54 @@ public class CFBamRamUuid6GenTable
 
 		dictByPKey.remove( pkey );
 
+		subdict = dictByDispIdx.get( keyDispIdx );
+		subdict.remove( pkey );
+
 		schema.getTableUuid6Type().deleteUuid6Type( Authorization,
 			Buff );
 	}
+	public void deleteUuid6GenByDispIdx( CFSecAuthorization Authorization,
+		Long argDispenserTenantId,
+		Long argDispenserId )
+	{
+		CFBamUuid6GenByDispIdxKey key = schema.getFactoryUuid6Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( argDispenserTenantId );
+		key.setOptionalDispenserId( argDispenserId );
+		deleteUuid6GenByDispIdx( Authorization, key );
+	}
+
+	public void deleteUuid6GenByDispIdx( CFSecAuthorization Authorization,
+		CFBamUuid6GenByDispIdxKey argKey )
+	{
+		CFBamUuid6GenBuff cur;
+		boolean anyNotNull = false;
+		if( argKey.getOptionalDispenserTenantId() != null ) {
+			anyNotNull = true;
+		}
+		if( argKey.getOptionalDispenserId() != null ) {
+			anyNotNull = true;
+		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamUuid6GenBuff> matchSet = new LinkedList<CFBamUuid6GenBuff>();
+		Iterator<CFBamUuid6GenBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamUuid6GenBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableUuid6Gen().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteUuid6Gen( Authorization, cur );
+		}
+	}
+
 	public void deleteUuid6GenBySchemaIdx( CFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId )
