@@ -4,7 +4,7 @@
 /*
  *	org.msscf.msscf.CFBam
  *
- *	Copyright (c) 2016-2025 Mark Stephen Sobkow
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
