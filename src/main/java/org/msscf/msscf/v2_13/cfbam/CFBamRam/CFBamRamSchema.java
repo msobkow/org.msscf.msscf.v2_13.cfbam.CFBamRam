@@ -178,6 +178,7 @@ public class CFBamRamSchema
 		tableRelationCol = new CFBamRamRelationColTable( this );
 		tableSchemaDef = new CFBamRamSchemaDefTable( this );
 		tableSchemaRef = new CFBamRamSchemaRefTable( this );
+		tableSchemaTweak = new CFBamRamSchemaTweakTable( this );
 		tableScope = new CFBamRamScopeTable( this );
 		tableSecApp = new CFBamRamSecAppTable( this );
 		tableSecDevice = new CFBamRamSecDeviceTable( this );
@@ -213,6 +214,7 @@ public class CFBamRamSchema
 		tableTZTimestampType = new CFBamRamTZTimestampTypeTable( this );
 		tableTable = new CFBamRamTableTable( this );
 		tableTableCol = new CFBamRamTableColTable( this );
+		tableTableTweak = new CFBamRamTableTweakTable( this );
 		tableTenant = new CFBamRamTenantTable( this );
 		tableTextCol = new CFBamRamTextColTable( this );
 		tableTextDef = new CFBamRamTextDefTable( this );
@@ -229,6 +231,7 @@ public class CFBamRamSchema
 		tableTokenType = new CFBamRamTokenTypeTable( this );
 		tableTopDomain = new CFBamRamTopDomainTable( this );
 		tableTopProject = new CFBamRamTopProjectTable( this );
+		tableTweak = new CFBamRamTweakTable( this );
 		tableUInt16Col = new CFBamRamUInt16ColTable( this );
 		tableUInt16Def = new CFBamRamUInt16DefTable( this );
 		tableUInt16Type = new CFBamRamUInt16TypeTable( this );

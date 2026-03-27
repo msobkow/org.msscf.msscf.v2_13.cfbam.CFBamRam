@@ -387,6 +387,22 @@ public class CFBamRamTenantTable
 		return( retNext );
 	}
 
+	public long nextTweakIdGen( CFSecAuthorization Authorization,
+		CFSecTenantPKey pkey )
+	{
+		long retval = nextTweakIdGen( Authorization,
+			pkey.getRequiredId() );
+		return( retval );
+	}
+
+	public long nextTweakIdGen( CFSecAuthorization Authorization,
+		long argId )
+	{
+		long retNext = generateNextId64( argId,
+			(short)1008 );
+		return( retNext );
+	}
+
 	public void createTenant( CFSecAuthorization Authorization,
 		CFSecTenantBuff Buff )
 	{
