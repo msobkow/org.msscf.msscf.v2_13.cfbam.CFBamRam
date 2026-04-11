@@ -79,6 +79,10 @@ public class CFBamRamTweakTable
 			CFBamTweakBuff > dictByUNameIdx
 		= new HashMap< CFBamTweakByUNameIdxKey,
 			CFBamTweakBuff >();
+	private Map< CFBamTweakByUDefIdxKey,
+			CFBamTweakBuff > dictByUDefIdx
+		= new HashMap< CFBamTweakByUDefIdxKey,
+			CFBamTweakBuff >();
 	private Map< CFBamTweakByValTentIdxKey,
 				Map< CFBamTweakPKey,
 					CFBamTweakBuff >> dictByValTentIdx
@@ -118,6 +122,13 @@ public class CFBamRamTweakTable
 		keyUNameIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
+		CFBamTweakByUDefIdxKey keyUDefIdx = schema.getFactoryTweak().newUDefIdxKey();
+		keyUDefIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
+		keyUDefIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
+		keyUDefIdx.setOptionalDefSchemaTenantId( Buff.getOptionalDefSchemaTenantId() );
+		keyUDefIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
+		keyUDefIdx.setRequiredName( Buff.getRequiredName() );
+
 		CFBamTweakByValTentIdxKey keyValTentIdx = schema.getFactoryTweak().newValTentIdxKey();
 		keyValTentIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
@@ -140,6 +151,13 @@ public class CFBamRamTweakTable
 				S_ProcName,
 				"TweakUNameIdx",
 				keyUNameIdx );
+		}
+
+		if( dictByUDefIdx.containsKey( keyUDefIdx ) ) {
+			throw new CFLibUniqueIndexViolationException( getClass(),
+				S_ProcName,
+				"TweakUDefIdx",
+				keyUDefIdx );
 		}
 
 		// Validate foreign keys
@@ -185,6 +203,8 @@ public class CFBamRamTweakTable
 		dictByPKey.put( pkey, Buff );
 
 		dictByUNameIdx.put( keyUNameIdx, Buff );
+
+		dictByUDefIdx.put( keyUDefIdx, Buff );
 
 		Map< CFBamTweakPKey, CFBamTweakBuff > subdictValTentIdx;
 		if( dictByValTentIdx.containsKey( keyValTentIdx ) ) {
@@ -277,6 +297,31 @@ public class CFBamRamTweakTable
 		CFBamTweakBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
+		}
+		else {
+			buff = null;
+		}
+		return( buff );
+	}
+
+	public CFBamTweakBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		final String S_ProcName = "CFBamRamTweak.readDerivedByUDefIdx";
+		CFBamTweakByUDefIdxKey key = schema.getFactoryTweak().newUDefIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
+		key.setOptionalDefSchemaId( DefSchemaId );
+		key.setRequiredName( Name );
+
+		CFBamTweakBuff buff;
+		if( dictByUDefIdx.containsKey( key ) ) {
+			buff = dictByUDefIdx.get( key );
 		}
 		else {
 			buff = null;
@@ -459,6 +504,28 @@ public class CFBamRamTweakTable
 		}
 	}
 
+	public CFBamTweakBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		final String S_ProcName = "CFBamRamTweak.readBuffByUDefIdx() ";
+		CFBamTweakBuff buff = readDerivedByUDefIdx( Authorization,
+			TenantId,
+			ScopeId,
+			DefSchemaTenantId,
+			DefSchemaId,
+			Name );
+		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			return( (CFBamTweakBuff)buff );
+		}
+		else {
+			return( null );
+		}
+	}
+
 	public CFBamTweakBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
 		long TenantId )
 	{
@@ -545,6 +612,20 @@ public class CFBamRamTweakTable
 		newKeyUNameIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
+		CFBamTweakByUDefIdxKey existingKeyUDefIdx = schema.getFactoryTweak().newUDefIdxKey();
+		existingKeyUDefIdx.setRequiredTenantId( existing.getRequiredTenantId() );
+		existingKeyUDefIdx.setRequiredScopeId( existing.getRequiredScopeId() );
+		existingKeyUDefIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
+		existingKeyUDefIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
+		existingKeyUDefIdx.setRequiredName( existing.getRequiredName() );
+
+		CFBamTweakByUDefIdxKey newKeyUDefIdx = schema.getFactoryTweak().newUDefIdxKey();
+		newKeyUDefIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
+		newKeyUDefIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
+		newKeyUDefIdx.setOptionalDefSchemaTenantId( Buff.getOptionalDefSchemaTenantId() );
+		newKeyUDefIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
+		newKeyUDefIdx.setRequiredName( Buff.getRequiredName() );
+
 		CFBamTweakByValTentIdxKey existingKeyValTentIdx = schema.getFactoryTweak().newValTentIdxKey();
 		existingKeyValTentIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
@@ -575,6 +656,15 @@ public class CFBamRamTweakTable
 					"updateTweak",
 					"TweakUNameIdx",
 					newKeyUNameIdx );
+			}
+		}
+
+		if( ! existingKeyUDefIdx.equals( newKeyUDefIdx ) ) {
+			if( dictByUDefIdx.containsKey( newKeyUDefIdx ) ) {
+				throw new CFLibUniqueIndexViolationException( getClass(),
+					"updateTweak",
+					"TweakUDefIdx",
+					newKeyUDefIdx );
 			}
 		}
 
@@ -624,6 +714,9 @@ public class CFBamRamTweakTable
 
 		dictByUNameIdx.remove( existingKeyUNameIdx );
 		dictByUNameIdx.put( newKeyUNameIdx, Buff );
+
+		dictByUDefIdx.remove( existingKeyUDefIdx );
+		dictByUDefIdx.put( newKeyUDefIdx, Buff );
 
 		subdict = dictByValTentIdx.get( existingKeyValTentIdx );
 		if( subdict != null ) {
@@ -690,6 +783,13 @@ public class CFBamRamTweakTable
 		keyUNameIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
+		CFBamTweakByUDefIdxKey keyUDefIdx = schema.getFactoryTweak().newUDefIdxKey();
+		keyUDefIdx.setRequiredTenantId( existing.getRequiredTenantId() );
+		keyUDefIdx.setRequiredScopeId( existing.getRequiredScopeId() );
+		keyUDefIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
+		keyUDefIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
+		keyUDefIdx.setRequiredName( existing.getRequiredName() );
+
 		CFBamTweakByValTentIdxKey keyValTentIdx = schema.getFactoryTweak().newValTentIdxKey();
 		keyValTentIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
@@ -733,6 +833,8 @@ public class CFBamRamTweakTable
 		dictByPKey.remove( pkey );
 
 		dictByUNameIdx.remove( keyUNameIdx );
+
+		dictByUDefIdx.remove( keyUDefIdx );
 
 		subdict = dictByValTentIdx.get( keyValTentIdx );
 		subdict.remove( pkey );
@@ -819,6 +921,74 @@ public class CFBamRamTweakTable
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamTweakBuff> matchSet = new LinkedList<CFBamTweakBuff>();
+		Iterator<CFBamTweakBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamTweakBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableTweak().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a88a".equals( subClassCode ) ) {
+				schema.getTableTweak().deleteTweak( Authorization, cur );
+			}
+			else if( "a88b".equals( subClassCode ) ) {
+				schema.getTableTableTweak().deleteTableTweak( Authorization, (CFBamTableTweakBuff)cur );
+			}
+			else if( "a88c".equals( subClassCode ) ) {
+				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (CFBamSchemaTweakBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of Tweak must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteTweakByUDefIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		Long argDefSchemaTenantId,
+		Long argDefSchemaId,
+		String argName )
+	{
+		CFBamTweakByUDefIdxKey key = schema.getFactoryTweak().newUDefIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
+		key.setOptionalDefSchemaId( argDefSchemaId );
+		key.setRequiredName( argName );
+		deleteTweakByUDefIdx( Authorization, key );
+	}
+
+	public void deleteTweakByUDefIdx( CFSecAuthorization Authorization,
+		CFBamTweakByUDefIdxKey argKey )
+	{
+		final String S_ProcName = "deleteTweakByUDefIdx";
+		CFBamTweakBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		if( argKey.getOptionalDefSchemaTenantId() != null ) {
+			anyNotNull = true;
+		}
+		if( argKey.getOptionalDefSchemaId() != null ) {
+			anyNotNull = true;
+		}
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;

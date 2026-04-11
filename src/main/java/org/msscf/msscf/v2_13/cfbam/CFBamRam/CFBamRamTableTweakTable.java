@@ -228,6 +228,31 @@ public class CFBamRamTableTweakTable
 		}
 	}
 
+	public CFBamTableTweakBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		final String S_ProcName = "CFBamRamTweak.readDerivedByUDefIdx";
+		CFBamTweakBuff buff = schema.getTableTweak().readDerivedByUDefIdx( Authorization,
+			TenantId,
+			ScopeId,
+			DefSchemaTenantId,
+			DefSchemaId,
+			Name );
+		if( buff == null ) {
+			return( null );
+		}
+		else if( buff instanceof CFBamTableTweakBuff ) {
+			return( (CFBamTableTweakBuff)buff );
+		}
+		else {
+			return( null );
+		}
+	}
+
 	public CFBamTableTweakBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
 		long TenantId )
 	{
@@ -408,6 +433,28 @@ public class CFBamRamTableTweakTable
 		CFBamTableTweakBuff buff = readDerivedByUNameIdx( Authorization,
 			TenantId,
 			ScopeId,
+			Name );
+		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			return( (CFBamTableTweakBuff)buff );
+		}
+		else {
+			return( null );
+		}
+	}
+
+	public CFBamTableTweakBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		final String S_ProcName = "CFBamRamTweak.readBuffByUDefIdx() ";
+		CFBamTableTweakBuff buff = readDerivedByUDefIdx( Authorization,
+			TenantId,
+			ScopeId,
+			DefSchemaTenantId,
+			DefSchemaId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
 			return( (CFBamTableTweakBuff)buff );
@@ -730,6 +777,57 @@ public class CFBamRamTableTweakTable
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamTableTweakBuff> matchSet = new LinkedList<CFBamTableTweakBuff>();
+		Iterator<CFBamTableTweakBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamTableTweakBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableTableTweak().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteTableTweak( Authorization, cur );
+		}
+	}
+
+	public void deleteTableTweakByUDefIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		Long argDefSchemaTenantId,
+		Long argDefSchemaId,
+		String argName )
+	{
+		CFBamTweakByUDefIdxKey key = schema.getFactoryTweak().newUDefIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
+		key.setOptionalDefSchemaId( argDefSchemaId );
+		key.setRequiredName( argName );
+		deleteTableTweakByUDefIdx( Authorization, key );
+	}
+
+	public void deleteTableTweakByUDefIdx( CFSecAuthorization Authorization,
+		CFBamTweakByUDefIdxKey argKey )
+	{
+		CFBamTableTweakBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		if( argKey.getOptionalDefSchemaTenantId() != null ) {
+			anyNotNull = true;
+		}
+		if( argKey.getOptionalDefSchemaId() != null ) {
+			anyNotNull = true;
+		}
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
