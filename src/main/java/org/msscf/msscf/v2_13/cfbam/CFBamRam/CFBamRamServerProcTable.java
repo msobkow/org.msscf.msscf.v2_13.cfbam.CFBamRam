@@ -283,7 +283,7 @@ public class CFBamRamServerProcTable
 	{
 		final String S_ProcName = "CFBamRamServerProc.readBuff";
 		CFBamServerProcBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a807" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a806" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -294,7 +294,7 @@ public class CFBamRamServerProcTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamServerProcBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a807" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a806" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -308,7 +308,7 @@ public class CFBamRamServerProcTable
 		CFBamServerProcBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a806" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -358,7 +358,7 @@ public class CFBamRamServerProcTable
 			TenantId,
 			TableId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 			return( (CFBamServerProcBuff)buff );
 		}
 		else {
@@ -378,7 +378,7 @@ public class CFBamRamServerProcTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 				filteredList.add( (CFBamServerProcBuff)buff );
 			}
 		}
@@ -397,7 +397,7 @@ public class CFBamRamServerProcTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 				filteredList.add( (CFBamServerProcBuff)buff );
 			}
 		}

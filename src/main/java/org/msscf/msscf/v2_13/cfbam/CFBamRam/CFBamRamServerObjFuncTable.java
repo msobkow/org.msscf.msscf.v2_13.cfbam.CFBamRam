@@ -332,7 +332,7 @@ public class CFBamRamServerObjFuncTable
 	{
 		final String S_ProcName = "CFBamRamServerObjFunc.readBuff";
 		CFBamServerObjFuncBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a806" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a805" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -343,7 +343,7 @@ public class CFBamRamServerObjFuncTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamServerObjFuncBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a806" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a805" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -357,7 +357,7 @@ public class CFBamRamServerObjFuncTable
 		CFBamServerObjFuncBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a806" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -407,7 +407,7 @@ public class CFBamRamServerObjFuncTable
 			TenantId,
 			TableId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 			return( (CFBamServerObjFuncBuff)buff );
 		}
 		else {
@@ -427,7 +427,7 @@ public class CFBamRamServerObjFuncTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 				filteredList.add( (CFBamServerObjFuncBuff)buff );
 			}
 		}
@@ -446,7 +446,7 @@ public class CFBamRamServerObjFuncTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 				filteredList.add( (CFBamServerObjFuncBuff)buff );
 			}
 		}
@@ -465,7 +465,7 @@ public class CFBamRamServerObjFuncTable
 			RetTableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a806" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
 				filteredList.add( (CFBamServerObjFuncBuff)buff );
 			}
 		}

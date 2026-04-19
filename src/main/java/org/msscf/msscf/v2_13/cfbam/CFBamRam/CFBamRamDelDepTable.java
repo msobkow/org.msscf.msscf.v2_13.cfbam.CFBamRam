@@ -331,7 +331,7 @@ public class CFBamRamDelDepTable
 	{
 		final String S_ProcName = "CFBamRamDelDep.readBuff";
 		CFBamDelDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a817" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81a" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -342,7 +342,7 @@ public class CFBamRamDelDepTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamDelDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a817" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81a" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -356,7 +356,7 @@ public class CFBamRamDelDepTable
 		CFBamDelDepBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a817" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81a" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -408,7 +408,7 @@ public class CFBamRamDelDepTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a817" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81a" ) ) {
 				filteredList.add( (CFBamDelDepBuff)buff );
 			}
 		}
@@ -427,7 +427,7 @@ public class CFBamRamDelDepTable
 			RelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a817" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81a" ) ) {
 				filteredList.add( (CFBamDelDepBuff)buff );
 			}
 		}
@@ -717,19 +717,19 @@ public class CFBamRamDelDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a817".equals( subClassCode ) ) {
+			if( "a81a".equals( subClassCode ) ) {
 				schema.getTableDelDep().deleteDelDep( Authorization, cur );
 			}
-			else if( "a818".equals( subClassCode ) ) {
+			else if( "a81b".equals( subClassCode ) ) {
 				schema.getTableDelSubDep1().deleteDelSubDep1( Authorization, (CFBamDelSubDep1Buff)cur );
 			}
-			else if( "a819".equals( subClassCode ) ) {
+			else if( "a81c".equals( subClassCode ) ) {
 				schema.getTableDelSubDep2().deleteDelSubDep2( Authorization, (CFBamDelSubDep2Buff)cur );
 			}
-			else if( "a81a".equals( subClassCode ) ) {
+			else if( "a81d".equals( subClassCode ) ) {
 				schema.getTableDelSubDep3().deleteDelSubDep3( Authorization, (CFBamDelSubDep3Buff)cur );
 			}
-			else if( "a81b".equals( subClassCode ) ) {
+			else if( "a81e".equals( subClassCode ) ) {
 				schema.getTableDelTopDep().deleteDelTopDep( Authorization, (CFBamDelTopDepBuff)cur );
 			}
 			else {
@@ -778,19 +778,19 @@ public class CFBamRamDelDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a817".equals( subClassCode ) ) {
+			if( "a81a".equals( subClassCode ) ) {
 				schema.getTableDelDep().deleteDelDep( Authorization, cur );
 			}
-			else if( "a818".equals( subClassCode ) ) {
+			else if( "a81b".equals( subClassCode ) ) {
 				schema.getTableDelSubDep1().deleteDelSubDep1( Authorization, (CFBamDelSubDep1Buff)cur );
 			}
-			else if( "a819".equals( subClassCode ) ) {
+			else if( "a81c".equals( subClassCode ) ) {
 				schema.getTableDelSubDep2().deleteDelSubDep2( Authorization, (CFBamDelSubDep2Buff)cur );
 			}
-			else if( "a81a".equals( subClassCode ) ) {
+			else if( "a81d".equals( subClassCode ) ) {
 				schema.getTableDelSubDep3().deleteDelSubDep3( Authorization, (CFBamDelSubDep3Buff)cur );
 			}
-			else if( "a81b".equals( subClassCode ) ) {
+			else if( "a81e".equals( subClassCode ) ) {
 				schema.getTableDelTopDep().deleteDelTopDep( Authorization, (CFBamDelTopDepBuff)cur );
 			}
 			else {
@@ -839,19 +839,19 @@ public class CFBamRamDelDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a817".equals( subClassCode ) ) {
+			if( "a81a".equals( subClassCode ) ) {
 				schema.getTableDelDep().deleteDelDep( Authorization, cur );
 			}
-			else if( "a818".equals( subClassCode ) ) {
+			else if( "a81b".equals( subClassCode ) ) {
 				schema.getTableDelSubDep1().deleteDelSubDep1( Authorization, (CFBamDelSubDep1Buff)cur );
 			}
-			else if( "a819".equals( subClassCode ) ) {
+			else if( "a81c".equals( subClassCode ) ) {
 				schema.getTableDelSubDep2().deleteDelSubDep2( Authorization, (CFBamDelSubDep2Buff)cur );
 			}
-			else if( "a81a".equals( subClassCode ) ) {
+			else if( "a81d".equals( subClassCode ) ) {
 				schema.getTableDelSubDep3().deleteDelSubDep3( Authorization, (CFBamDelSubDep3Buff)cur );
 			}
-			else if( "a81b".equals( subClassCode ) ) {
+			else if( "a81e".equals( subClassCode ) ) {
 				schema.getTableDelTopDep().deleteDelTopDep( Authorization, (CFBamDelTopDepBuff)cur );
 			}
 			else {
@@ -897,19 +897,19 @@ public class CFBamRamDelDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a817".equals( subClassCode ) ) {
+			if( "a81a".equals( subClassCode ) ) {
 				schema.getTableDelDep().deleteDelDep( Authorization, cur );
 			}
-			else if( "a818".equals( subClassCode ) ) {
+			else if( "a81b".equals( subClassCode ) ) {
 				schema.getTableDelSubDep1().deleteDelSubDep1( Authorization, (CFBamDelSubDep1Buff)cur );
 			}
-			else if( "a819".equals( subClassCode ) ) {
+			else if( "a81c".equals( subClassCode ) ) {
 				schema.getTableDelSubDep2().deleteDelSubDep2( Authorization, (CFBamDelSubDep2Buff)cur );
 			}
-			else if( "a81a".equals( subClassCode ) ) {
+			else if( "a81d".equals( subClassCode ) ) {
 				schema.getTableDelSubDep3().deleteDelSubDep3( Authorization, (CFBamDelSubDep3Buff)cur );
 			}
-			else if( "a81b".equals( subClassCode ) ) {
+			else if( "a81e".equals( subClassCode ) ) {
 				schema.getTableDelTopDep().deleteDelTopDep( Authorization, (CFBamDelTopDepBuff)cur );
 			}
 			else {

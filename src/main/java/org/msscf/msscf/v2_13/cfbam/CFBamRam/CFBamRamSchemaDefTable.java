@@ -1023,7 +1023,7 @@ public class CFBamRamSchemaDefTable
 						editBuff.setOptionalDataTenantId( null );
 						editBuff.setOptionalDataId( null );
 						classCode = editBuff.getClassCode();
-						if( classCode.equals( "a858" ) ) {
+						if( classCode.equals( "a85b" ) ) {
 							schema.getTableTableCol().updateTableCol( Authorization, editBuff );
 						}
 						else {
@@ -1053,7 +1053,7 @@ public class CFBamRamSchemaDefTable
 						editBuff.setOptionalNarrowedTenantId( null );
 						editBuff.setOptionalNarrowedId( null );
 						classCode = editBuff.getClassCode();
-						if( classCode.equals( "a835" ) ) {
+						if( classCode.equals( "a838" ) ) {
 							schema.getTableRelation().updateRelation( Authorization, editBuff );
 						}
 						else {

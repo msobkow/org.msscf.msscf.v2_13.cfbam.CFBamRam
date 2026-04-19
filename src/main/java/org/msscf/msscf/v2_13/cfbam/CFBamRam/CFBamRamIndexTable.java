@@ -433,7 +433,7 @@ public class CFBamRamIndexTable
 	{
 		final String S_ProcName = "CFBamRamIndex.readBuff";
 		CFBamIndexBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a821" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a824" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -444,7 +444,7 @@ public class CFBamRamIndexTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamIndexBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a821" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a824" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -458,7 +458,7 @@ public class CFBamRamIndexTable
 		CFBamIndexBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a824" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -508,7 +508,7 @@ public class CFBamRamIndexTable
 			TenantId,
 			TableId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a824" ) ) {
 			return( (CFBamIndexBuff)buff );
 		}
 		else {
@@ -526,7 +526,7 @@ public class CFBamRamIndexTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a824" ) ) {
 				filteredList.add( (CFBamIndexBuff)buff );
 			}
 		}
@@ -545,7 +545,7 @@ public class CFBamRamIndexTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a824" ) ) {
 				filteredList.add( (CFBamIndexBuff)buff );
 			}
 		}
@@ -564,7 +564,7 @@ public class CFBamRamIndexTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a824" ) ) {
 				filteredList.add( (CFBamIndexBuff)buff );
 			}
 		}

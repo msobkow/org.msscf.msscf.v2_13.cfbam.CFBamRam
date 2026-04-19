@@ -686,7 +686,7 @@ public class CFBamRamRelationTable
 	{
 		final String S_ProcName = "CFBamRamRelation.readBuff";
 		CFBamRelationBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a835" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a838" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -697,7 +697,7 @@ public class CFBamRamRelationTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamRelationBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a835" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a838" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -711,7 +711,7 @@ public class CFBamRamRelationTable
 		CFBamRelationBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -761,7 +761,7 @@ public class CFBamRamRelationTable
 			TenantId,
 			TableId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 			return( (CFBamRelationBuff)buff );
 		}
 		else {
@@ -779,7 +779,7 @@ public class CFBamRamRelationTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( (CFBamRelationBuff)buff );
 			}
 		}
@@ -798,7 +798,7 @@ public class CFBamRamRelationTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( (CFBamRelationBuff)buff );
 			}
 		}
@@ -817,7 +817,7 @@ public class CFBamRamRelationTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( (CFBamRelationBuff)buff );
 			}
 		}
@@ -836,7 +836,7 @@ public class CFBamRamRelationTable
 			FromIndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( (CFBamRelationBuff)buff );
 			}
 		}
@@ -855,7 +855,7 @@ public class CFBamRamRelationTable
 			ToTableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( (CFBamRelationBuff)buff );
 			}
 		}
@@ -874,7 +874,7 @@ public class CFBamRamRelationTable
 			ToIndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( (CFBamRelationBuff)buff );
 			}
 		}
@@ -893,7 +893,7 @@ public class CFBamRamRelationTable
 			NarrowedId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a835" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( (CFBamRelationBuff)buff );
 			}
 		}

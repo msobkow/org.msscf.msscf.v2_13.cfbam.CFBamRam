@@ -819,7 +819,7 @@ public class CFBamRamTenantTable
 						editBuff.setOptionalNarrowedTenantId( null );
 						editBuff.setOptionalNarrowedId( null );
 						classCode = editBuff.getClassCode();
-						if( classCode.equals( "a835" ) ) {
+						if( classCode.equals( "a838" ) ) {
 							schema.getTableRelation().updateRelation( Authorization, editBuff );
 						}
 						else {

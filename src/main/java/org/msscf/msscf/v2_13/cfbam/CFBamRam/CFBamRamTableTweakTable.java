@@ -376,7 +376,7 @@ public class CFBamRamTableTweakTable
 	{
 		final String S_ProcName = "CFBamRamTableTweak.readBuff";
 		CFBamTableTweakBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a88b" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a809" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -387,7 +387,7 @@ public class CFBamRamTableTweakTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamTableTweakBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a88b" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a809" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -401,7 +401,7 @@ public class CFBamRamTableTweakTable
 		CFBamTableTweakBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88b" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -416,7 +416,7 @@ public class CFBamRamTableTweakTable
 		CFBamTableTweakBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
-		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 			return( (CFBamTableTweakBuff)buff );
 		}
 		else {
@@ -434,7 +434,7 @@ public class CFBamRamTableTweakTable
 			TenantId,
 			ScopeId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 			return( (CFBamTableTweakBuff)buff );
 		}
 		else {
@@ -456,7 +456,7 @@ public class CFBamRamTableTweakTable
 			DefSchemaTenantId,
 			DefSchemaId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 			return( (CFBamTableTweakBuff)buff );
 		}
 		else {
@@ -474,7 +474,7 @@ public class CFBamRamTableTweakTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 				filteredList.add( (CFBamTableTweakBuff)buff );
 			}
 		}
@@ -493,7 +493,7 @@ public class CFBamRamTableTweakTable
 			ScopeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 				filteredList.add( (CFBamTableTweakBuff)buff );
 			}
 		}
@@ -512,7 +512,7 @@ public class CFBamRamTableTweakTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 				filteredList.add( (CFBamTableTweakBuff)buff );
 			}
 		}
@@ -531,7 +531,7 @@ public class CFBamRamTableTweakTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88b" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
 				filteredList.add( (CFBamTableTweakBuff)buff );
 			}
 		}

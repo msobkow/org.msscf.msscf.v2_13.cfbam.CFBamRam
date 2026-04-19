@@ -605,7 +605,7 @@ public class CFBamRamTableTable
 	{
 		final String S_ProcName = "CFBamRamTable.readBuff";
 		CFBamTableBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a808" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a807" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -616,7 +616,7 @@ public class CFBamRamTableTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamTableBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a808" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a807" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -630,7 +630,7 @@ public class CFBamRamTableTable
 		CFBamTableBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -682,7 +682,7 @@ public class CFBamRamTableTable
 			SchemaDefId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 				filteredList.add( (CFBamTableBuff)buff );
 			}
 		}
@@ -701,7 +701,7 @@ public class CFBamRamTableTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 				filteredList.add( (CFBamTableBuff)buff );
 			}
 		}
@@ -718,7 +718,7 @@ public class CFBamRamTableTable
 			TenantId,
 			SchemaDefId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 			return( (CFBamTableBuff)buff );
 		}
 		else {
@@ -736,7 +736,7 @@ public class CFBamRamTableTable
 			TenantId,
 			SchemaDefId,
 			TableClassCode );
-		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 			return( (CFBamTableBuff)buff );
 		}
 		else {
@@ -756,7 +756,7 @@ public class CFBamRamTableTable
 			PrimaryIndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 				filteredList.add( (CFBamTableBuff)buff );
 			}
 		}
@@ -775,7 +775,7 @@ public class CFBamRamTableTable
 			LookupIndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 				filteredList.add( (CFBamTableBuff)buff );
 			}
 		}
@@ -794,7 +794,7 @@ public class CFBamRamTableTable
 			AltIndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 				filteredList.add( (CFBamTableBuff)buff );
 			}
 		}
@@ -813,7 +813,7 @@ public class CFBamRamTableTable
 			QualifyingTableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a807" ) ) {
 				filteredList.add( (CFBamTableBuff)buff );
 			}
 		}
@@ -1218,7 +1218,7 @@ public class CFBamRamTableTable
 						editBuff.setOptionalPrimaryIndexTenantId( null );
 						editBuff.setOptionalPrimaryIndexId( null );
 						classCode = editBuff.getClassCode();
-						if( classCode.equals( "a808" ) ) {
+						if( classCode.equals( "a807" ) ) {
 							schema.getTableTable().updateTable( Authorization, editBuff );
 						}
 						else {
@@ -1237,7 +1237,7 @@ public class CFBamRamTableTable
 			editSubobj.setOptionalPrimaryIndexTenantId( null );
 			editSubobj.setOptionalPrimaryIndexId( null );
 		classCode = editSubobj.getClassCode();
-		if( classCode.equals( "a808" ) ) {
+		if( classCode.equals( "a807" ) ) {
 			schema.getTableTable().updateTable( Authorization, editSubobj );
 		}
 		else {

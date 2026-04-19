@@ -555,73 +555,73 @@ public class CFBamRamScopeTable
 			else if( "a802".equals( subClassCode ) ) {
 				schema.getTableSchemaDef().deleteSchemaDef( Authorization, (CFBamSchemaDefBuff)cur );
 			}
-			else if( "a804".equals( subClassCode ) ) {
+			else if( "a803".equals( subClassCode ) ) {
 				schema.getTableSchemaRef().deleteSchemaRef( Authorization, (CFBamSchemaRefBuff)cur );
 			}
-			else if( "a805".equals( subClassCode ) ) {
+			else if( "a804".equals( subClassCode ) ) {
 				schema.getTableServerMethod().deleteServerMethod( Authorization, (CFBamServerMethodBuff)cur );
 			}
-			else if( "a806".equals( subClassCode ) ) {
+			else if( "a805".equals( subClassCode ) ) {
 				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
 			}
-			else if( "a807".equals( subClassCode ) ) {
+			else if( "a806".equals( subClassCode ) ) {
 				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
 			}
-			else if( "a837".equals( subClassCode ) ) {
+			else if( "a83a".equals( subClassCode ) ) {
 				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
 			}
-			else if( "a808".equals( subClassCode ) ) {
+			else if( "a807".equals( subClassCode ) ) {
 				schema.getTableTable().deleteTable( Authorization, (CFBamTableBuff)cur );
 			}
-			else if( "a810".equals( subClassCode ) ) {
+			else if( "a813".equals( subClassCode ) ) {
 				schema.getTableClearDep().deleteClearDep( Authorization, (CFBamClearDepBuff)cur );
 			}
-			else if( "a811".equals( subClassCode ) ) {
+			else if( "a814".equals( subClassCode ) ) {
 				schema.getTableClearSubDep1().deleteClearSubDep1( Authorization, (CFBamClearSubDep1Buff)cur );
 			}
-			else if( "a812".equals( subClassCode ) ) {
+			else if( "a815".equals( subClassCode ) ) {
 				schema.getTableClearSubDep2().deleteClearSubDep2( Authorization, (CFBamClearSubDep2Buff)cur );
 			}
-			else if( "a813".equals( subClassCode ) ) {
+			else if( "a816".equals( subClassCode ) ) {
 				schema.getTableClearSubDep3().deleteClearSubDep3( Authorization, (CFBamClearSubDep3Buff)cur );
 			}
-			else if( "a814".equals( subClassCode ) ) {
+			else if( "a817".equals( subClassCode ) ) {
 				schema.getTableClearTopDep().deleteClearTopDep( Authorization, (CFBamClearTopDepBuff)cur );
 			}
-			else if( "a817".equals( subClassCode ) ) {
+			else if( "a81a".equals( subClassCode ) ) {
 				schema.getTableDelDep().deleteDelDep( Authorization, (CFBamDelDepBuff)cur );
 			}
-			else if( "a818".equals( subClassCode ) ) {
+			else if( "a81b".equals( subClassCode ) ) {
 				schema.getTableDelSubDep1().deleteDelSubDep1( Authorization, (CFBamDelSubDep1Buff)cur );
 			}
-			else if( "a819".equals( subClassCode ) ) {
+			else if( "a81c".equals( subClassCode ) ) {
 				schema.getTableDelSubDep2().deleteDelSubDep2( Authorization, (CFBamDelSubDep2Buff)cur );
 			}
-			else if( "a81a".equals( subClassCode ) ) {
+			else if( "a81d".equals( subClassCode ) ) {
 				schema.getTableDelSubDep3().deleteDelSubDep3( Authorization, (CFBamDelSubDep3Buff)cur );
 			}
-			else if( "a81b".equals( subClassCode ) ) {
+			else if( "a81e".equals( subClassCode ) ) {
 				schema.getTableDelTopDep().deleteDelTopDep( Authorization, (CFBamDelTopDepBuff)cur );
 			}
-			else if( "a821".equals( subClassCode ) ) {
+			else if( "a824".equals( subClassCode ) ) {
 				schema.getTableIndex().deleteIndex( Authorization, (CFBamIndexBuff)cur );
 			}
-			else if( "a830".equals( subClassCode ) ) {
+			else if( "a833".equals( subClassCode ) ) {
 				schema.getTablePopDep().deletePopDep( Authorization, (CFBamPopDepBuff)cur );
 			}
-			else if( "a831".equals( subClassCode ) ) {
+			else if( "a834".equals( subClassCode ) ) {
 				schema.getTablePopSubDep1().deletePopSubDep1( Authorization, (CFBamPopSubDep1Buff)cur );
 			}
-			else if( "a832".equals( subClassCode ) ) {
+			else if( "a835".equals( subClassCode ) ) {
 				schema.getTablePopSubDep2().deletePopSubDep2( Authorization, (CFBamPopSubDep2Buff)cur );
 			}
-			else if( "a833".equals( subClassCode ) ) {
+			else if( "a836".equals( subClassCode ) ) {
 				schema.getTablePopSubDep3().deletePopSubDep3( Authorization, (CFBamPopSubDep3Buff)cur );
 			}
-			else if( "a834".equals( subClassCode ) ) {
+			else if( "a837".equals( subClassCode ) ) {
 				schema.getTablePopTopDep().deletePopTopDep( Authorization, (CFBamPopTopDepBuff)cur );
 			}
-			else if( "a835".equals( subClassCode ) ) {
+			else if( "a838".equals( subClassCode ) ) {
 				schema.getTableRelation().deleteRelation( Authorization, (CFBamRelationBuff)cur );
 			}
 			else {
@@ -673,73 +673,73 @@ public class CFBamRamScopeTable
 			else if( "a802".equals( subClassCode ) ) {
 				schema.getTableSchemaDef().deleteSchemaDef( Authorization, (CFBamSchemaDefBuff)cur );
 			}
-			else if( "a804".equals( subClassCode ) ) {
+			else if( "a803".equals( subClassCode ) ) {
 				schema.getTableSchemaRef().deleteSchemaRef( Authorization, (CFBamSchemaRefBuff)cur );
 			}
-			else if( "a805".equals( subClassCode ) ) {
+			else if( "a804".equals( subClassCode ) ) {
 				schema.getTableServerMethod().deleteServerMethod( Authorization, (CFBamServerMethodBuff)cur );
 			}
-			else if( "a806".equals( subClassCode ) ) {
+			else if( "a805".equals( subClassCode ) ) {
 				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
 			}
-			else if( "a807".equals( subClassCode ) ) {
+			else if( "a806".equals( subClassCode ) ) {
 				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
 			}
-			else if( "a837".equals( subClassCode ) ) {
+			else if( "a83a".equals( subClassCode ) ) {
 				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
 			}
-			else if( "a808".equals( subClassCode ) ) {
+			else if( "a807".equals( subClassCode ) ) {
 				schema.getTableTable().deleteTable( Authorization, (CFBamTableBuff)cur );
 			}
-			else if( "a810".equals( subClassCode ) ) {
+			else if( "a813".equals( subClassCode ) ) {
 				schema.getTableClearDep().deleteClearDep( Authorization, (CFBamClearDepBuff)cur );
 			}
-			else if( "a811".equals( subClassCode ) ) {
+			else if( "a814".equals( subClassCode ) ) {
 				schema.getTableClearSubDep1().deleteClearSubDep1( Authorization, (CFBamClearSubDep1Buff)cur );
 			}
-			else if( "a812".equals( subClassCode ) ) {
+			else if( "a815".equals( subClassCode ) ) {
 				schema.getTableClearSubDep2().deleteClearSubDep2( Authorization, (CFBamClearSubDep2Buff)cur );
 			}
-			else if( "a813".equals( subClassCode ) ) {
+			else if( "a816".equals( subClassCode ) ) {
 				schema.getTableClearSubDep3().deleteClearSubDep3( Authorization, (CFBamClearSubDep3Buff)cur );
 			}
-			else if( "a814".equals( subClassCode ) ) {
+			else if( "a817".equals( subClassCode ) ) {
 				schema.getTableClearTopDep().deleteClearTopDep( Authorization, (CFBamClearTopDepBuff)cur );
 			}
-			else if( "a817".equals( subClassCode ) ) {
+			else if( "a81a".equals( subClassCode ) ) {
 				schema.getTableDelDep().deleteDelDep( Authorization, (CFBamDelDepBuff)cur );
 			}
-			else if( "a818".equals( subClassCode ) ) {
+			else if( "a81b".equals( subClassCode ) ) {
 				schema.getTableDelSubDep1().deleteDelSubDep1( Authorization, (CFBamDelSubDep1Buff)cur );
 			}
-			else if( "a819".equals( subClassCode ) ) {
+			else if( "a81c".equals( subClassCode ) ) {
 				schema.getTableDelSubDep2().deleteDelSubDep2( Authorization, (CFBamDelSubDep2Buff)cur );
 			}
-			else if( "a81a".equals( subClassCode ) ) {
+			else if( "a81d".equals( subClassCode ) ) {
 				schema.getTableDelSubDep3().deleteDelSubDep3( Authorization, (CFBamDelSubDep3Buff)cur );
 			}
-			else if( "a81b".equals( subClassCode ) ) {
+			else if( "a81e".equals( subClassCode ) ) {
 				schema.getTableDelTopDep().deleteDelTopDep( Authorization, (CFBamDelTopDepBuff)cur );
 			}
-			else if( "a821".equals( subClassCode ) ) {
+			else if( "a824".equals( subClassCode ) ) {
 				schema.getTableIndex().deleteIndex( Authorization, (CFBamIndexBuff)cur );
 			}
-			else if( "a830".equals( subClassCode ) ) {
+			else if( "a833".equals( subClassCode ) ) {
 				schema.getTablePopDep().deletePopDep( Authorization, (CFBamPopDepBuff)cur );
 			}
-			else if( "a831".equals( subClassCode ) ) {
+			else if( "a834".equals( subClassCode ) ) {
 				schema.getTablePopSubDep1().deletePopSubDep1( Authorization, (CFBamPopSubDep1Buff)cur );
 			}
-			else if( "a832".equals( subClassCode ) ) {
+			else if( "a835".equals( subClassCode ) ) {
 				schema.getTablePopSubDep2().deletePopSubDep2( Authorization, (CFBamPopSubDep2Buff)cur );
 			}
-			else if( "a833".equals( subClassCode ) ) {
+			else if( "a836".equals( subClassCode ) ) {
 				schema.getTablePopSubDep3().deletePopSubDep3( Authorization, (CFBamPopSubDep3Buff)cur );
 			}
-			else if( "a834".equals( subClassCode ) ) {
+			else if( "a837".equals( subClassCode ) ) {
 				schema.getTablePopTopDep().deletePopTopDep( Authorization, (CFBamPopTopDepBuff)cur );
 			}
-			else if( "a835".equals( subClassCode ) ) {
+			else if( "a838".equals( subClassCode ) ) {
 				schema.getTableRelation().deleteRelation( Authorization, (CFBamRelationBuff)cur );
 			}
 			else {

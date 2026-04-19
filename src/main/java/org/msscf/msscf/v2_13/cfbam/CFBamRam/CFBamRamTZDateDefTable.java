@@ -383,7 +383,7 @@ public class CFBamRamTZDateDefTable
 	{
 		final String S_ProcName = "CFBamRamTZDateDef.readBuff";
 		CFBamTZDateDefBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a852" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a855" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -394,7 +394,7 @@ public class CFBamRamTZDateDefTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamTZDateDefBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a852" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a855" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -408,7 +408,7 @@ public class CFBamRamTZDateDefTable
 		CFBamTZDateDefBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a852" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a855" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -423,7 +423,7 @@ public class CFBamRamTZDateDefTable
 		CFBamTZDateDefBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
-		if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 			return( (CFBamTZDateDefBuff)buff );
 		}
 		else {
@@ -441,7 +441,7 @@ public class CFBamRamTZDateDefTable
 			TenantId,
 			ScopeId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 			return( (CFBamTZDateDefBuff)buff );
 		}
 		else {
@@ -459,7 +459,7 @@ public class CFBamRamTZDateDefTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 				filteredList.add( (CFBamTZDateDefBuff)buff );
 			}
 		}
@@ -478,7 +478,7 @@ public class CFBamRamTZDateDefTable
 			ScopeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 				filteredList.add( (CFBamTZDateDefBuff)buff );
 			}
 		}
@@ -497,7 +497,7 @@ public class CFBamRamTZDateDefTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 				filteredList.add( (CFBamTZDateDefBuff)buff );
 			}
 		}
@@ -516,7 +516,7 @@ public class CFBamRamTZDateDefTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 				filteredList.add( (CFBamTZDateDefBuff)buff );
 			}
 		}
@@ -535,7 +535,7 @@ public class CFBamRamTZDateDefTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 				filteredList.add( (CFBamTZDateDefBuff)buff );
 			}
 		}
@@ -556,7 +556,7 @@ public class CFBamRamTZDateDefTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 				filteredList.add( (CFBamTZDateDefBuff)buff );
 			}
 		}
@@ -577,7 +577,7 @@ public class CFBamRamTZDateDefTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a809" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
 				filteredList.add( (CFBamTZDateDefBuff)buff );
 			}
 		}
@@ -645,322 +645,322 @@ public class CFBamRamTZDateDefTable
 
 		String classCode = prev.getClassCode();
 		CFBamValueBuff newInstance;
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -972,322 +972,322 @@ public class CFBamRamTZDateDefTable
 		editPrev.set( prev );
 
 		classCode = cur.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -1301,322 +1301,322 @@ public class CFBamRamTZDateDefTable
 		CFBamValueBuff editGrandprev = null;
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -1631,322 +1631,322 @@ public class CFBamRamTZDateDefTable
 		CFBamValueBuff editNext = null;
 		if( next != null ) {
 			classCode = next.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -1988,322 +1988,322 @@ public class CFBamRamTZDateDefTable
 
 		if( editGrandprev != null ) {
 			classCode = editGrandprev.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editGrandprev );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editGrandprev );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editGrandprev );
 			}
 			else {
@@ -2314,322 +2314,322 @@ public class CFBamRamTZDateDefTable
 		}
 
 		classCode = editPrev.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editPrev );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editPrev );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editPrev );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editPrev );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editPrev );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editPrev );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editPrev );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editPrev );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editPrev );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editPrev );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editPrev );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editPrev );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editPrev );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editPrev );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editPrev );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editPrev );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editPrev );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editPrev );
 			}
 			else {
@@ -2639,322 +2639,322 @@ public class CFBamRamTZDateDefTable
 			}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editCur );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editCur );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editCur );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editCur );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editCur );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editCur );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editCur );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editCur );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editCur );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editCur );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editCur );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editCur );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editCur );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editCur );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editCur );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editCur );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editCur );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editCur );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editCur );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editCur );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editCur );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editCur );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editCur );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editCur );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editCur );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editCur );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editCur );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editCur );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editCur );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editCur );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editCur );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editCur );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editCur );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editCur );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editCur );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editCur );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editCur );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editCur );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editCur );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editCur );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editCur );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editCur );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editCur );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editCur );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editCur );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editCur );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editCur );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editCur );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editCur );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editCur );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editCur );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editCur );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editCur );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editCur );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editCur );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editCur );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editCur );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editCur );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editCur );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editCur );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editCur );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editCur );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editCur );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editCur );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editCur );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editCur );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editCur );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editCur );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editCur );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editCur );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editCur );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editCur );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editCur );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editCur );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editCur );
 			}
 			else {
@@ -2965,322 +2965,322 @@ public class CFBamRamTZDateDefTable
 
 		if( editNext != null ) {
 			classCode = editNext.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editNext );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editNext );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editNext );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editNext );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editNext );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editNext );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editNext );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editNext );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editNext );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editNext );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editNext );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editNext );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editNext );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editNext );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editNext );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editNext );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editNext );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editNext );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editNext );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editNext );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editNext );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editNext );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editNext );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editNext );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editNext );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editNext );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editNext );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editNext );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editNext );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editNext );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editNext );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editNext );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editNext );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editNext );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editNext );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editNext );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editNext );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editNext );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editNext );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editNext );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editNext );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editNext );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editNext );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editNext );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editNext );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editNext );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editNext );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editNext );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editNext );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editNext );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editNext );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editNext );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editNext );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editNext );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editNext );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editNext );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editNext );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editNext );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editNext );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editNext );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editNext );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editNext );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editNext );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editNext );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editNext );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editNext );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editNext );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editNext );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editNext );
 			}
 			else {
@@ -3354,322 +3354,322 @@ public class CFBamRamTZDateDefTable
 
 		String classCode = cur.getClassCode();
 		CFBamValueBuff newInstance;
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -3681,322 +3681,322 @@ public class CFBamRamTZDateDefTable
 		editCur.set( cur );
 
 		classCode = next.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -4010,322 +4010,322 @@ public class CFBamRamTZDateDefTable
 		CFBamValueBuff editGrandnext = null;
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -4340,322 +4340,322 @@ public class CFBamRamTZDateDefTable
 		CFBamValueBuff editPrev = null;
 		if( prev != null ) {
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				newInstance = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				newInstance = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				newInstance = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				newInstance = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				newInstance = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				newInstance = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				newInstance = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				newInstance = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				newInstance = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				newInstance = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				newInstance = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				newInstance = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				newInstance = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				newInstance = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				newInstance = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				newInstance = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				newInstance = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				newInstance = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				newInstance = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				newInstance = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				newInstance = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				newInstance = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				newInstance = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				newInstance = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				newInstance = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				newInstance = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				newInstance = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				newInstance = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				newInstance = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				newInstance = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				newInstance = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				newInstance = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				newInstance = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				newInstance = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				newInstance = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				newInstance = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				newInstance = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				newInstance = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				newInstance = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				newInstance = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				newInstance = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				newInstance = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				newInstance = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				newInstance = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				newInstance = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				newInstance = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				newInstance = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				newInstance = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				newInstance = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				newInstance = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				newInstance = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				newInstance = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				newInstance = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				newInstance = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				newInstance = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				newInstance = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				newInstance = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				newInstance = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				newInstance = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				newInstance = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				newInstance = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				newInstance = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				newInstance = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				newInstance = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				newInstance = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				newInstance = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				newInstance = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				newInstance = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				newInstance = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				newInstance = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				newInstance = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				newInstance = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				newInstance = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				newInstance = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				newInstance = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				newInstance = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				newInstance = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				newInstance = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				newInstance = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				newInstance = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				newInstance = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				newInstance = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				newInstance = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				newInstance = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				newInstance = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				newInstance = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				newInstance = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -4697,322 +4697,322 @@ public class CFBamRamTZDateDefTable
 
 		if( editPrev != null ) {
 			classCode = editPrev.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editPrev );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editPrev );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editPrev );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editPrev );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editPrev );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editPrev );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editPrev );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editPrev );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editPrev );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editPrev );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editPrev );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editPrev );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editPrev );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editPrev );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editPrev );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editPrev );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editPrev );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editPrev );
 			}
 			else {
@@ -5023,322 +5023,322 @@ public class CFBamRamTZDateDefTable
 		}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editCur );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editCur );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editCur );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editCur );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editCur );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editCur );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editCur );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editCur );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editCur );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editCur );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editCur );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editCur );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editCur );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editCur );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editCur );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editCur );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editCur );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editCur );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editCur );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editCur );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editCur );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editCur );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editCur );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editCur );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editCur );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editCur );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editCur );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editCur );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editCur );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editCur );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editCur );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editCur );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editCur );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editCur );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editCur );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editCur );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editCur );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editCur );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editCur );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editCur );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editCur );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editCur );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editCur );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editCur );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editCur );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editCur );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editCur );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editCur );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editCur );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editCur );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editCur );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editCur );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editCur );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editCur );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editCur );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editCur );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editCur );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editCur );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editCur );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editCur );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editCur );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editCur );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editCur );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editCur );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editCur );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editCur );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editCur );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editCur );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editCur );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editCur );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editCur );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editCur );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editCur );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editCur );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editCur );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editCur );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editCur );
 			}
 			else {
@@ -5348,322 +5348,322 @@ public class CFBamRamTZDateDefTable
 			}
 
 		classCode = editNext.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editNext );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editNext );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editNext );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editNext );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editNext );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editNext );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editNext );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editNext );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editNext );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editNext );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editNext );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editNext );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editNext );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editNext );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editNext );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editNext );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editNext );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editNext );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editNext );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editNext );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editNext );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editNext );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editNext );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editNext );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editNext );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editNext );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editNext );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editNext );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editNext );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editNext );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editNext );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editNext );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editNext );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editNext );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editNext );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editNext );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editNext );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editNext );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editNext );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editNext );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editNext );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editNext );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editNext );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editNext );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editNext );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editNext );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editNext );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editNext );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editNext );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editNext );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editNext );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editNext );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editNext );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editNext );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editNext );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editNext );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editNext );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editNext );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editNext );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editNext );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editNext );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editNext );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editNext );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editNext );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editNext );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editNext );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editNext );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editNext );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editNext );
 			}
 			else {
@@ -5674,322 +5674,322 @@ public class CFBamRamTZDateDefTable
 
 		if( editGrandnext != null ) {
 			classCode = editGrandnext.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editGrandnext );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editGrandnext );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editGrandnext );
 			}
 			else {
@@ -6099,322 +6099,322 @@ public class CFBamRamTZDateDefTable
 			}
 			CFBamValueBuff editPrev;
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				editPrev = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				editPrev = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				editPrev = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				editPrev = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				editPrev = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				editPrev = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				editPrev = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				editPrev = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				editPrev = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				editPrev = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				editPrev = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				editPrev = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				editPrev = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				editPrev = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				editPrev = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				editPrev = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				editPrev = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				editPrev = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				editPrev = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				editPrev = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				editPrev = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				editPrev = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				editPrev = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				editPrev = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				editPrev = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				editPrev = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				editPrev = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				editPrev = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				editPrev = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				editPrev = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				editPrev = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				editPrev = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				editPrev = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				editPrev = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				editPrev = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				editPrev = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				editPrev = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				editPrev = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				editPrev = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				editPrev = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				editPrev = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				editPrev = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				editPrev = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				editPrev = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				editPrev = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				editPrev = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				editPrev = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				editPrev = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				editPrev = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				editPrev = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				editPrev = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				editPrev = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				editPrev = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				editPrev = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				editPrev = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				editPrev = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				editPrev = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				editPrev = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				editPrev = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				editPrev = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				editPrev = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				editPrev = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				editPrev = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				editPrev = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				editPrev = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				editPrev = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				editPrev = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				editPrev = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				editPrev = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				editPrev = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				editPrev = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				editPrev = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				editPrev = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				editPrev = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				editPrev = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				editPrev = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				editPrev = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				editPrev = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				editPrev = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				editPrev = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				editPrev = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				editPrev = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				editPrev = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				editPrev = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				editPrev = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				editPrev = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				editPrev = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				editPrev = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				editPrev = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				editPrev = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				editPrev = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				editPrev = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				editPrev = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				editPrev = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				editPrev = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				editPrev = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				editPrev = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				editPrev = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				editPrev = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				editPrev = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				editPrev = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				editPrev = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				editPrev = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				editPrev = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				editPrev = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				editPrev = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -6425,322 +6425,322 @@ public class CFBamRamTZDateDefTable
 			editPrev.set( prev );
 			editPrev.setOptionalNextTenantId( nextTenantId );
 			editPrev.setOptionalNextId( nextId );
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editPrev );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editPrev );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editPrev );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editPrev );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editPrev );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editPrev );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editPrev );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editPrev );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editPrev );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editPrev );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editPrev );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editPrev );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editPrev );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editPrev );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editPrev );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editPrev );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editPrev );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editPrev );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editPrev );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editPrev );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editPrev );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editPrev );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editPrev );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editPrev );
 			}
 			else {
@@ -6765,322 +6765,322 @@ public class CFBamRamTZDateDefTable
 			}
 			CFBamValueBuff editNext;
 			classCode = next.getClassCode();
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				editNext = schema.getFactoryValue().newBuff();
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				editNext = schema.getFactoryAtom().newBuff();
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				editNext = schema.getFactoryBlobDef().newBuff();
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				editNext = schema.getFactoryBlobType().newBuff();
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				editNext = schema.getFactoryBlobCol().newBuff();
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				editNext = schema.getFactoryBoolDef().newBuff();
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				editNext = schema.getFactoryBoolType().newBuff();
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				editNext = schema.getFactoryBoolCol().newBuff();
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				editNext = schema.getFactoryDateDef().newBuff();
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				editNext = schema.getFactoryDateType().newBuff();
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				editNext = schema.getFactoryDateCol().newBuff();
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				editNext = schema.getFactoryDoubleDef().newBuff();
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				editNext = schema.getFactoryDoubleType().newBuff();
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				editNext = schema.getFactoryDoubleCol().newBuff();
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				editNext = schema.getFactoryFloatDef().newBuff();
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				editNext = schema.getFactoryFloatType().newBuff();
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				editNext = schema.getFactoryFloatCol().newBuff();
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				editNext = schema.getFactoryInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				editNext = schema.getFactoryInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				editNext = schema.getFactoryId16Gen().newBuff();
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				editNext = schema.getFactoryEnumDef().newBuff();
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				editNext = schema.getFactoryEnumType().newBuff();
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				editNext = schema.getFactoryInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				editNext = schema.getFactoryInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				editNext = schema.getFactoryInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				editNext = schema.getFactoryId32Gen().newBuff();
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				editNext = schema.getFactoryInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				editNext = schema.getFactoryInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				editNext = schema.getFactoryInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				editNext = schema.getFactoryId64Gen().newBuff();
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				editNext = schema.getFactoryInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				editNext = schema.getFactoryNmTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				editNext = schema.getFactoryNmTokenType().newBuff();
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				editNext = schema.getFactoryNmTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				editNext = schema.getFactoryNmTokensDef().newBuff();
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				editNext = schema.getFactoryNmTokensType().newBuff();
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				editNext = schema.getFactoryNmTokensCol().newBuff();
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				editNext = schema.getFactoryNumberDef().newBuff();
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				editNext = schema.getFactoryNumberType().newBuff();
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				editNext = schema.getFactoryNumberCol().newBuff();
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				editNext = schema.getFactoryDbKeyHash128Def().newBuff();
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				editNext = schema.getFactoryDbKeyHash128Col().newBuff();
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				editNext = schema.getFactoryDbKeyHash128Type().newBuff();
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				editNext = schema.getFactoryDbKeyHash128Gen().newBuff();
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				editNext = schema.getFactoryDbKeyHash160Def().newBuff();
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				editNext = schema.getFactoryDbKeyHash160Col().newBuff();
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				editNext = schema.getFactoryDbKeyHash160Type().newBuff();
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				editNext = schema.getFactoryDbKeyHash160Gen().newBuff();
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				editNext = schema.getFactoryDbKeyHash224Def().newBuff();
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				editNext = schema.getFactoryDbKeyHash224Col().newBuff();
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				editNext = schema.getFactoryDbKeyHash224Type().newBuff();
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				editNext = schema.getFactoryDbKeyHash224Gen().newBuff();
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				editNext = schema.getFactoryDbKeyHash256Def().newBuff();
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				editNext = schema.getFactoryDbKeyHash256Col().newBuff();
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				editNext = schema.getFactoryDbKeyHash256Type().newBuff();
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				editNext = schema.getFactoryDbKeyHash256Gen().newBuff();
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				editNext = schema.getFactoryDbKeyHash384Def().newBuff();
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				editNext = schema.getFactoryDbKeyHash384Col().newBuff();
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				editNext = schema.getFactoryDbKeyHash384Type().newBuff();
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				editNext = schema.getFactoryDbKeyHash384Gen().newBuff();
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				editNext = schema.getFactoryDbKeyHash512Def().newBuff();
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				editNext = schema.getFactoryDbKeyHash512Col().newBuff();
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				editNext = schema.getFactoryDbKeyHash512Type().newBuff();
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				editNext = schema.getFactoryDbKeyHash512Gen().newBuff();
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				editNext = schema.getFactoryStringDef().newBuff();
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				editNext = schema.getFactoryStringType().newBuff();
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				editNext = schema.getFactoryStringCol().newBuff();
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				editNext = schema.getFactoryTZDateDef().newBuff();
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				editNext = schema.getFactoryTZDateType().newBuff();
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				editNext = schema.getFactoryTZDateCol().newBuff();
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				editNext = schema.getFactoryTZTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				editNext = schema.getFactoryTZTimeType().newBuff();
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				editNext = schema.getFactoryTZTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				editNext = schema.getFactoryTZTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				editNext = schema.getFactoryTZTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				editNext = schema.getFactoryTZTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				editNext = schema.getFactoryTextDef().newBuff();
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				editNext = schema.getFactoryTextType().newBuff();
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				editNext = schema.getFactoryTextCol().newBuff();
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				editNext = schema.getFactoryTimeDef().newBuff();
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				editNext = schema.getFactoryTimeType().newBuff();
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				editNext = schema.getFactoryTimeCol().newBuff();
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				editNext = schema.getFactoryTimestampDef().newBuff();
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				editNext = schema.getFactoryTimestampType().newBuff();
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				editNext = schema.getFactoryTimestampCol().newBuff();
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				editNext = schema.getFactoryTokenDef().newBuff();
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				editNext = schema.getFactoryTokenType().newBuff();
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				editNext = schema.getFactoryTokenCol().newBuff();
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				editNext = schema.getFactoryUInt16Def().newBuff();
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				editNext = schema.getFactoryUInt16Type().newBuff();
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				editNext = schema.getFactoryUInt16Col().newBuff();
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				editNext = schema.getFactoryUInt32Def().newBuff();
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				editNext = schema.getFactoryUInt32Type().newBuff();
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				editNext = schema.getFactoryUInt32Col().newBuff();
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				editNext = schema.getFactoryUInt64Def().newBuff();
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				editNext = schema.getFactoryUInt64Type().newBuff();
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				editNext = schema.getFactoryUInt64Col().newBuff();
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				editNext = schema.getFactoryUuidDef().newBuff();
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				editNext = schema.getFactoryUuidType().newBuff();
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				editNext = schema.getFactoryUuidGen().newBuff();
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				editNext = schema.getFactoryUuidCol().newBuff();
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				editNext = schema.getFactoryUuid6Def().newBuff();
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				editNext = schema.getFactoryUuid6Type().newBuff();
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				editNext = schema.getFactoryUuid6Gen().newBuff();
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				editNext = schema.getFactoryUuid6Col().newBuff();
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				editNext = schema.getFactoryTableCol().newBuff();
 			}
 			else {
@@ -7091,322 +7091,322 @@ public class CFBamRamTZDateDefTable
 			editNext.set( next );
 			editNext.setOptionalPrevTenantId( prevTenantId );
 			editNext.setOptionalPrevId( prevId );
-			if( classCode.equals( "a809" ) ) {
+			if( classCode.equals( "a80c" ) ) {
 				schema.getTableValue().updateValue( Authorization, editNext );
 			}
-			else if( classCode.equals( "a80a" ) ) {
+			else if( classCode.equals( "a80d" ) ) {
 				schema.getTableAtom().updateAtom( Authorization, (CFBamAtomBuff)editNext );
 			}
-			else if( classCode.equals( "a80b" ) ) {
+			else if( classCode.equals( "a80e" ) ) {
 				schema.getTableBlobDef().updateBlobDef( Authorization, (CFBamBlobDefBuff)editNext );
 			}
-			else if( classCode.equals( "a80c" ) ) {
+			else if( classCode.equals( "a80f" ) ) {
 				schema.getTableBlobType().updateBlobType( Authorization, (CFBamBlobTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86b" ) ) {
+			else if( classCode.equals( "a86e" ) ) {
 				schema.getTableBlobCol().updateBlobCol( Authorization, (CFBamBlobColBuff)editNext );
 			}
-			else if( classCode.equals( "a80d" ) ) {
+			else if( classCode.equals( "a810" ) ) {
 				schema.getTableBoolDef().updateBoolDef( Authorization, (CFBamBoolDefBuff)editNext );
 			}
-			else if( classCode.equals( "a80e" ) ) {
+			else if( classCode.equals( "a811" ) ) {
 				schema.getTableBoolType().updateBoolType( Authorization, (CFBamBoolTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86c" ) ) {
+			else if( classCode.equals( "a86f" ) ) {
 				schema.getTableBoolCol().updateBoolCol( Authorization, (CFBamBoolColBuff)editNext );
 			}
-			else if( classCode.equals( "a815" ) ) {
+			else if( classCode.equals( "a818" ) ) {
 				schema.getTableDateDef().updateDateDef( Authorization, (CFBamDateDefBuff)editNext );
 			}
-			else if( classCode.equals( "a816" ) ) {
+			else if( classCode.equals( "a819" ) ) {
 				schema.getTableDateType().updateDateType( Authorization, (CFBamDateTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86d" ) ) {
+			else if( classCode.equals( "a870" ) ) {
 				schema.getTableDateCol().updateDateCol( Authorization, (CFBamDateColBuff)editNext );
 			}
-			else if( classCode.equals( "a81c" ) ) {
+			else if( classCode.equals( "a81f" ) ) {
 				schema.getTableDoubleDef().updateDoubleDef( Authorization, (CFBamDoubleDefBuff)editNext );
 			}
-			else if( classCode.equals( "a81d" ) ) {
+			else if( classCode.equals( "a820" ) ) {
 				schema.getTableDoubleType().updateDoubleType( Authorization, (CFBamDoubleTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a86e" ) ) {
+			else if( classCode.equals( "a871" ) ) {
 				schema.getTableDoubleCol().updateDoubleCol( Authorization, (CFBamDoubleColBuff)editNext );
 			}
-			else if( classCode.equals( "a81f" ) ) {
+			else if( classCode.equals( "a822" ) ) {
 				schema.getTableFloatDef().updateFloatDef( Authorization, (CFBamFloatDefBuff)editNext );
 			}
-			else if( classCode.equals( "a820" ) ) {
+			else if( classCode.equals( "a823" ) ) {
 				schema.getTableFloatType().updateFloatType( Authorization, (CFBamFloatTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a871" ) ) {
+			else if( classCode.equals( "a874" ) ) {
 				schema.getTableFloatCol().updateFloatCol( Authorization, (CFBamFloatColBuff)editNext );
 			}
-			else if( classCode.equals( "a823" ) ) {
+			else if( classCode.equals( "a826" ) ) {
 				schema.getTableInt16Def().updateInt16Def( Authorization, (CFBamInt16DefBuff)editNext );
 			}
-			else if( classCode.equals( "a824" ) ) {
+			else if( classCode.equals( "a827" ) ) {
 				schema.getTableInt16Type().updateInt16Type( Authorization, (CFBamInt16TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a872" ) ) {
+			else if( classCode.equals( "a875" ) ) {
 				schema.getTableId16Gen().updateId16Gen( Authorization, (CFBamId16GenBuff)editNext );
 			}
-			else if( classCode.equals( "a86f" ) ) {
+			else if( classCode.equals( "a872" ) ) {
 				schema.getTableEnumDef().updateEnumDef( Authorization, (CFBamEnumDefBuff)editNext );
 			}
-			else if( classCode.equals( "a870" ) ) {
+			else if( classCode.equals( "a873" ) ) {
 				schema.getTableEnumType().updateEnumType( Authorization, (CFBamEnumTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a875" ) ) {
+			else if( classCode.equals( "a878" ) ) {
 				schema.getTableInt16Col().updateInt16Col( Authorization, (CFBamInt16ColBuff)editNext );
 			}
-			else if( classCode.equals( "a825" ) ) {
+			else if( classCode.equals( "a828" ) ) {
 				schema.getTableInt32Def().updateInt32Def( Authorization, (CFBamInt32DefBuff)editNext );
 			}
-			else if( classCode.equals( "a826" ) ) {
+			else if( classCode.equals( "a829" ) ) {
 				schema.getTableInt32Type().updateInt32Type( Authorization, (CFBamInt32TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a873" ) ) {
+			else if( classCode.equals( "a876" ) ) {
 				schema.getTableId32Gen().updateId32Gen( Authorization, (CFBamId32GenBuff)editNext );
 			}
-			else if( classCode.equals( "a876" ) ) {
+			else if( classCode.equals( "a879" ) ) {
 				schema.getTableInt32Col().updateInt32Col( Authorization, (CFBamInt32ColBuff)editNext );
 			}
-			else if( classCode.equals( "a827" ) ) {
+			else if( classCode.equals( "a82a" ) ) {
 				schema.getTableInt64Def().updateInt64Def( Authorization, (CFBamInt64DefBuff)editNext );
 			}
-			else if( classCode.equals( "a828" ) ) {
+			else if( classCode.equals( "a82b" ) ) {
 				schema.getTableInt64Type().updateInt64Type( Authorization, (CFBamInt64TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a874" ) ) {
+			else if( classCode.equals( "a877" ) ) {
 				schema.getTableId64Gen().updateId64Gen( Authorization, (CFBamId64GenBuff)editNext );
 			}
-			else if( classCode.equals( "a877" ) ) {
+			else if( classCode.equals( "a87a" ) ) {
 				schema.getTableInt64Col().updateInt64Col( Authorization, (CFBamInt64ColBuff)editNext );
 			}
-			else if( classCode.equals( "a829" ) ) {
+			else if( classCode.equals( "a82c" ) ) {
 				schema.getTableNmTokenDef().updateNmTokenDef( Authorization, (CFBamNmTokenDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82a" ) ) {
+			else if( classCode.equals( "a82d" ) ) {
 				schema.getTableNmTokenType().updateNmTokenType( Authorization, (CFBamNmTokenTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a878" ) ) {
+			else if( classCode.equals( "a87b" ) ) {
 				schema.getTableNmTokenCol().updateNmTokenCol( Authorization, (CFBamNmTokenColBuff)editNext );
 			}
-			else if( classCode.equals( "a82b" ) ) {
+			else if( classCode.equals( "a82e" ) ) {
 				schema.getTableNmTokensDef().updateNmTokensDef( Authorization, (CFBamNmTokensDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82c" ) ) {
+			else if( classCode.equals( "a82f" ) ) {
 				schema.getTableNmTokensType().updateNmTokensType( Authorization, (CFBamNmTokensTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a879" ) ) {
+			else if( classCode.equals( "a87c" ) ) {
 				schema.getTableNmTokensCol().updateNmTokensCol( Authorization, (CFBamNmTokensColBuff)editNext );
 			}
-			else if( classCode.equals( "a82d" ) ) {
+			else if( classCode.equals( "a830" ) ) {
 				schema.getTableNumberDef().updateNumberDef( Authorization, (CFBamNumberDefBuff)editNext );
 			}
-			else if( classCode.equals( "a82e" ) ) {
+			else if( classCode.equals( "a831" ) ) {
 				schema.getTableNumberType().updateNumberType( Authorization, (CFBamNumberTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87a" ) ) {
+			else if( classCode.equals( "a87d" ) ) {
 				schema.getTableNumberCol().updateNumberCol( Authorization, (CFBamNumberColBuff)editNext );
 			}
-			else if( classCode.equals( "a839" ) ) {
+			else if( classCode.equals( "a83b" ) ) {
 				schema.getTableDbKeyHash128Def().updateDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)editNext );
 			}
-			else if( classCode.equals( "a838" ) ) {
+			else if( classCode.equals( "a83c" ) ) {
 				schema.getTableDbKeyHash128Col().updateDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)editNext );
 			}
-			else if( classCode.equals( "a83a" ) ) {
+			else if( classCode.equals( "a83d" ) ) {
 				schema.getTableDbKeyHash128Type().updateDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a83b" ) ) {
+			else if( classCode.equals( "a83e" ) ) {
 				schema.getTableDbKeyHash128Gen().updateDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)editNext );
 			}
-			else if( classCode.equals( "a83d" ) ) {
+			else if( classCode.equals( "a83f" ) ) {
 				schema.getTableDbKeyHash160Def().updateDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)editNext );
 			}
-			else if( classCode.equals( "a83c" ) ) {
+			else if( classCode.equals( "a840" ) ) {
 				schema.getTableDbKeyHash160Col().updateDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)editNext );
 			}
-			else if( classCode.equals( "a83e" ) ) {
+			else if( classCode.equals( "a841" ) ) {
 				schema.getTableDbKeyHash160Type().updateDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a83f" ) ) {
+			else if( classCode.equals( "a842" ) ) {
 				schema.getTableDbKeyHash160Gen().updateDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)editNext );
 			}
-			else if( classCode.equals( "a841" ) ) {
+			else if( classCode.equals( "a843" ) ) {
 				schema.getTableDbKeyHash224Def().updateDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)editNext );
 			}
-			else if( classCode.equals( "a840" ) ) {
+			else if( classCode.equals( "a844" ) ) {
 				schema.getTableDbKeyHash224Col().updateDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)editNext );
 			}
-			else if( classCode.equals( "a842" ) ) {
+			else if( classCode.equals( "a845" ) ) {
 				schema.getTableDbKeyHash224Type().updateDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a843" ) ) {
+			else if( classCode.equals( "a846" ) ) {
 				schema.getTableDbKeyHash224Gen().updateDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)editNext );
 			}
-			else if( classCode.equals( "a845" ) ) {
+			else if( classCode.equals( "a847" ) ) {
 				schema.getTableDbKeyHash256Def().updateDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)editNext );
 			}
-			else if( classCode.equals( "a844" ) ) {
+			else if( classCode.equals( "a848" ) ) {
 				schema.getTableDbKeyHash256Col().updateDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)editNext );
 			}
-			else if( classCode.equals( "a846" ) ) {
+			else if( classCode.equals( "a849" ) ) {
 				schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a847" ) ) {
+			else if( classCode.equals( "a84a" ) ) {
 				schema.getTableDbKeyHash256Gen().updateDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)editNext );
 			}
-			else if( classCode.equals( "a849" ) ) {
+			else if( classCode.equals( "a84b" ) ) {
 				schema.getTableDbKeyHash384Def().updateDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)editNext );
 			}
-			else if( classCode.equals( "a848" ) ) {
+			else if( classCode.equals( "a84c" ) ) {
 				schema.getTableDbKeyHash384Col().updateDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)editNext );
 			}
-			else if( classCode.equals( "a84a" ) ) {
+			else if( classCode.equals( "a84d" ) ) {
 				schema.getTableDbKeyHash384Type().updateDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a84b" ) ) {
+			else if( classCode.equals( "a84e" ) ) {
 				schema.getTableDbKeyHash384Gen().updateDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)editNext );
 			}
-			else if( classCode.equals( "a84d" ) ) {
+			else if( classCode.equals( "a84f" ) ) {
 				schema.getTableDbKeyHash512Def().updateDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)editNext );
 			}
-			else if( classCode.equals( "a84c" ) ) {
+			else if( classCode.equals( "a850" ) ) {
 				schema.getTableDbKeyHash512Col().updateDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)editNext );
 			}
-			else if( classCode.equals( "a84e" ) ) {
+			else if( classCode.equals( "a851" ) ) {
 				schema.getTableDbKeyHash512Type().updateDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a84f" ) ) {
+			else if( classCode.equals( "a852" ) ) {
 				schema.getTableDbKeyHash512Gen().updateDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)editNext );
 			}
-			else if( classCode.equals( "a850" ) ) {
+			else if( classCode.equals( "a853" ) ) {
 				schema.getTableStringDef().updateStringDef( Authorization, (CFBamStringDefBuff)editNext );
 			}
-			else if( classCode.equals( "a851" ) ) {
+			else if( classCode.equals( "a854" ) ) {
 				schema.getTableStringType().updateStringType( Authorization, (CFBamStringTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87b" ) ) {
+			else if( classCode.equals( "a87e" ) ) {
 				schema.getTableStringCol().updateStringCol( Authorization, (CFBamStringColBuff)editNext );
 			}
-			else if( classCode.equals( "a852" ) ) {
+			else if( classCode.equals( "a855" ) ) {
 				schema.getTableTZDateDef().updateTZDateDef( Authorization, (CFBamTZDateDefBuff)editNext );
 			}
-			else if( classCode.equals( "a853" ) ) {
+			else if( classCode.equals( "a856" ) ) {
 				schema.getTableTZDateType().updateTZDateType( Authorization, (CFBamTZDateTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87c" ) ) {
+			else if( classCode.equals( "a87f" ) ) {
 				schema.getTableTZDateCol().updateTZDateCol( Authorization, (CFBamTZDateColBuff)editNext );
 			}
-			else if( classCode.equals( "a854" ) ) {
+			else if( classCode.equals( "a857" ) ) {
 				schema.getTableTZTimeDef().updateTZTimeDef( Authorization, (CFBamTZTimeDefBuff)editNext );
 			}
-			else if( classCode.equals( "a855" ) ) {
+			else if( classCode.equals( "a858" ) ) {
 				schema.getTableTZTimeType().updateTZTimeType( Authorization, (CFBamTZTimeTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87d" ) ) {
+			else if( classCode.equals( "a880" ) ) {
 				schema.getTableTZTimeCol().updateTZTimeCol( Authorization, (CFBamTZTimeColBuff)editNext );
 			}
-			else if( classCode.equals( "a856" ) ) {
+			else if( classCode.equals( "a859" ) ) {
 				schema.getTableTZTimestampDef().updateTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)editNext );
 			}
-			else if( classCode.equals( "a857" ) ) {
+			else if( classCode.equals( "a85a" ) ) {
 				schema.getTableTZTimestampType().updateTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87e" ) ) {
+			else if( classCode.equals( "a881" ) ) {
 				schema.getTableTZTimestampCol().updateTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)editNext );
 			}
-			else if( classCode.equals( "a859" ) ) {
+			else if( classCode.equals( "a85c" ) ) {
 				schema.getTableTextDef().updateTextDef( Authorization, (CFBamTextDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85a" ) ) {
+			else if( classCode.equals( "a85d" ) ) {
 				schema.getTableTextType().updateTextType( Authorization, (CFBamTextTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a87f" ) ) {
+			else if( classCode.equals( "a882" ) ) {
 				schema.getTableTextCol().updateTextCol( Authorization, (CFBamTextColBuff)editNext );
 			}
-			else if( classCode.equals( "a85b" ) ) {
+			else if( classCode.equals( "a85e" ) ) {
 				schema.getTableTimeDef().updateTimeDef( Authorization, (CFBamTimeDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85c" ) ) {
+			else if( classCode.equals( "a85f" ) ) {
 				schema.getTableTimeType().updateTimeType( Authorization, (CFBamTimeTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a880" ) ) {
+			else if( classCode.equals( "a883" ) ) {
 				schema.getTableTimeCol().updateTimeCol( Authorization, (CFBamTimeColBuff)editNext );
 			}
-			else if( classCode.equals( "a85d" ) ) {
+			else if( classCode.equals( "a860" ) ) {
 				schema.getTableTimestampDef().updateTimestampDef( Authorization, (CFBamTimestampDefBuff)editNext );
 			}
-			else if( classCode.equals( "a85e" ) ) {
+			else if( classCode.equals( "a861" ) ) {
 				schema.getTableTimestampType().updateTimestampType( Authorization, (CFBamTimestampTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a881" ) ) {
+			else if( classCode.equals( "a884" ) ) {
 				schema.getTableTimestampCol().updateTimestampCol( Authorization, (CFBamTimestampColBuff)editNext );
 			}
-			else if( classCode.equals( "a85f" ) ) {
+			else if( classCode.equals( "a862" ) ) {
 				schema.getTableTokenDef().updateTokenDef( Authorization, (CFBamTokenDefBuff)editNext );
 			}
-			else if( classCode.equals( "a860" ) ) {
+			else if( classCode.equals( "a863" ) ) {
 				schema.getTableTokenType().updateTokenType( Authorization, (CFBamTokenTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a882" ) ) {
+			else if( classCode.equals( "a885" ) ) {
 				schema.getTableTokenCol().updateTokenCol( Authorization, (CFBamTokenColBuff)editNext );
 			}
-			else if( classCode.equals( "a861" ) ) {
+			else if( classCode.equals( "a864" ) ) {
 				schema.getTableUInt16Def().updateUInt16Def( Authorization, (CFBamUInt16DefBuff)editNext );
 			}
-			else if( classCode.equals( "a862" ) ) {
+			else if( classCode.equals( "a865" ) ) {
 				schema.getTableUInt16Type().updateUInt16Type( Authorization, (CFBamUInt16TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a883" ) ) {
+			else if( classCode.equals( "a886" ) ) {
 				schema.getTableUInt16Col().updateUInt16Col( Authorization, (CFBamUInt16ColBuff)editNext );
 			}
-			else if( classCode.equals( "a863" ) ) {
+			else if( classCode.equals( "a866" ) ) {
 				schema.getTableUInt32Def().updateUInt32Def( Authorization, (CFBamUInt32DefBuff)editNext );
 			}
-			else if( classCode.equals( "a864" ) ) {
+			else if( classCode.equals( "a867" ) ) {
 				schema.getTableUInt32Type().updateUInt32Type( Authorization, (CFBamUInt32TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a884" ) ) {
+			else if( classCode.equals( "a887" ) ) {
 				schema.getTableUInt32Col().updateUInt32Col( Authorization, (CFBamUInt32ColBuff)editNext );
 			}
-			else if( classCode.equals( "a865" ) ) {
+			else if( classCode.equals( "a868" ) ) {
 				schema.getTableUInt64Def().updateUInt64Def( Authorization, (CFBamUInt64DefBuff)editNext );
 			}
-			else if( classCode.equals( "a866" ) ) {
+			else if( classCode.equals( "a869" ) ) {
 				schema.getTableUInt64Type().updateUInt64Type( Authorization, (CFBamUInt64TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a885" ) ) {
+			else if( classCode.equals( "a888" ) ) {
 				schema.getTableUInt64Col().updateUInt64Col( Authorization, (CFBamUInt64ColBuff)editNext );
 			}
-			else if( classCode.equals( "a867" ) ) {
+			else if( classCode.equals( "a86a" ) ) {
 				schema.getTableUuidDef().updateUuidDef( Authorization, (CFBamUuidDefBuff)editNext );
 			}
-			else if( classCode.equals( "a869" ) ) {
+			else if( classCode.equals( "a86c" ) ) {
 				schema.getTableUuidType().updateUuidType( Authorization, (CFBamUuidTypeBuff)editNext );
 			}
-			else if( classCode.equals( "a888" ) ) {
+			else if( classCode.equals( "a88b" ) ) {
 				schema.getTableUuidGen().updateUuidGen( Authorization, (CFBamUuidGenBuff)editNext );
 			}
-			else if( classCode.equals( "a886" ) ) {
+			else if( classCode.equals( "a889" ) ) {
 				schema.getTableUuidCol().updateUuidCol( Authorization, (CFBamUuidColBuff)editNext );
 			}
-			else if( classCode.equals( "a868" ) ) {
+			else if( classCode.equals( "a86b" ) ) {
 				schema.getTableUuid6Def().updateUuid6Def( Authorization, (CFBamUuid6DefBuff)editNext );
 			}
-			else if( classCode.equals( "a86a" ) ) {
+			else if( classCode.equals( "a86d" ) ) {
 				schema.getTableUuid6Type().updateUuid6Type( Authorization, (CFBamUuid6TypeBuff)editNext );
 			}
-			else if( classCode.equals( "a889" ) ) {
+			else if( classCode.equals( "a88c" ) ) {
 				schema.getTableUuid6Gen().updateUuid6Gen( Authorization, (CFBamUuid6GenBuff)editNext );
 			}
-			else if( classCode.equals( "a887" ) ) {
+			else if( classCode.equals( "a88a" ) ) {
 				schema.getTableUuid6Col().updateUuid6Col( Authorization, (CFBamUuid6ColBuff)editNext );
 			}
-			else if( classCode.equals( "a858" ) ) {
+			else if( classCode.equals( "a85b" ) ) {
 				schema.getTableTableCol().updateTableCol( Authorization, (CFBamTableColBuff)editNext );
 			}
 			else {
@@ -7504,13 +7504,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7562,13 +7562,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7614,13 +7614,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7669,13 +7669,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7728,13 +7728,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7787,13 +7787,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7846,13 +7846,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7906,13 +7906,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {
@@ -7966,13 +7966,13 @@ public class CFBamRamTZDateDefTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a852".equals( subClassCode ) ) {
+			if( "a855".equals( subClassCode ) ) {
 				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
 			}
-			else if( "a853".equals( subClassCode ) ) {
+			else if( "a856".equals( subClassCode ) ) {
 				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
 			}
-			else if( "a87c".equals( subClassCode ) ) {
+			else if( "a87f".equals( subClassCode ) ) {
 				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
 			}
 			else {

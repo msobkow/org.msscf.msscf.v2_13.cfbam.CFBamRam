@@ -694,7 +694,7 @@ public class CFBamRamParamTable
 	{
 		final String S_ProcName = "CFBamRamParam.readBuff";
 		CFBamParamBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a82f" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a832" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -705,7 +705,7 @@ public class CFBamRamParamTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamParamBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a82f" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a832" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -719,7 +719,7 @@ public class CFBamRamParamTable
 		CFBamParamBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -734,7 +734,7 @@ public class CFBamRamParamTable
 		CFBamParamBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
-		if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 			return( (CFBamParamBuff)buff );
 		}
 		else {
@@ -752,7 +752,7 @@ public class CFBamRamParamTable
 			TenantId,
 			ServerMethodId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 			return( (CFBamParamBuff)buff );
 		}
 		else {
@@ -770,7 +770,7 @@ public class CFBamRamParamTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -789,7 +789,7 @@ public class CFBamRamParamTable
 			ServerMethodId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -808,7 +808,7 @@ public class CFBamRamParamTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -827,7 +827,7 @@ public class CFBamRamParamTable
 			TypeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -846,7 +846,7 @@ public class CFBamRamParamTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -865,7 +865,7 @@ public class CFBamRamParamTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -886,7 +886,7 @@ public class CFBamRamParamTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -907,7 +907,7 @@ public class CFBamRamParamTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a82f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a832" ) ) {
 				filteredList.add( (CFBamParamBuff)buff );
 			}
 		}
@@ -975,7 +975,7 @@ public class CFBamRamParamTable
 
 		String classCode = prev.getClassCode();
 		CFBamParamBuff newInstance;
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -987,7 +987,7 @@ public class CFBamRamParamTable
 		editPrev.set( prev );
 
 		classCode = cur.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1001,7 +1001,7 @@ public class CFBamRamParamTable
 		CFBamParamBuff editGrandprev = null;
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1016,7 +1016,7 @@ public class CFBamRamParamTable
 		CFBamParamBuff editNext = null;
 		if( next != null ) {
 			classCode = next.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1058,7 +1058,7 @@ public class CFBamRamParamTable
 
 		if( editGrandprev != null ) {
 			classCode = editGrandprev.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editGrandprev );
 			}
 			else {
@@ -1069,7 +1069,7 @@ public class CFBamRamParamTable
 		}
 
 		classCode = editPrev.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editPrev );
 			}
 			else {
@@ -1079,7 +1079,7 @@ public class CFBamRamParamTable
 			}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editCur );
 			}
 			else {
@@ -1090,7 +1090,7 @@ public class CFBamRamParamTable
 
 		if( editNext != null ) {
 			classCode = editNext.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editNext );
 			}
 			else {
@@ -1164,7 +1164,7 @@ public class CFBamRamParamTable
 
 		String classCode = cur.getClassCode();
 		CFBamParamBuff newInstance;
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1176,7 +1176,7 @@ public class CFBamRamParamTable
 		editCur.set( cur );
 
 		classCode = next.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1190,7 +1190,7 @@ public class CFBamRamParamTable
 		CFBamParamBuff editGrandnext = null;
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1205,7 +1205,7 @@ public class CFBamRamParamTable
 		CFBamParamBuff editPrev = null;
 		if( prev != null ) {
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				newInstance = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1247,7 +1247,7 @@ public class CFBamRamParamTable
 
 		if( editPrev != null ) {
 			classCode = editPrev.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editPrev );
 			}
 			else {
@@ -1258,7 +1258,7 @@ public class CFBamRamParamTable
 		}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editCur );
 			}
 			else {
@@ -1268,7 +1268,7 @@ public class CFBamRamParamTable
 			}
 
 		classCode = editNext.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editNext );
 			}
 			else {
@@ -1279,7 +1279,7 @@ public class CFBamRamParamTable
 
 		if( editGrandnext != null ) {
 			classCode = editGrandnext.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editGrandnext );
 			}
 			else {
@@ -1624,7 +1624,7 @@ public class CFBamRamParamTable
 			}
 			CFBamParamBuff editPrev;
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				editPrev = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1635,7 +1635,7 @@ public class CFBamRamParamTable
 			editPrev.set( prev );
 			editPrev.setOptionalNextTenantId( nextTenantId );
 			editPrev.setOptionalNextId( nextId );
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editPrev );
 			}
 			else {
@@ -1660,7 +1660,7 @@ public class CFBamRamParamTable
 			}
 			CFBamParamBuff editNext;
 			classCode = next.getClassCode();
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				editNext = schema.getFactoryParam().newBuff();
 			}
 			else {
@@ -1671,7 +1671,7 @@ public class CFBamRamParamTable
 			editNext.set( next );
 			editNext.setOptionalPrevTenantId( prevTenantId );
 			editNext.setOptionalPrevId( prevId );
-			if( classCode.equals( "a82f" ) ) {
+			if( classCode.equals( "a832" ) ) {
 				schema.getTableParam().updateParam( Authorization, editNext );
 			}
 			else {

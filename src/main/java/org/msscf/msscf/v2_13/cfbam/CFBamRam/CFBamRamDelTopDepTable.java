@@ -107,7 +107,7 @@ public class CFBamRamDelTopDepTable
 	{
 		final String S_ProcName = "createDelTopDep";
 		CFBamDelTopDepBuff tail = null;
-		if( Buff.getClassCode().equals( "a81b" ) ) {
+		if( Buff.getClassCode().equals( "a81e" ) ) {
 			CFBamDelTopDepBuff[] siblings = schema.getTableDelTopDep().readDerivedByDelTopDepTblIdx( Authorization,
 				Buff.getRequiredTableTenantId(),
 				Buff.getRequiredTableId() );
@@ -241,7 +241,7 @@ public class CFBamRamDelTopDepTable
 
 		if( tail != null ) {
 			String tailClassCode = tail.getClassCode();
-			if( tailClassCode.equals( "a81b" ) ) {
+			if( tailClassCode.equals( "a81e" ) ) {
 				CFBamDelTopDepBuff tailEdit = schema.getFactoryDelTopDep().newBuff();
 				tailEdit.set( (CFBamDelTopDepBuff)tail );
 				tailEdit.setOptionalNextTenantId( Buff.getRequiredTenantId() );
@@ -503,7 +503,7 @@ public class CFBamRamDelTopDepTable
 	{
 		final String S_ProcName = "CFBamRamDelTopDep.readBuff";
 		CFBamDelTopDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81b" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -514,7 +514,7 @@ public class CFBamRamDelTopDepTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamDelTopDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81b" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -528,7 +528,7 @@ public class CFBamRamDelTopDepTable
 		CFBamDelTopDepBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81b" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -580,7 +580,7 @@ public class CFBamRamDelTopDepTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a817" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81a" ) ) {
 				filteredList.add( (CFBamDelTopDepBuff)buff );
 			}
 		}
@@ -599,7 +599,7 @@ public class CFBamRamDelTopDepTable
 			RelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a817" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81a" ) ) {
 				filteredList.add( (CFBamDelTopDepBuff)buff );
 			}
 		}
@@ -618,7 +618,7 @@ public class CFBamRamDelTopDepTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81b" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
 				filteredList.add( (CFBamDelTopDepBuff)buff );
 			}
 		}
@@ -635,7 +635,7 @@ public class CFBamRamDelTopDepTable
 			TableTenantId,
 			TableId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a81b" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
 			return( (CFBamDelTopDepBuff)buff );
 		}
 		else {
@@ -655,7 +655,7 @@ public class CFBamRamDelTopDepTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81b" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
 				filteredList.add( (CFBamDelTopDepBuff)buff );
 			}
 		}
@@ -674,7 +674,7 @@ public class CFBamRamDelTopDepTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81b" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
 				filteredList.add( (CFBamDelTopDepBuff)buff );
 			}
 		}
@@ -857,7 +857,7 @@ public class CFBamRamDelTopDepTable
 
 		String classCode = prev.getClassCode();
 		CFBamDelTopDepBuff newInstance;
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -869,7 +869,7 @@ public class CFBamRamDelTopDepTable
 		editPrev.set( prev );
 
 		classCode = cur.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -883,7 +883,7 @@ public class CFBamRamDelTopDepTable
 		CFBamDelTopDepBuff editGrandprev = null;
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -898,7 +898,7 @@ public class CFBamRamDelTopDepTable
 		CFBamDelTopDepBuff editNext = null;
 		if( next != null ) {
 			classCode = next.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -940,7 +940,7 @@ public class CFBamRamDelTopDepTable
 
 		if( editGrandprev != null ) {
 			classCode = editGrandprev.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editGrandprev );
 			}
 			else {
@@ -951,7 +951,7 @@ public class CFBamRamDelTopDepTable
 		}
 
 		classCode = editPrev.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editPrev );
 			}
 			else {
@@ -961,7 +961,7 @@ public class CFBamRamDelTopDepTable
 			}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editCur );
 			}
 			else {
@@ -972,7 +972,7 @@ public class CFBamRamDelTopDepTable
 
 		if( editNext != null ) {
 			classCode = editNext.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editNext );
 			}
 			else {
@@ -1046,7 +1046,7 @@ public class CFBamRamDelTopDepTable
 
 		String classCode = cur.getClassCode();
 		CFBamDelTopDepBuff newInstance;
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -1058,7 +1058,7 @@ public class CFBamRamDelTopDepTable
 		editCur.set( cur );
 
 		classCode = next.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -1072,7 +1072,7 @@ public class CFBamRamDelTopDepTable
 		CFBamDelTopDepBuff editGrandnext = null;
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -1087,7 +1087,7 @@ public class CFBamRamDelTopDepTable
 		CFBamDelTopDepBuff editPrev = null;
 		if( prev != null ) {
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				newInstance = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -1129,7 +1129,7 @@ public class CFBamRamDelTopDepTable
 
 		if( editPrev != null ) {
 			classCode = editPrev.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editPrev );
 			}
 			else {
@@ -1140,7 +1140,7 @@ public class CFBamRamDelTopDepTable
 		}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editCur );
 			}
 			else {
@@ -1150,7 +1150,7 @@ public class CFBamRamDelTopDepTable
 			}
 
 		classCode = editNext.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editNext );
 			}
 			else {
@@ -1161,7 +1161,7 @@ public class CFBamRamDelTopDepTable
 
 		if( editGrandnext != null ) {
 			classCode = editGrandnext.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editGrandnext );
 			}
 			else {
@@ -1374,7 +1374,7 @@ public class CFBamRamDelTopDepTable
 			}
 			CFBamDelTopDepBuff editPrev;
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				editPrev = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -1385,7 +1385,7 @@ public class CFBamRamDelTopDepTable
 			editPrev.set( prev );
 			editPrev.setOptionalNextTenantId( nextTenantId );
 			editPrev.setOptionalNextId( nextId );
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editPrev );
 			}
 			else {
@@ -1410,7 +1410,7 @@ public class CFBamRamDelTopDepTable
 			}
 			CFBamDelTopDepBuff editNext;
 			classCode = next.getClassCode();
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				editNext = schema.getFactoryDelTopDep().newBuff();
 			}
 			else {
@@ -1421,7 +1421,7 @@ public class CFBamRamDelTopDepTable
 			editNext.set( next );
 			editNext.setOptionalPrevTenantId( prevTenantId );
 			editNext.setOptionalPrevId( prevId );
-			if( classCode.equals( "a81b" ) ) {
+			if( classCode.equals( "a81e" ) ) {
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, editNext );
 			}
 			else {

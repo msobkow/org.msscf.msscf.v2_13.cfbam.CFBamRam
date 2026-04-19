@@ -528,7 +528,7 @@ public class CFBamRamChainTable
 	{
 		final String S_ProcName = "CFBamRamChain.readBuff";
 		CFBamChainBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a80f" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a812" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -539,7 +539,7 @@ public class CFBamRamChainTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamChainBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a80f" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a812" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -553,7 +553,7 @@ public class CFBamRamChainTable
 		CFBamChainBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -568,7 +568,7 @@ public class CFBamRamChainTable
 		CFBamChainBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
-		if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 			return( (CFBamChainBuff)buff );
 		}
 		else {
@@ -586,7 +586,7 @@ public class CFBamRamChainTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 				filteredList.add( (CFBamChainBuff)buff );
 			}
 		}
@@ -605,7 +605,7 @@ public class CFBamRamChainTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 				filteredList.add( (CFBamChainBuff)buff );
 			}
 		}
@@ -624,7 +624,7 @@ public class CFBamRamChainTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 				filteredList.add( (CFBamChainBuff)buff );
 			}
 		}
@@ -641,7 +641,7 @@ public class CFBamRamChainTable
 			TenantId,
 			TableId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 			return( (CFBamChainBuff)buff );
 		}
 		else {
@@ -661,7 +661,7 @@ public class CFBamRamChainTable
 			PrevRelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 				filteredList.add( (CFBamChainBuff)buff );
 			}
 		}
@@ -680,7 +680,7 @@ public class CFBamRamChainTable
 			NextRelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a80f" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a812" ) ) {
 				filteredList.add( (CFBamChainBuff)buff );
 			}
 		}

@@ -331,7 +331,7 @@ public class CFBamRamPopDepTable
 	{
 		final String S_ProcName = "CFBamRamPopDep.readBuff";
 		CFBamPopDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a830" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a833" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -342,7 +342,7 @@ public class CFBamRamPopDepTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamPopDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a830" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a833" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -356,7 +356,7 @@ public class CFBamRamPopDepTable
 		CFBamPopDepBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a830" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a833" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -408,7 +408,7 @@ public class CFBamRamPopDepTable
 			RelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a830" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a833" ) ) {
 				filteredList.add( (CFBamPopDepBuff)buff );
 			}
 		}
@@ -427,7 +427,7 @@ public class CFBamRamPopDepTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a830" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a833" ) ) {
 				filteredList.add( (CFBamPopDepBuff)buff );
 			}
 		}
@@ -713,19 +713,19 @@ public class CFBamRamPopDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a830".equals( subClassCode ) ) {
+			if( "a833".equals( subClassCode ) ) {
 				schema.getTablePopDep().deletePopDep( Authorization, cur );
 			}
-			else if( "a831".equals( subClassCode ) ) {
+			else if( "a834".equals( subClassCode ) ) {
 				schema.getTablePopSubDep1().deletePopSubDep1( Authorization, (CFBamPopSubDep1Buff)cur );
 			}
-			else if( "a832".equals( subClassCode ) ) {
+			else if( "a835".equals( subClassCode ) ) {
 				schema.getTablePopSubDep2().deletePopSubDep2( Authorization, (CFBamPopSubDep2Buff)cur );
 			}
-			else if( "a833".equals( subClassCode ) ) {
+			else if( "a836".equals( subClassCode ) ) {
 				schema.getTablePopSubDep3().deletePopSubDep3( Authorization, (CFBamPopSubDep3Buff)cur );
 			}
-			else if( "a834".equals( subClassCode ) ) {
+			else if( "a837".equals( subClassCode ) ) {
 				schema.getTablePopTopDep().deletePopTopDep( Authorization, (CFBamPopTopDepBuff)cur );
 			}
 			else {
@@ -778,19 +778,19 @@ public class CFBamRamPopDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a830".equals( subClassCode ) ) {
+			if( "a833".equals( subClassCode ) ) {
 				schema.getTablePopDep().deletePopDep( Authorization, cur );
 			}
-			else if( "a831".equals( subClassCode ) ) {
+			else if( "a834".equals( subClassCode ) ) {
 				schema.getTablePopSubDep1().deletePopSubDep1( Authorization, (CFBamPopSubDep1Buff)cur );
 			}
-			else if( "a832".equals( subClassCode ) ) {
+			else if( "a835".equals( subClassCode ) ) {
 				schema.getTablePopSubDep2().deletePopSubDep2( Authorization, (CFBamPopSubDep2Buff)cur );
 			}
-			else if( "a833".equals( subClassCode ) ) {
+			else if( "a836".equals( subClassCode ) ) {
 				schema.getTablePopSubDep3().deletePopSubDep3( Authorization, (CFBamPopSubDep3Buff)cur );
 			}
-			else if( "a834".equals( subClassCode ) ) {
+			else if( "a837".equals( subClassCode ) ) {
 				schema.getTablePopTopDep().deletePopTopDep( Authorization, (CFBamPopTopDepBuff)cur );
 			}
 			else {
@@ -839,19 +839,19 @@ public class CFBamRamPopDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a830".equals( subClassCode ) ) {
+			if( "a833".equals( subClassCode ) ) {
 				schema.getTablePopDep().deletePopDep( Authorization, cur );
 			}
-			else if( "a831".equals( subClassCode ) ) {
+			else if( "a834".equals( subClassCode ) ) {
 				schema.getTablePopSubDep1().deletePopSubDep1( Authorization, (CFBamPopSubDep1Buff)cur );
 			}
-			else if( "a832".equals( subClassCode ) ) {
+			else if( "a835".equals( subClassCode ) ) {
 				schema.getTablePopSubDep2().deletePopSubDep2( Authorization, (CFBamPopSubDep2Buff)cur );
 			}
-			else if( "a833".equals( subClassCode ) ) {
+			else if( "a836".equals( subClassCode ) ) {
 				schema.getTablePopSubDep3().deletePopSubDep3( Authorization, (CFBamPopSubDep3Buff)cur );
 			}
-			else if( "a834".equals( subClassCode ) ) {
+			else if( "a837".equals( subClassCode ) ) {
 				schema.getTablePopTopDep().deletePopTopDep( Authorization, (CFBamPopTopDepBuff)cur );
 			}
 			else {
@@ -897,19 +897,19 @@ public class CFBamRamPopDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a830".equals( subClassCode ) ) {
+			if( "a833".equals( subClassCode ) ) {
 				schema.getTablePopDep().deletePopDep( Authorization, cur );
 			}
-			else if( "a831".equals( subClassCode ) ) {
+			else if( "a834".equals( subClassCode ) ) {
 				schema.getTablePopSubDep1().deletePopSubDep1( Authorization, (CFBamPopSubDep1Buff)cur );
 			}
-			else if( "a832".equals( subClassCode ) ) {
+			else if( "a835".equals( subClassCode ) ) {
 				schema.getTablePopSubDep2().deletePopSubDep2( Authorization, (CFBamPopSubDep2Buff)cur );
 			}
-			else if( "a833".equals( subClassCode ) ) {
+			else if( "a836".equals( subClassCode ) ) {
 				schema.getTablePopSubDep3().deletePopSubDep3( Authorization, (CFBamPopSubDep3Buff)cur );
 			}
-			else if( "a834".equals( subClassCode ) ) {
+			else if( "a837".equals( subClassCode ) ) {
 				schema.getTablePopTopDep().deletePopTopDep( Authorization, (CFBamPopTopDepBuff)cur );
 			}
 			else {

@@ -690,7 +690,7 @@ public class CFBamRamIndexColTable
 	{
 		final String S_ProcName = "CFBamRamIndexCol.readBuff";
 		CFBamIndexColBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a822" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a825" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -701,7 +701,7 @@ public class CFBamRamIndexColTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamIndexColBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a822" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a825" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -715,7 +715,7 @@ public class CFBamRamIndexColTable
 		CFBamIndexColBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -730,7 +730,7 @@ public class CFBamRamIndexColTable
 		CFBamIndexColBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
-		if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 			return( (CFBamIndexColBuff)buff );
 		}
 		else {
@@ -748,7 +748,7 @@ public class CFBamRamIndexColTable
 			TenantId,
 			IndexId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 			return( (CFBamIndexColBuff)buff );
 		}
 		else {
@@ -766,7 +766,7 @@ public class CFBamRamIndexColTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -785,7 +785,7 @@ public class CFBamRamIndexColTable
 			IndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -804,7 +804,7 @@ public class CFBamRamIndexColTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -823,7 +823,7 @@ public class CFBamRamIndexColTable
 			ColumnId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -842,7 +842,7 @@ public class CFBamRamIndexColTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -861,7 +861,7 @@ public class CFBamRamIndexColTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -882,7 +882,7 @@ public class CFBamRamIndexColTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -903,7 +903,7 @@ public class CFBamRamIndexColTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a822" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a825" ) ) {
 				filteredList.add( (CFBamIndexColBuff)buff );
 			}
 		}
@@ -971,7 +971,7 @@ public class CFBamRamIndexColTable
 
 		String classCode = prev.getClassCode();
 		CFBamIndexColBuff newInstance;
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -983,7 +983,7 @@ public class CFBamRamIndexColTable
 		editPrev.set( prev );
 
 		classCode = cur.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -997,7 +997,7 @@ public class CFBamRamIndexColTable
 		CFBamIndexColBuff editGrandprev = null;
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1012,7 +1012,7 @@ public class CFBamRamIndexColTable
 		CFBamIndexColBuff editNext = null;
 		if( next != null ) {
 			classCode = next.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1054,7 +1054,7 @@ public class CFBamRamIndexColTable
 
 		if( editGrandprev != null ) {
 			classCode = editGrandprev.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editGrandprev );
 			}
 			else {
@@ -1065,7 +1065,7 @@ public class CFBamRamIndexColTable
 		}
 
 		classCode = editPrev.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editPrev );
 			}
 			else {
@@ -1075,7 +1075,7 @@ public class CFBamRamIndexColTable
 			}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editCur );
 			}
 			else {
@@ -1086,7 +1086,7 @@ public class CFBamRamIndexColTable
 
 		if( editNext != null ) {
 			classCode = editNext.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editNext );
 			}
 			else {
@@ -1160,7 +1160,7 @@ public class CFBamRamIndexColTable
 
 		String classCode = cur.getClassCode();
 		CFBamIndexColBuff newInstance;
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1172,7 +1172,7 @@ public class CFBamRamIndexColTable
 		editCur.set( cur );
 
 		classCode = next.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1186,7 +1186,7 @@ public class CFBamRamIndexColTable
 		CFBamIndexColBuff editGrandnext = null;
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1201,7 +1201,7 @@ public class CFBamRamIndexColTable
 		CFBamIndexColBuff editPrev = null;
 		if( prev != null ) {
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				newInstance = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1243,7 +1243,7 @@ public class CFBamRamIndexColTable
 
 		if( editPrev != null ) {
 			classCode = editPrev.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editPrev );
 			}
 			else {
@@ -1254,7 +1254,7 @@ public class CFBamRamIndexColTable
 		}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editCur );
 			}
 			else {
@@ -1264,7 +1264,7 @@ public class CFBamRamIndexColTable
 			}
 
 		classCode = editNext.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editNext );
 			}
 			else {
@@ -1275,7 +1275,7 @@ public class CFBamRamIndexColTable
 
 		if( editGrandnext != null ) {
 			classCode = editGrandnext.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editGrandnext );
 			}
 			else {
@@ -1616,7 +1616,7 @@ public class CFBamRamIndexColTable
 			}
 			CFBamIndexColBuff editPrev;
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				editPrev = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1627,7 +1627,7 @@ public class CFBamRamIndexColTable
 			editPrev.set( prev );
 			editPrev.setOptionalNextTenantId( nextTenantId );
 			editPrev.setOptionalNextId( nextId );
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editPrev );
 			}
 			else {
@@ -1652,7 +1652,7 @@ public class CFBamRamIndexColTable
 			}
 			CFBamIndexColBuff editNext;
 			classCode = next.getClassCode();
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				editNext = schema.getFactoryIndexCol().newBuff();
 			}
 			else {
@@ -1663,7 +1663,7 @@ public class CFBamRamIndexColTable
 			editNext.set( next );
 			editNext.setOptionalPrevTenantId( prevTenantId );
 			editNext.setOptionalPrevId( prevId );
-			if( classCode.equals( "a822" ) ) {
+			if( classCode.equals( "a825" ) ) {
 				schema.getTableIndexCol().updateIndexCol( Authorization, editNext );
 			}
 			else {

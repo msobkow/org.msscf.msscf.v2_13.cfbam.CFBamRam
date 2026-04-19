@@ -331,7 +331,7 @@ public class CFBamRamClearDepTable
 	{
 		final String S_ProcName = "CFBamRamClearDep.readBuff";
 		CFBamClearDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a810" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a813" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -342,7 +342,7 @@ public class CFBamRamClearDepTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamClearDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a810" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a813" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -356,7 +356,7 @@ public class CFBamRamClearDepTable
 		CFBamClearDepBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a810" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -408,7 +408,7 @@ public class CFBamRamClearDepTable
 			RelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a810" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
 				filteredList.add( (CFBamClearDepBuff)buff );
 			}
 		}
@@ -427,7 +427,7 @@ public class CFBamRamClearDepTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a810" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
 				filteredList.add( (CFBamClearDepBuff)buff );
 			}
 		}
@@ -713,19 +713,19 @@ public class CFBamRamClearDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a810".equals( subClassCode ) ) {
+			if( "a813".equals( subClassCode ) ) {
 				schema.getTableClearDep().deleteClearDep( Authorization, cur );
 			}
-			else if( "a811".equals( subClassCode ) ) {
+			else if( "a814".equals( subClassCode ) ) {
 				schema.getTableClearSubDep1().deleteClearSubDep1( Authorization, (CFBamClearSubDep1Buff)cur );
 			}
-			else if( "a812".equals( subClassCode ) ) {
+			else if( "a815".equals( subClassCode ) ) {
 				schema.getTableClearSubDep2().deleteClearSubDep2( Authorization, (CFBamClearSubDep2Buff)cur );
 			}
-			else if( "a813".equals( subClassCode ) ) {
+			else if( "a816".equals( subClassCode ) ) {
 				schema.getTableClearSubDep3().deleteClearSubDep3( Authorization, (CFBamClearSubDep3Buff)cur );
 			}
-			else if( "a814".equals( subClassCode ) ) {
+			else if( "a817".equals( subClassCode ) ) {
 				schema.getTableClearTopDep().deleteClearTopDep( Authorization, (CFBamClearTopDepBuff)cur );
 			}
 			else {
@@ -778,19 +778,19 @@ public class CFBamRamClearDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a810".equals( subClassCode ) ) {
+			if( "a813".equals( subClassCode ) ) {
 				schema.getTableClearDep().deleteClearDep( Authorization, cur );
 			}
-			else if( "a811".equals( subClassCode ) ) {
+			else if( "a814".equals( subClassCode ) ) {
 				schema.getTableClearSubDep1().deleteClearSubDep1( Authorization, (CFBamClearSubDep1Buff)cur );
 			}
-			else if( "a812".equals( subClassCode ) ) {
+			else if( "a815".equals( subClassCode ) ) {
 				schema.getTableClearSubDep2().deleteClearSubDep2( Authorization, (CFBamClearSubDep2Buff)cur );
 			}
-			else if( "a813".equals( subClassCode ) ) {
+			else if( "a816".equals( subClassCode ) ) {
 				schema.getTableClearSubDep3().deleteClearSubDep3( Authorization, (CFBamClearSubDep3Buff)cur );
 			}
-			else if( "a814".equals( subClassCode ) ) {
+			else if( "a817".equals( subClassCode ) ) {
 				schema.getTableClearTopDep().deleteClearTopDep( Authorization, (CFBamClearTopDepBuff)cur );
 			}
 			else {
@@ -839,19 +839,19 @@ public class CFBamRamClearDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a810".equals( subClassCode ) ) {
+			if( "a813".equals( subClassCode ) ) {
 				schema.getTableClearDep().deleteClearDep( Authorization, cur );
 			}
-			else if( "a811".equals( subClassCode ) ) {
+			else if( "a814".equals( subClassCode ) ) {
 				schema.getTableClearSubDep1().deleteClearSubDep1( Authorization, (CFBamClearSubDep1Buff)cur );
 			}
-			else if( "a812".equals( subClassCode ) ) {
+			else if( "a815".equals( subClassCode ) ) {
 				schema.getTableClearSubDep2().deleteClearSubDep2( Authorization, (CFBamClearSubDep2Buff)cur );
 			}
-			else if( "a813".equals( subClassCode ) ) {
+			else if( "a816".equals( subClassCode ) ) {
 				schema.getTableClearSubDep3().deleteClearSubDep3( Authorization, (CFBamClearSubDep3Buff)cur );
 			}
-			else if( "a814".equals( subClassCode ) ) {
+			else if( "a817".equals( subClassCode ) ) {
 				schema.getTableClearTopDep().deleteClearTopDep( Authorization, (CFBamClearTopDepBuff)cur );
 			}
 			else {
@@ -897,19 +897,19 @@ public class CFBamRamClearDepTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a810".equals( subClassCode ) ) {
+			if( "a813".equals( subClassCode ) ) {
 				schema.getTableClearDep().deleteClearDep( Authorization, cur );
 			}
-			else if( "a811".equals( subClassCode ) ) {
+			else if( "a814".equals( subClassCode ) ) {
 				schema.getTableClearSubDep1().deleteClearSubDep1( Authorization, (CFBamClearSubDep1Buff)cur );
 			}
-			else if( "a812".equals( subClassCode ) ) {
+			else if( "a815".equals( subClassCode ) ) {
 				schema.getTableClearSubDep2().deleteClearSubDep2( Authorization, (CFBamClearSubDep2Buff)cur );
 			}
-			else if( "a813".equals( subClassCode ) ) {
+			else if( "a816".equals( subClassCode ) ) {
 				schema.getTableClearSubDep3().deleteClearSubDep3( Authorization, (CFBamClearSubDep3Buff)cur );
 			}
-			else if( "a814".equals( subClassCode ) ) {
+			else if( "a817".equals( subClassCode ) ) {
 				schema.getTableClearTopDep().deleteClearTopDep( Authorization, (CFBamClearTopDepBuff)cur );
 			}
 			else {

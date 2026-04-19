@@ -438,7 +438,7 @@ public class CFBamRamTweakTable
 	{
 		final String S_ProcName = "CFBamRamTweak.readBuff";
 		CFBamTweakBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a88a" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a808" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -449,7 +449,7 @@ public class CFBamRamTweakTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamTweakBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a88a" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a808" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -463,7 +463,7 @@ public class CFBamRamTweakTable
 		CFBamTweakBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -478,7 +478,7 @@ public class CFBamRamTweakTable
 		CFBamTweakBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
-		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 			return( (CFBamTweakBuff)buff );
 		}
 		else {
@@ -496,7 +496,7 @@ public class CFBamRamTweakTable
 			TenantId,
 			ScopeId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 			return( (CFBamTweakBuff)buff );
 		}
 		else {
@@ -518,7 +518,7 @@ public class CFBamRamTweakTable
 			DefSchemaTenantId,
 			DefSchemaId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 			return( (CFBamTweakBuff)buff );
 		}
 		else {
@@ -536,7 +536,7 @@ public class CFBamRamTweakTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 				filteredList.add( (CFBamTweakBuff)buff );
 			}
 		}
@@ -555,7 +555,7 @@ public class CFBamRamTweakTable
 			ScopeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 				filteredList.add( (CFBamTweakBuff)buff );
 			}
 		}
@@ -574,7 +574,7 @@ public class CFBamRamTweakTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a88a" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
 				filteredList.add( (CFBamTweakBuff)buff );
 			}
 		}
@@ -827,6 +827,18 @@ public class CFBamRamTweakTable
 				pkey );
 		}
 
+		if( schema.getTableIndexTweak().readDerivedByIdIdx( Authorization,
+					existing.getRequiredTenantId(),
+					existing.getRequiredId() ) != null )
+		{
+			throw new CFLibDependentsDetectedException( getClass(),
+				"deleteTweak",
+				"Superclass",
+				"SuperClass",
+				"IndexTweak",
+				pkey );
+		}
+
 		// Delete is valid
 		Map< CFBamTweakPKey, CFBamTweakBuff > subdict;
 
@@ -882,14 +894,17 @@ public class CFBamRamTweakTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a88a".equals( subClassCode ) ) {
+			if( "a808".equals( subClassCode ) ) {
 				schema.getTableTweak().deleteTweak( Authorization, cur );
 			}
-			else if( "a88b".equals( subClassCode ) ) {
+			else if( "a809".equals( subClassCode ) ) {
 				schema.getTableTableTweak().deleteTableTweak( Authorization, (CFBamTableTweakBuff)cur );
 			}
-			else if( "a88c".equals( subClassCode ) ) {
+			else if( "a80a".equals( subClassCode ) ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (CFBamSchemaTweakBuff)cur );
+			}
+			else if( "a80b".equals( subClassCode ) ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (CFBamIndexTweakBuff)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException( getClass(),
@@ -940,14 +955,17 @@ public class CFBamRamTweakTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a88a".equals( subClassCode ) ) {
+			if( "a808".equals( subClassCode ) ) {
 				schema.getTableTweak().deleteTweak( Authorization, cur );
 			}
-			else if( "a88b".equals( subClassCode ) ) {
+			else if( "a809".equals( subClassCode ) ) {
 				schema.getTableTableTweak().deleteTableTweak( Authorization, (CFBamTableTweakBuff)cur );
 			}
-			else if( "a88c".equals( subClassCode ) ) {
+			else if( "a80a".equals( subClassCode ) ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (CFBamSchemaTweakBuff)cur );
+			}
+			else if( "a80b".equals( subClassCode ) ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (CFBamIndexTweakBuff)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException( getClass(),
@@ -1008,14 +1026,17 @@ public class CFBamRamTweakTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a88a".equals( subClassCode ) ) {
+			if( "a808".equals( subClassCode ) ) {
 				schema.getTableTweak().deleteTweak( Authorization, cur );
 			}
-			else if( "a88b".equals( subClassCode ) ) {
+			else if( "a809".equals( subClassCode ) ) {
 				schema.getTableTableTweak().deleteTableTweak( Authorization, (CFBamTableTweakBuff)cur );
 			}
-			else if( "a88c".equals( subClassCode ) ) {
+			else if( "a80a".equals( subClassCode ) ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (CFBamSchemaTweakBuff)cur );
+			}
+			else if( "a80b".equals( subClassCode ) ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (CFBamIndexTweakBuff)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException( getClass(),
@@ -1060,14 +1081,17 @@ public class CFBamRamTweakTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a88a".equals( subClassCode ) ) {
+			if( "a808".equals( subClassCode ) ) {
 				schema.getTableTweak().deleteTweak( Authorization, cur );
 			}
-			else if( "a88b".equals( subClassCode ) ) {
+			else if( "a809".equals( subClassCode ) ) {
 				schema.getTableTableTweak().deleteTableTweak( Authorization, (CFBamTableTweakBuff)cur );
 			}
-			else if( "a88c".equals( subClassCode ) ) {
+			else if( "a80a".equals( subClassCode ) ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (CFBamSchemaTweakBuff)cur );
+			}
+			else if( "a80b".equals( subClassCode ) ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (CFBamIndexTweakBuff)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException( getClass(),
@@ -1115,14 +1139,17 @@ public class CFBamRamTweakTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a88a".equals( subClassCode ) ) {
+			if( "a808".equals( subClassCode ) ) {
 				schema.getTableTweak().deleteTweak( Authorization, cur );
 			}
-			else if( "a88b".equals( subClassCode ) ) {
+			else if( "a809".equals( subClassCode ) ) {
 				schema.getTableTableTweak().deleteTableTweak( Authorization, (CFBamTableTweakBuff)cur );
 			}
-			else if( "a88c".equals( subClassCode ) ) {
+			else if( "a80a".equals( subClassCode ) ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (CFBamSchemaTweakBuff)cur );
+			}
+			else if( "a80b".equals( subClassCode ) ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (CFBamIndexTweakBuff)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException( getClass(),
@@ -1174,14 +1201,17 @@ public class CFBamRamTweakTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a88a".equals( subClassCode ) ) {
+			if( "a808".equals( subClassCode ) ) {
 				schema.getTableTweak().deleteTweak( Authorization, cur );
 			}
-			else if( "a88b".equals( subClassCode ) ) {
+			else if( "a809".equals( subClassCode ) ) {
 				schema.getTableTableTweak().deleteTableTweak( Authorization, (CFBamTableTweakBuff)cur );
 			}
-			else if( "a88c".equals( subClassCode ) ) {
+			else if( "a80a".equals( subClassCode ) ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (CFBamSchemaTweakBuff)cur );
+			}
+			else if( "a80b".equals( subClassCode ) ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (CFBamIndexTweakBuff)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException( getClass(),

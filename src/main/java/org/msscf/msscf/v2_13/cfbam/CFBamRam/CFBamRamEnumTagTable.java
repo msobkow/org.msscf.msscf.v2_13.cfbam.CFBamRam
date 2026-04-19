@@ -518,7 +518,7 @@ public class CFBamRamEnumTagTable
 	{
 		final String S_ProcName = "CFBamRamEnumTag.readBuff";
 		CFBamEnumTagBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81e" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a821" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -529,7 +529,7 @@ public class CFBamRamEnumTagTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamEnumTagBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a81e" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a821" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -543,7 +543,7 @@ public class CFBamRamEnumTagTable
 		CFBamEnumTagBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -558,7 +558,7 @@ public class CFBamRamEnumTagTable
 		CFBamEnumTagBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
-		if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 			return( (CFBamEnumTagBuff)buff );
 		}
 		else {
@@ -576,7 +576,7 @@ public class CFBamRamEnumTagTable
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 				filteredList.add( (CFBamEnumTagBuff)buff );
 			}
 		}
@@ -595,7 +595,7 @@ public class CFBamRamEnumTagTable
 			EnumId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 				filteredList.add( (CFBamEnumTagBuff)buff );
 			}
 		}
@@ -614,7 +614,7 @@ public class CFBamRamEnumTagTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 				filteredList.add( (CFBamEnumTagBuff)buff );
 			}
 		}
@@ -631,7 +631,7 @@ public class CFBamRamEnumTagTable
 			TenantId,
 			EnumId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 			return( (CFBamEnumTagBuff)buff );
 		}
 		else {
@@ -651,7 +651,7 @@ public class CFBamRamEnumTagTable
 			PrevId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 				filteredList.add( (CFBamEnumTagBuff)buff );
 			}
 		}
@@ -670,7 +670,7 @@ public class CFBamRamEnumTagTable
 			NextId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a81e" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a821" ) ) {
 				filteredList.add( (CFBamEnumTagBuff)buff );
 			}
 		}
@@ -738,7 +738,7 @@ public class CFBamRamEnumTagTable
 
 		String classCode = prev.getClassCode();
 		CFBamEnumTagBuff newInstance;
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -750,7 +750,7 @@ public class CFBamRamEnumTagTable
 		editPrev.set( prev );
 
 		classCode = cur.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -764,7 +764,7 @@ public class CFBamRamEnumTagTable
 		CFBamEnumTagBuff editGrandprev = null;
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -779,7 +779,7 @@ public class CFBamRamEnumTagTable
 		CFBamEnumTagBuff editNext = null;
 		if( next != null ) {
 			classCode = next.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -821,7 +821,7 @@ public class CFBamRamEnumTagTable
 
 		if( editGrandprev != null ) {
 			classCode = editGrandprev.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editGrandprev );
 			}
 			else {
@@ -832,7 +832,7 @@ public class CFBamRamEnumTagTable
 		}
 
 		classCode = editPrev.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editPrev );
 			}
 			else {
@@ -842,7 +842,7 @@ public class CFBamRamEnumTagTable
 			}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editCur );
 			}
 			else {
@@ -853,7 +853,7 @@ public class CFBamRamEnumTagTable
 
 		if( editNext != null ) {
 			classCode = editNext.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editNext );
 			}
 			else {
@@ -927,7 +927,7 @@ public class CFBamRamEnumTagTable
 
 		String classCode = cur.getClassCode();
 		CFBamEnumTagBuff newInstance;
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -939,7 +939,7 @@ public class CFBamRamEnumTagTable
 		editCur.set( cur );
 
 		classCode = next.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -953,7 +953,7 @@ public class CFBamRamEnumTagTable
 		CFBamEnumTagBuff editGrandnext = null;
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -968,7 +968,7 @@ public class CFBamRamEnumTagTable
 		CFBamEnumTagBuff editPrev = null;
 		if( prev != null ) {
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				newInstance = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -1010,7 +1010,7 @@ public class CFBamRamEnumTagTable
 
 		if( editPrev != null ) {
 			classCode = editPrev.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editPrev );
 			}
 			else {
@@ -1021,7 +1021,7 @@ public class CFBamRamEnumTagTable
 		}
 
 		classCode = editCur.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editCur );
 			}
 			else {
@@ -1031,7 +1031,7 @@ public class CFBamRamEnumTagTable
 			}
 
 		classCode = editNext.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editNext );
 			}
 			else {
@@ -1042,7 +1042,7 @@ public class CFBamRamEnumTagTable
 
 		if( editGrandnext != null ) {
 			classCode = editGrandnext.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editGrandnext );
 			}
 			else {
@@ -1298,7 +1298,7 @@ public class CFBamRamEnumTagTable
 			}
 			CFBamEnumTagBuff editPrev;
 			classCode = prev.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				editPrev = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -1309,7 +1309,7 @@ public class CFBamRamEnumTagTable
 			editPrev.set( prev );
 			editPrev.setOptionalNextTenantId( nextTenantId );
 			editPrev.setOptionalNextId( nextId );
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editPrev );
 			}
 			else {
@@ -1334,7 +1334,7 @@ public class CFBamRamEnumTagTable
 			}
 			CFBamEnumTagBuff editNext;
 			classCode = next.getClassCode();
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				editNext = schema.getFactoryEnumTag().newBuff();
 			}
 			else {
@@ -1345,7 +1345,7 @@ public class CFBamRamEnumTagTable
 			editNext.set( next );
 			editNext.setOptionalPrevTenantId( prevTenantId );
 			editNext.setOptionalPrevId( prevId );
-			if( classCode.equals( "a81e" ) ) {
+			if( classCode.equals( "a821" ) ) {
 				schema.getTableEnumTag().updateEnumTag( Authorization, editNext );
 			}
 			else {

@@ -370,7 +370,7 @@ public class CFBamRamServerMethodTable
 	{
 		final String S_ProcName = "CFBamRamServerMethod.readBuff";
 		CFBamServerMethodBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a805" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a804" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -381,7 +381,7 @@ public class CFBamRamServerMethodTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamServerMethodBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a805" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a804" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -395,7 +395,7 @@ public class CFBamRamServerMethodTable
 		CFBamServerMethodBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -445,7 +445,7 @@ public class CFBamRamServerMethodTable
 			TenantId,
 			TableId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 			return( (CFBamServerMethodBuff)buff );
 		}
 		else {
@@ -465,7 +465,7 @@ public class CFBamRamServerMethodTable
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 				filteredList.add( (CFBamServerMethodBuff)buff );
 			}
 		}
@@ -484,7 +484,7 @@ public class CFBamRamServerMethodTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
 				filteredList.add( (CFBamServerMethodBuff)buff );
 			}
 		}
@@ -799,16 +799,16 @@ public class CFBamRamServerMethodTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a805".equals( subClassCode ) ) {
+			if( "a804".equals( subClassCode ) ) {
 				schema.getTableServerMethod().deleteServerMethod( Authorization, cur );
 			}
-			else if( "a806".equals( subClassCode ) ) {
+			else if( "a805".equals( subClassCode ) ) {
 				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
 			}
-			else if( "a807".equals( subClassCode ) ) {
+			else if( "a806".equals( subClassCode ) ) {
 				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
 			}
-			else if( "a837".equals( subClassCode ) ) {
+			else if( "a83a".equals( subClassCode ) ) {
 				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
 			}
 			else {
@@ -857,16 +857,16 @@ public class CFBamRamServerMethodTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a805".equals( subClassCode ) ) {
+			if( "a804".equals( subClassCode ) ) {
 				schema.getTableServerMethod().deleteServerMethod( Authorization, cur );
 			}
-			else if( "a806".equals( subClassCode ) ) {
+			else if( "a805".equals( subClassCode ) ) {
 				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
 			}
-			else if( "a807".equals( subClassCode ) ) {
+			else if( "a806".equals( subClassCode ) ) {
 				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
 			}
-			else if( "a837".equals( subClassCode ) ) {
+			else if( "a83a".equals( subClassCode ) ) {
 				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
 			}
 			else {
@@ -919,16 +919,16 @@ public class CFBamRamServerMethodTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a805".equals( subClassCode ) ) {
+			if( "a804".equals( subClassCode ) ) {
 				schema.getTableServerMethod().deleteServerMethod( Authorization, cur );
 			}
-			else if( "a806".equals( subClassCode ) ) {
+			else if( "a805".equals( subClassCode ) ) {
 				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
 			}
-			else if( "a807".equals( subClassCode ) ) {
+			else if( "a806".equals( subClassCode ) ) {
 				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
 			}
-			else if( "a837".equals( subClassCode ) ) {
+			else if( "a83a".equals( subClassCode ) ) {
 				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
 			}
 			else {
@@ -977,16 +977,16 @@ public class CFBamRamServerMethodTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a805".equals( subClassCode ) ) {
+			if( "a804".equals( subClassCode ) ) {
 				schema.getTableServerMethod().deleteServerMethod( Authorization, cur );
 			}
-			else if( "a806".equals( subClassCode ) ) {
+			else if( "a805".equals( subClassCode ) ) {
 				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
 			}
-			else if( "a807".equals( subClassCode ) ) {
+			else if( "a806".equals( subClassCode ) ) {
 				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
 			}
-			else if( "a837".equals( subClassCode ) ) {
+			else if( "a83a".equals( subClassCode ) ) {
 				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
 			}
 			else {
@@ -1032,16 +1032,16 @@ public class CFBamRamServerMethodTable
 				cur.getRequiredTenantId(),
 				cur.getRequiredId() );
 			String subClassCode = cur.getClassCode();
-			if( "a805".equals( subClassCode ) ) {
+			if( "a804".equals( subClassCode ) ) {
 				schema.getTableServerMethod().deleteServerMethod( Authorization, cur );
 			}
-			else if( "a806".equals( subClassCode ) ) {
+			else if( "a805".equals( subClassCode ) ) {
 				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
 			}
-			else if( "a807".equals( subClassCode ) ) {
+			else if( "a806".equals( subClassCode ) ) {
 				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
 			}
-			else if( "a837".equals( subClassCode ) ) {
+			else if( "a83a".equals( subClassCode ) ) {
 				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
 			}
 			else {

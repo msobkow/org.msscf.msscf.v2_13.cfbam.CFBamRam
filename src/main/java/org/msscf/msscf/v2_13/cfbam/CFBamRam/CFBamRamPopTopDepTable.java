@@ -369,7 +369,7 @@ public class CFBamRamPopTopDepTable
 	{
 		final String S_ProcName = "CFBamRamPopTopDep.readBuff";
 		CFBamPopTopDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a834" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a837" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -380,7 +380,7 @@ public class CFBamRamPopTopDepTable
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamPopTopDepBuff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a834" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a837" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -394,7 +394,7 @@ public class CFBamRamPopTopDepTable
 		CFBamPopTopDepBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a834" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a837" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -446,7 +446,7 @@ public class CFBamRamPopTopDepTable
 			RelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a830" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a833" ) ) {
 				filteredList.add( (CFBamPopTopDepBuff)buff );
 			}
 		}
@@ -465,7 +465,7 @@ public class CFBamRamPopTopDepTable
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a830" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a833" ) ) {
 				filteredList.add( (CFBamPopTopDepBuff)buff );
 			}
 		}
@@ -484,7 +484,7 @@ public class CFBamRamPopTopDepTable
 			ContRelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a834" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a837" ) ) {
 				filteredList.add( (CFBamPopTopDepBuff)buff );
 			}
 		}
@@ -501,7 +501,7 @@ public class CFBamRamPopTopDepTable
 			ContRelationTenantId,
 			ContRelationId,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a834" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a837" ) ) {
 			return( (CFBamPopTopDepBuff)buff );
 		}
 		else {

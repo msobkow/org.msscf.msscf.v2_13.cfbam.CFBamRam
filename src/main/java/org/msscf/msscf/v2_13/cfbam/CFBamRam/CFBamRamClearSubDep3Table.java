@@ -369,7 +369,7 @@ public class CFBamRamClearSubDep3Table
 	{
 		final String S_ProcName = "CFBamRamClearSubDep3.readBuff";
 		CFBamClearSubDep3Buff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a813" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a816" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -380,7 +380,7 @@ public class CFBamRamClearSubDep3Table
 	{
 		final String S_ProcName = "lockBuff";
 		CFBamClearSubDep3Buff buff = readDerived( Authorization, PKey );
-		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a813" ) ) ) {
+		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a816" ) ) ) {
 			buff = null;
 		}
 		return( buff );
@@ -394,7 +394,7 @@ public class CFBamRamClearSubDep3Table
 		CFBamClearSubDep3Buff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a816" ) ) {
 				filteredList.add( buff );
 			}
 		}
@@ -446,7 +446,7 @@ public class CFBamRamClearSubDep3Table
 			RelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a810" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
 				filteredList.add( (CFBamClearSubDep3Buff)buff );
 			}
 		}
@@ -465,7 +465,7 @@ public class CFBamRamClearSubDep3Table
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a810" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
 				filteredList.add( (CFBamClearSubDep3Buff)buff );
 			}
 		}
@@ -484,7 +484,7 @@ public class CFBamRamClearSubDep3Table
 			ClearSubDep2Id );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
-			if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
+			if( ( buff != null ) && buff.getClassCode().equals( "a816" ) ) {
 				filteredList.add( (CFBamClearSubDep3Buff)buff );
 			}
 		}
@@ -501,7 +501,7 @@ public class CFBamRamClearSubDep3Table
 			ClearSubDep2TenantId,
 			ClearSubDep2Id,
 			Name );
-		if( ( buff != null ) && buff.getClassCode().equals( "a813" ) ) {
+		if( ( buff != null ) && buff.getClassCode().equals( "a816" ) ) {
 			return( (CFBamClearSubDep3Buff)buff );
 		}
 		else {
