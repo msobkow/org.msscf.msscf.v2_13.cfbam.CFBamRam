@@ -177,8 +177,10 @@ public class CFBamRamSchema
 		tablePopTopDep = new CFBamRamPopTopDepTable( this );
 		tableRelation = new CFBamRamRelationTable( this );
 		tableRelationCol = new CFBamRamRelationColTable( this );
+		tableRoleDef = new CFBamRamRoleDefTable( this );
 		tableSchemaDef = new CFBamRamSchemaDefTable( this );
 		tableSchemaRef = new CFBamRamSchemaRefTable( this );
+		tableSchemaRole = new CFBamRamSchemaRoleTable( this );
 		tableSchemaTweak = new CFBamRamSchemaTweakTable( this );
 		tableScope = new CFBamRamScopeTable( this );
 		tableSecApp = new CFBamRamSecAppTable( this );
