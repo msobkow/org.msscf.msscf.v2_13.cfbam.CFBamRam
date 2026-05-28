@@ -81,6 +81,18 @@ public class CFBamRamSchemaRoleTable
 		= new HashMap< CFBamSchemaRoleBySchemaIdxKey,
 				Map< CFBamRoleDefPKey,
 					CFBamSchemaRoleBuff >>();
+	private Map< CFBamSchemaRoleByRoleScopeIdxKey,
+				Map< CFBamRoleDefPKey,
+					CFBamSchemaRoleBuff >> dictByRoleScopeIdx
+		= new HashMap< CFBamSchemaRoleByRoleScopeIdxKey,
+				Map< CFBamRoleDefPKey,
+					CFBamSchemaRoleBuff >>();
+	private Map< CFBamSchemaRoleBySchRoleScpIdxKey,
+				Map< CFBamRoleDefPKey,
+					CFBamSchemaRoleBuff >> dictBySchRoleScpIdx
+		= new HashMap< CFBamSchemaRoleBySchRoleScpIdxKey,
+				Map< CFBamRoleDefPKey,
+					CFBamSchemaRoleBuff >>();
 
 	public CFBamRamSchemaRoleTable( ICFBamSchema argSchema ) {
 		schema = argSchema;
@@ -99,6 +111,14 @@ public class CFBamRamSchemaRoleTable
 		CFBamSchemaRoleBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
 		keySchemaIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
+
+		CFBamSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		keyRoleScopeIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
+
+		CFBamSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		keySchRoleScpIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
+		keySchRoleScpIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
+		keySchRoleScpIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
 		// Validate unique indexes
 
@@ -159,6 +179,26 @@ public class CFBamRamSchemaRoleTable
 			dictBySchemaIdx.put( keySchemaIdx, subdictSchemaIdx );
 		}
 		subdictSchemaIdx.put( pkey, Buff );
+
+		Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictRoleScopeIdx;
+		if( dictByRoleScopeIdx.containsKey( keyRoleScopeIdx ) ) {
+			subdictRoleScopeIdx = dictByRoleScopeIdx.get( keyRoleScopeIdx );
+		}
+		else {
+			subdictRoleScopeIdx = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			dictByRoleScopeIdx.put( keyRoleScopeIdx, subdictRoleScopeIdx );
+		}
+		subdictRoleScopeIdx.put( pkey, Buff );
+
+		Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchRoleScpIdx;
+		if( dictBySchRoleScpIdx.containsKey( keySchRoleScpIdx ) ) {
+			subdictSchRoleScpIdx = dictBySchRoleScpIdx.get( keySchRoleScpIdx );
+		}
+		else {
+			subdictSchRoleScpIdx = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			dictBySchRoleScpIdx.put( keySchRoleScpIdx, subdictSchRoleScpIdx );
+		}
+		subdictSchRoleScpIdx.put( pkey, Buff );
 
 	}
 
@@ -352,6 +392,64 @@ public class CFBamRamSchemaRoleTable
 		return( recArray );
 	}
 
+	public CFBamSchemaRoleBuff[] readDerivedByRoleScopeIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.RoleScopeEnum RoleScope )
+	{
+		final String S_ProcName = "CFBamRamSchemaRole.readDerivedByRoleScopeIdx";
+		CFBamSchemaRoleByRoleScopeIdxKey key = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		key.setRequiredRoleScope( RoleScope );
+
+		CFBamSchemaRoleBuff[] recArray;
+		if( dictByRoleScopeIdx.containsKey( key ) ) {
+			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictRoleScopeIdx
+				= dictByRoleScopeIdx.get( key );
+			recArray = new CFBamSchemaRoleBuff[ subdictRoleScopeIdx.size() ];
+			Iterator< CFBamSchemaRoleBuff > iter = subdictRoleScopeIdx.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictRoleScopeIdx
+				= new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			dictByRoleScopeIdx.put( key, subdictRoleScopeIdx );
+			recArray = new CFBamSchemaRoleBuff[0];
+		}
+		return( recArray );
+	}
+
+	public CFBamSchemaRoleBuff[] readDerivedBySchRoleScpIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope )
+	{
+		final String S_ProcName = "CFBamRamSchemaRole.readDerivedBySchRoleScpIdx";
+		CFBamSchemaRoleBySchRoleScpIdxKey key = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredSchemaDefId( SchemaDefId );
+		key.setRequiredRoleScope( RoleScope );
+
+		CFBamSchemaRoleBuff[] recArray;
+		if( dictBySchRoleScpIdx.containsKey( key ) ) {
+			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchRoleScpIdx
+				= dictBySchRoleScpIdx.get( key );
+			recArray = new CFBamSchemaRoleBuff[ subdictSchRoleScpIdx.size() ];
+			Iterator< CFBamSchemaRoleBuff > iter = subdictSchRoleScpIdx.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchRoleScpIdx
+				= new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			dictBySchRoleScpIdx.put( key, subdictSchRoleScpIdx );
+			recArray = new CFBamSchemaRoleBuff[0];
+		}
+		return( recArray );
+	}
+
 	public CFBamSchemaRoleBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -538,6 +636,44 @@ public class CFBamRamSchemaRoleTable
 		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
 	}
 
+	public CFBamSchemaRoleBuff[] readBuffByRoleScopeIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.RoleScopeEnum RoleScope )
+	{
+		final String S_ProcName = "CFBamRamSchemaRole.readBuffByRoleScopeIdx() ";
+		CFBamSchemaRoleBuff buff;
+		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
+		CFBamSchemaRoleBuff[] buffList = readDerivedByRoleScopeIdx( Authorization,
+			RoleScope );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a88e" ) ) {
+				filteredList.add( (CFBamSchemaRoleBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+	}
+
+	public CFBamSchemaRoleBuff[] readBuffBySchRoleScpIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope )
+	{
+		final String S_ProcName = "CFBamRamSchemaRole.readBuffBySchRoleScpIdx() ";
+		CFBamSchemaRoleBuff buff;
+		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
+		CFBamSchemaRoleBuff[] buffList = readDerivedBySchRoleScpIdx( Authorization,
+			TenantId,
+			SchemaDefId,
+			RoleScope );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a88e" ) ) {
+				filteredList.add( (CFBamSchemaRoleBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+	}
+
 	/**
 	 *	Read a page array of the specific SchemaRole buffer instances identified by the duplicate key SchemaIdx.
 	 *
@@ -558,6 +694,52 @@ public class CFBamRamSchemaRoleTable
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffBySchemaIdx";
+		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+	}
+
+	/**
+	 *	Read a page array of the specific SchemaRole buffer instances identified by the duplicate key RoleScopeIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	public CFBamSchemaRoleBuff[] pageBuffByRoleScopeIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.RoleScopeEnum RoleScope,
+		Long priorTenantId,
+		Long priorId )
+	{
+		final String S_ProcName = "pageBuffByRoleScopeIdx";
+		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+	}
+
+	/**
+	 *	Read a page array of the specific SchemaRole buffer instances identified by the duplicate key SchRoleScpIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	public CFBamSchemaRoleBuff[] pageBuffBySchRoleScpIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope,
+		Long priorTenantId,
+		Long priorId )
+	{
+		final String S_ProcName = "pageBuffBySchRoleScpIdx";
 		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
@@ -584,6 +766,22 @@ public class CFBamRamSchemaRoleTable
 		CFBamSchemaRoleBySchemaIdxKey newKeySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
 		newKeySchemaIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
+
+		CFBamSchemaRoleByRoleScopeIdxKey existingKeyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		existingKeyRoleScopeIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
+
+		CFBamSchemaRoleByRoleScopeIdxKey newKeyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		newKeyRoleScopeIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
+
+		CFBamSchemaRoleBySchRoleScpIdxKey existingKeySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		existingKeySchRoleScpIdx.setRequiredTenantId( existing.getRequiredTenantId() );
+		existingKeySchRoleScpIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
+		existingKeySchRoleScpIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
+
+		CFBamSchemaRoleBySchRoleScpIdxKey newKeySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		newKeySchRoleScpIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
+		newKeySchRoleScpIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
+		newKeySchRoleScpIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
 		// Check unique indexes
 
@@ -645,6 +843,32 @@ public class CFBamRamSchemaRoleTable
 		}
 		subdict.put( pkey, Buff );
 
+		subdict = dictByRoleScopeIdx.get( existingKeyRoleScopeIdx );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictByRoleScopeIdx.containsKey( newKeyRoleScopeIdx ) ) {
+			subdict = dictByRoleScopeIdx.get( newKeyRoleScopeIdx );
+		}
+		else {
+			subdict = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			dictByRoleScopeIdx.put( newKeyRoleScopeIdx, subdict );
+		}
+		subdict.put( pkey, Buff );
+
+		subdict = dictBySchRoleScpIdx.get( existingKeySchRoleScpIdx );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictBySchRoleScpIdx.containsKey( newKeySchRoleScpIdx ) ) {
+			subdict = dictBySchRoleScpIdx.get( newKeySchRoleScpIdx );
+		}
+		else {
+			subdict = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			dictBySchRoleScpIdx.put( newKeySchRoleScpIdx, subdict );
+		}
+		subdict.put( pkey, Buff );
+
 	}
 
 	public void deleteSchemaRole( CFSecAuthorization Authorization,
@@ -669,6 +893,14 @@ public class CFBamRamSchemaRoleTable
 		keySchemaIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
+		CFBamSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		keyRoleScopeIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
+
+		CFBamSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		keySchRoleScpIdx.setRequiredTenantId( existing.getRequiredTenantId() );
+		keySchRoleScpIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
+		keySchRoleScpIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
+
 		// Validate reverse foreign keys
 
 		// Delete is valid
@@ -677,6 +909,12 @@ public class CFBamRamSchemaRoleTable
 		dictByPKey.remove( pkey );
 
 		subdict = dictBySchemaIdx.get( keySchemaIdx );
+		subdict.remove( pkey );
+
+		subdict = dictByRoleScopeIdx.get( keyRoleScopeIdx );
+		subdict.remove( pkey );
+
+		subdict = dictBySchRoleScpIdx.get( keySchRoleScpIdx );
 		subdict.remove( pkey );
 
 		schema.getTableRoleDef().deleteRoleDef( Authorization,
@@ -697,6 +935,82 @@ public class CFBamRamSchemaRoleTable
 	{
 		CFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
+		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteSchemaRole( Authorization, cur );
+		}
+	}
+
+	public void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.RoleScopeEnum argRoleScope )
+	{
+		CFBamSchemaRoleByRoleScopeIdxKey key = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		key.setRequiredRoleScope( argRoleScope );
+		deleteSchemaRoleByRoleScopeIdx( Authorization, key );
+	}
+
+	public void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
+		CFBamSchemaRoleByRoleScopeIdxKey argKey )
+	{
+		CFBamSchemaRoleBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
+		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteSchemaRole( Authorization, cur );
+		}
+	}
+
+	public void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argSchemaDefId,
+		ICFBamSchema.RoleScopeEnum argRoleScope )
+	{
+		CFBamSchemaRoleBySchRoleScpIdxKey key = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredSchemaDefId( argSchemaDefId );
+		key.setRequiredRoleScope( argRoleScope );
+		deleteSchemaRoleBySchRoleScpIdx( Authorization, key );
+	}
+
+	public void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
+		CFBamSchemaRoleBySchRoleScpIdxKey argKey )
+	{
+		CFBamSchemaRoleBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
