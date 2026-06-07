@@ -85,6 +85,18 @@ public class CFBamRamServerMethodTable
 		= new HashMap< CFBamServerMethodByMethTableIdxKey,
 				Map< CFBamScopePKey,
 					CFBamServerMethodBuff >>();
+	private Map< CFBamServerMethodByMethTableVisIdxKey,
+				Map< CFBamScopePKey,
+					CFBamServerMethodBuff >> dictByMethTableVisIdx
+		= new HashMap< CFBamServerMethodByMethTableVisIdxKey,
+				Map< CFBamScopePKey,
+					CFBamServerMethodBuff >>();
+	private Map< CFBamServerMethodByMethCodeVisIdxKey,
+				Map< CFBamScopePKey,
+					CFBamServerMethodBuff >> dictByMethCodeVisIdx
+		= new HashMap< CFBamServerMethodByMethCodeVisIdxKey,
+				Map< CFBamScopePKey,
+					CFBamServerMethodBuff >>();
 	private Map< CFBamServerMethodByDefSchemaIdxKey,
 				Map< CFBamScopePKey,
 					CFBamServerMethodBuff >> dictByDefSchemaIdx
@@ -114,6 +126,14 @@ public class CFBamRamServerMethodTable
 		CFBamServerMethodByMethTableIdxKey keyMethTableIdx = schema.getFactoryServerMethod().newMethTableIdxKey();
 		keyMethTableIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyMethTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
+
+		CFBamServerMethodByMethTableVisIdxKey keyMethTableVisIdx = schema.getFactoryServerMethod().newMethTableVisIdxKey();
+		keyMethTableVisIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
+		keyMethTableVisIdx.setRequiredTableId( Buff.getRequiredTableId() );
+		keyMethTableVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
+
+		CFBamServerMethodByMethCodeVisIdxKey keyMethCodeVisIdx = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
+		keyMethCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
 		CFBamServerMethodByDefSchemaIdxKey keyDefSchemaIdx = schema.getFactoryServerMethod().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( Buff.getOptionalDefSchemaTenantId() );
@@ -187,6 +207,26 @@ public class CFBamRamServerMethodTable
 			dictByMethTableIdx.put( keyMethTableIdx, subdictMethTableIdx );
 		}
 		subdictMethTableIdx.put( pkey, Buff );
+
+		Map< CFBamScopePKey, CFBamServerMethodBuff > subdictMethTableVisIdx;
+		if( dictByMethTableVisIdx.containsKey( keyMethTableVisIdx ) ) {
+			subdictMethTableVisIdx = dictByMethTableVisIdx.get( keyMethTableVisIdx );
+		}
+		else {
+			subdictMethTableVisIdx = new HashMap< CFBamScopePKey, CFBamServerMethodBuff >();
+			dictByMethTableVisIdx.put( keyMethTableVisIdx, subdictMethTableVisIdx );
+		}
+		subdictMethTableVisIdx.put( pkey, Buff );
+
+		Map< CFBamScopePKey, CFBamServerMethodBuff > subdictMethCodeVisIdx;
+		if( dictByMethCodeVisIdx.containsKey( keyMethCodeVisIdx ) ) {
+			subdictMethCodeVisIdx = dictByMethCodeVisIdx.get( keyMethCodeVisIdx );
+		}
+		else {
+			subdictMethCodeVisIdx = new HashMap< CFBamScopePKey, CFBamServerMethodBuff >();
+			dictByMethCodeVisIdx.put( keyMethCodeVisIdx, subdictMethCodeVisIdx );
+		}
+		subdictMethCodeVisIdx.put( pkey, Buff );
 
 		Map< CFBamScopePKey, CFBamServerMethodBuff > subdictDefSchemaIdx;
 		if( dictByDefSchemaIdx.containsKey( keyDefSchemaIdx ) ) {
@@ -312,6 +352,64 @@ public class CFBamRamServerMethodTable
 			Map< CFBamScopePKey, CFBamServerMethodBuff > subdictMethTableIdx
 				= new HashMap< CFBamScopePKey, CFBamServerMethodBuff >();
 			dictByMethTableIdx.put( key, subdictMethTableIdx );
+			recArray = new CFBamServerMethodBuff[0];
+		}
+		return( recArray );
+	}
+
+	public CFBamServerMethodBuff[] readDerivedByMethTableVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethTableVisIdx";
+		CFBamServerMethodByMethTableVisIdxKey key = schema.getFactoryServerMethod().newMethTableVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredTableId( TableId );
+		key.setRequiredCodeVis( CodeVis );
+
+		CFBamServerMethodBuff[] recArray;
+		if( dictByMethTableVisIdx.containsKey( key ) ) {
+			Map< CFBamScopePKey, CFBamServerMethodBuff > subdictMethTableVisIdx
+				= dictByMethTableVisIdx.get( key );
+			recArray = new CFBamServerMethodBuff[ subdictMethTableVisIdx.size() ];
+			Iterator< CFBamServerMethodBuff > iter = subdictMethTableVisIdx.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFBamScopePKey, CFBamServerMethodBuff > subdictMethTableVisIdx
+				= new HashMap< CFBamScopePKey, CFBamServerMethodBuff >();
+			dictByMethTableVisIdx.put( key, subdictMethTableVisIdx );
+			recArray = new CFBamServerMethodBuff[0];
+		}
+		return( recArray );
+	}
+
+	public CFBamServerMethodBuff[] readDerivedByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethCodeVisIdx";
+		CFBamServerMethodByMethCodeVisIdxKey key = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+
+		CFBamServerMethodBuff[] recArray;
+		if( dictByMethCodeVisIdx.containsKey( key ) ) {
+			Map< CFBamScopePKey, CFBamServerMethodBuff > subdictMethCodeVisIdx
+				= dictByMethCodeVisIdx.get( key );
+			recArray = new CFBamServerMethodBuff[ subdictMethCodeVisIdx.size() ];
+			Iterator< CFBamServerMethodBuff > iter = subdictMethCodeVisIdx.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFBamScopePKey, CFBamServerMethodBuff > subdictMethCodeVisIdx
+				= new HashMap< CFBamScopePKey, CFBamServerMethodBuff >();
+			dictByMethCodeVisIdx.put( key, subdictMethCodeVisIdx );
 			recArray = new CFBamServerMethodBuff[0];
 		}
 		return( recArray );
@@ -472,6 +570,44 @@ public class CFBamRamServerMethodTable
 		return( filteredList.toArray( new CFBamServerMethodBuff[0] ) );
 	}
 
+	public CFBamServerMethodBuff[] readBuffByMethTableVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readBuffByMethTableVisIdx() ";
+		CFBamServerMethodBuff buff;
+		ArrayList<CFBamServerMethodBuff> filteredList = new ArrayList<CFBamServerMethodBuff>();
+		CFBamServerMethodBuff[] buffList = readDerivedByMethTableVisIdx( Authorization,
+			TenantId,
+			TableId,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
+				filteredList.add( (CFBamServerMethodBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamServerMethodBuff[0] ) );
+	}
+
+	public CFBamServerMethodBuff[] readBuffByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readBuffByMethCodeVisIdx() ";
+		CFBamServerMethodBuff buff;
+		ArrayList<CFBamServerMethodBuff> filteredList = new ArrayList<CFBamServerMethodBuff>();
+		CFBamServerMethodBuff[] buffList = readDerivedByMethCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
+				filteredList.add( (CFBamServerMethodBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamServerMethodBuff[0] ) );
+	}
+
 	public CFBamServerMethodBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
@@ -511,6 +647,52 @@ public class CFBamRamServerMethodTable
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByMethTableIdx";
+		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+	}
+
+	/**
+	 *	Read a page array of the specific ServerMethod buffer instances identified by the duplicate key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	public CFBamServerMethodBuff[] pageBuffByMethTableVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		Long priorTenantId,
+		Long priorId )
+	{
+		final String S_ProcName = "pageBuffByMethTableVisIdx";
+		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+	}
+
+	/**
+	 *	Read a page array of the specific ServerMethod buffer instances identified by the duplicate key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	public CFBamServerMethodBuff[] pageBuffByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		Long priorTenantId,
+		Long priorId )
+	{
+		final String S_ProcName = "pageBuffByMethCodeVisIdx";
 		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
@@ -570,6 +752,22 @@ public class CFBamRamServerMethodTable
 		CFBamServerMethodByMethTableIdxKey newKeyMethTableIdx = schema.getFactoryServerMethod().newMethTableIdxKey();
 		newKeyMethTableIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyMethTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
+
+		CFBamServerMethodByMethTableVisIdxKey existingKeyMethTableVisIdx = schema.getFactoryServerMethod().newMethTableVisIdxKey();
+		existingKeyMethTableVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
+		existingKeyMethTableVisIdx.setRequiredTableId( existing.getRequiredTableId() );
+		existingKeyMethTableVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
+		CFBamServerMethodByMethTableVisIdxKey newKeyMethTableVisIdx = schema.getFactoryServerMethod().newMethTableVisIdxKey();
+		newKeyMethTableVisIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
+		newKeyMethTableVisIdx.setRequiredTableId( Buff.getRequiredTableId() );
+		newKeyMethTableVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
+
+		CFBamServerMethodByMethCodeVisIdxKey existingKeyMethCodeVisIdx = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
+		existingKeyMethCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
+		CFBamServerMethodByMethCodeVisIdxKey newKeyMethCodeVisIdx = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
+		newKeyMethCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
 		CFBamServerMethodByDefSchemaIdxKey existingKeyDefSchemaIdx = schema.getFactoryServerMethod().newDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
@@ -651,6 +849,32 @@ public class CFBamRamServerMethodTable
 		}
 		subdict.put( pkey, Buff );
 
+		subdict = dictByMethTableVisIdx.get( existingKeyMethTableVisIdx );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictByMethTableVisIdx.containsKey( newKeyMethTableVisIdx ) ) {
+			subdict = dictByMethTableVisIdx.get( newKeyMethTableVisIdx );
+		}
+		else {
+			subdict = new HashMap< CFBamScopePKey, CFBamServerMethodBuff >();
+			dictByMethTableVisIdx.put( newKeyMethTableVisIdx, subdict );
+		}
+		subdict.put( pkey, Buff );
+
+		subdict = dictByMethCodeVisIdx.get( existingKeyMethCodeVisIdx );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictByMethCodeVisIdx.containsKey( newKeyMethCodeVisIdx ) ) {
+			subdict = dictByMethCodeVisIdx.get( newKeyMethCodeVisIdx );
+		}
+		else {
+			subdict = new HashMap< CFBamScopePKey, CFBamServerMethodBuff >();
+			dictByMethCodeVisIdx.put( newKeyMethCodeVisIdx, subdict );
+		}
+		subdict.put( pkey, Buff );
+
 		subdict = dictByDefSchemaIdx.get( existingKeyDefSchemaIdx );
 		if( subdict != null ) {
 			subdict.remove( pkey );
@@ -702,6 +926,14 @@ public class CFBamRamServerMethodTable
 		keyMethTableIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyMethTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
+		CFBamServerMethodByMethTableVisIdxKey keyMethTableVisIdx = schema.getFactoryServerMethod().newMethTableVisIdxKey();
+		keyMethTableVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
+		keyMethTableVisIdx.setRequiredTableId( existing.getRequiredTableId() );
+		keyMethTableVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
+		CFBamServerMethodByMethCodeVisIdxKey keyMethCodeVisIdx = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
+		keyMethCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
 		CFBamServerMethodByDefSchemaIdxKey keyDefSchemaIdx = schema.getFactoryServerMethod().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
@@ -752,6 +984,12 @@ public class CFBamRamServerMethodTable
 		dictByUNameIdx.remove( keyUNameIdx );
 
 		subdict = dictByMethTableIdx.get( keyMethTableIdx );
+		subdict.remove( pkey );
+
+		subdict = dictByMethTableVisIdx.get( keyMethTableVisIdx );
+		subdict.remove( pkey );
+
+		subdict = dictByMethCodeVisIdx.get( keyMethCodeVisIdx );
 		subdict.remove( pkey );
 
 		subdict = dictByDefSchemaIdx.get( keyDefSchemaIdx );
@@ -838,6 +1076,122 @@ public class CFBamRamServerMethodTable
 		CFBamServerMethodBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamServerMethodBuff> matchSet = new LinkedList<CFBamServerMethodBuff>();
+		Iterator<CFBamServerMethodBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamServerMethodBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableServerMethod().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a804".equals( subClassCode ) ) {
+				schema.getTableServerMethod().deleteServerMethod( Authorization, cur );
+			}
+			else if( "a805".equals( subClassCode ) ) {
+				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
+			}
+			else if( "a806".equals( subClassCode ) ) {
+				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
+			}
+			else if( "a83a".equals( subClassCode ) ) {
+				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of ServerMethod must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteServerMethodByMethTableVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argTableId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamServerMethodByMethTableVisIdxKey key = schema.getFactoryServerMethod().newMethTableVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredTableId( argTableId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteServerMethodByMethTableVisIdx( Authorization, key );
+	}
+
+	public void deleteServerMethodByMethTableVisIdx( CFSecAuthorization Authorization,
+		CFBamServerMethodByMethTableVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteServerMethodByMethTableVisIdx";
+		CFBamServerMethodBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamServerMethodBuff> matchSet = new LinkedList<CFBamServerMethodBuff>();
+		Iterator<CFBamServerMethodBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamServerMethodBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableServerMethod().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a804".equals( subClassCode ) ) {
+				schema.getTableServerMethod().deleteServerMethod( Authorization, cur );
+			}
+			else if( "a805".equals( subClassCode ) ) {
+				schema.getTableServerObjFunc().deleteServerObjFunc( Authorization, (CFBamServerObjFuncBuff)cur );
+			}
+			else if( "a806".equals( subClassCode ) ) {
+				schema.getTableServerProc().deleteServerProc( Authorization, (CFBamServerProcBuff)cur );
+			}
+			else if( "a83a".equals( subClassCode ) ) {
+				schema.getTableServerListFunc().deleteServerListFunc( Authorization, (CFBamServerListFuncBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of ServerMethod must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteServerMethodByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamServerMethodByMethCodeVisIdxKey key = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteServerMethodByMethCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteServerMethodByMethCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamServerMethodByMethCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteServerMethodByMethCodeVisIdx";
+		CFBamServerMethodBuff cur;
+		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
