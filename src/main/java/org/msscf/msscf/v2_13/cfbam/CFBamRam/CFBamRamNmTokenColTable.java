@@ -1169,6 +1169,54 @@ public class CFBamRamNmTokenColTable
 		}
 	}
 
+	public CFBamNmTokenColBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamNmTokenColBuff> filteredList = new ArrayList<CFBamNmTokenColBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamNmTokenColBuff ) ) {
+					filteredList.add( (CFBamNmTokenColBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamNmTokenColBuff[0] ) );
+		}
+	}
+
+	public CFBamNmTokenColBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamNmTokenColBuff> filteredList = new ArrayList<CFBamNmTokenColBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamNmTokenColBuff ) ) {
+					filteredList.add( (CFBamNmTokenColBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamNmTokenColBuff[0] ) );
+		}
+	}
+
 	public CFBamNmTokenColBuff[] readDerivedByTableIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long TableId )
@@ -1414,6 +1462,44 @@ public class CFBamRamNmTokenColTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamNmTokenColBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamNmTokenColBuff[0] ) );
+	}
+
+	public CFBamNmTokenColBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamNmTokenColBuff buff;
+		ArrayList<CFBamNmTokenColBuff> filteredList = new ArrayList<CFBamNmTokenColBuff>();
+		CFBamNmTokenColBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamNmTokenColBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamNmTokenColBuff[0] ) );
+	}
+
+	public CFBamNmTokenColBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamNmTokenColBuff buff;
+		ArrayList<CFBamNmTokenColBuff> filteredList = new ArrayList<CFBamNmTokenColBuff>();
+		CFBamNmTokenColBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -8752,6 +8838,82 @@ public class CFBamRamNmTokenColTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamNmTokenColBuff> matchSet = new LinkedList<CFBamNmTokenColBuff>();
+		Iterator<CFBamNmTokenColBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamNmTokenColBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableNmTokenCol().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteNmTokenCol( Authorization, cur );
+		}
+	}
+
+	public void deleteNmTokenColByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteNmTokenColByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteNmTokenColByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		CFBamNmTokenColBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamNmTokenColBuff> matchSet = new LinkedList<CFBamNmTokenColBuff>();
+		Iterator<CFBamNmTokenColBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamNmTokenColBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableNmTokenCol().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteNmTokenCol( Authorization, cur );
+		}
+	}
+
+	public void deleteNmTokenColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteNmTokenColByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteNmTokenColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		CFBamNmTokenColBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

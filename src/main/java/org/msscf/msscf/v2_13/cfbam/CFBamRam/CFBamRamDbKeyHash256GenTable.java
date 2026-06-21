@@ -1150,6 +1150,54 @@ public class CFBamRamDbKeyHash256GenTable
 		}
 	}
 
+	public CFBamDbKeyHash256GenBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamDbKeyHash256GenBuff> filteredList = new ArrayList<CFBamDbKeyHash256GenBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamDbKeyHash256GenBuff ) ) {
+					filteredList.add( (CFBamDbKeyHash256GenBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamDbKeyHash256GenBuff[0] ) );
+		}
+	}
+
+	public CFBamDbKeyHash256GenBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamDbKeyHash256GenBuff> filteredList = new ArrayList<CFBamDbKeyHash256GenBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamDbKeyHash256GenBuff ) ) {
+					filteredList.add( (CFBamDbKeyHash256GenBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamDbKeyHash256GenBuff[0] ) );
+		}
+	}
+
 	public CFBamDbKeyHash256GenBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId )
@@ -1419,6 +1467,44 @@ public class CFBamRamDbKeyHash256GenTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamDbKeyHash256GenBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamDbKeyHash256GenBuff[0] ) );
+	}
+
+	public CFBamDbKeyHash256GenBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamDbKeyHash256GenBuff buff;
+		ArrayList<CFBamDbKeyHash256GenBuff> filteredList = new ArrayList<CFBamDbKeyHash256GenBuff>();
+		CFBamDbKeyHash256GenBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamDbKeyHash256GenBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamDbKeyHash256GenBuff[0] ) );
+	}
+
+	public CFBamDbKeyHash256GenBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamDbKeyHash256GenBuff buff;
+		ArrayList<CFBamDbKeyHash256GenBuff> filteredList = new ArrayList<CFBamDbKeyHash256GenBuff>();
+		CFBamDbKeyHash256GenBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -8823,6 +8909,82 @@ public class CFBamRamDbKeyHash256GenTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamDbKeyHash256GenBuff> matchSet = new LinkedList<CFBamDbKeyHash256GenBuff>();
+		Iterator<CFBamDbKeyHash256GenBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamDbKeyHash256GenBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableDbKeyHash256Gen().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteDbKeyHash256Gen( Authorization, cur );
+		}
+	}
+
+	public void deleteDbKeyHash256GenByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteDbKeyHash256GenByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteDbKeyHash256GenByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		CFBamDbKeyHash256GenBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamDbKeyHash256GenBuff> matchSet = new LinkedList<CFBamDbKeyHash256GenBuff>();
+		Iterator<CFBamDbKeyHash256GenBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamDbKeyHash256GenBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableDbKeyHash256Gen().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteDbKeyHash256Gen( Authorization, cur );
+		}
+	}
+
+	public void deleteDbKeyHash256GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteDbKeyHash256GenByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteDbKeyHash256GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		CFBamDbKeyHash256GenBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

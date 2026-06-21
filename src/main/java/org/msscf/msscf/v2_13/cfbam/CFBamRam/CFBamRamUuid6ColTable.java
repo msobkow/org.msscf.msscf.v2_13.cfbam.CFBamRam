@@ -1169,6 +1169,54 @@ public class CFBamRamUuid6ColTable
 		}
 	}
 
+	public CFBamUuid6ColBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamUuid6ColBuff> filteredList = new ArrayList<CFBamUuid6ColBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamUuid6ColBuff ) ) {
+					filteredList.add( (CFBamUuid6ColBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamUuid6ColBuff[0] ) );
+		}
+	}
+
+	public CFBamUuid6ColBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamUuid6ColBuff> filteredList = new ArrayList<CFBamUuid6ColBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamUuid6ColBuff ) ) {
+					filteredList.add( (CFBamUuid6ColBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamUuid6ColBuff[0] ) );
+		}
+	}
+
 	public CFBamUuid6ColBuff[] readDerivedByTableIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long TableId )
@@ -1414,6 +1462,44 @@ public class CFBamRamUuid6ColTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamUuid6ColBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamUuid6ColBuff[0] ) );
+	}
+
+	public CFBamUuid6ColBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamUuid6ColBuff buff;
+		ArrayList<CFBamUuid6ColBuff> filteredList = new ArrayList<CFBamUuid6ColBuff>();
+		CFBamUuid6ColBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamUuid6ColBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamUuid6ColBuff[0] ) );
+	}
+
+	public CFBamUuid6ColBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamUuid6ColBuff buff;
+		ArrayList<CFBamUuid6ColBuff> filteredList = new ArrayList<CFBamUuid6ColBuff>();
+		CFBamUuid6ColBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -8752,6 +8838,82 @@ public class CFBamRamUuid6ColTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamUuid6ColBuff> matchSet = new LinkedList<CFBamUuid6ColBuff>();
+		Iterator<CFBamUuid6ColBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamUuid6ColBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableUuid6Col().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteUuid6Col( Authorization, cur );
+		}
+	}
+
+	public void deleteUuid6ColByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteUuid6ColByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteUuid6ColByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		CFBamUuid6ColBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamUuid6ColBuff> matchSet = new LinkedList<CFBamUuid6ColBuff>();
+		Iterator<CFBamUuid6ColBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamUuid6ColBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableUuid6Col().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteUuid6Col( Authorization, cur );
+		}
+	}
+
+	public void deleteUuid6ColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteUuid6ColByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteUuid6ColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		CFBamUuid6ColBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

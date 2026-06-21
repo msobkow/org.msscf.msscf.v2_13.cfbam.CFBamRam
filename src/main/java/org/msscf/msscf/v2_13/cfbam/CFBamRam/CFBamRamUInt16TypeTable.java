@@ -1169,6 +1169,54 @@ public class CFBamRamUInt16TypeTable
 		}
 	}
 
+	public CFBamUInt16TypeBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamUInt16TypeBuff> filteredList = new ArrayList<CFBamUInt16TypeBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamUInt16TypeBuff ) ) {
+					filteredList.add( (CFBamUInt16TypeBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamUInt16TypeBuff[0] ) );
+		}
+	}
+
+	public CFBamUInt16TypeBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamUInt16TypeBuff> filteredList = new ArrayList<CFBamUInt16TypeBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamUInt16TypeBuff ) ) {
+					filteredList.add( (CFBamUInt16TypeBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamUInt16TypeBuff[0] ) );
+		}
+	}
+
 	public CFBamUInt16TypeBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId )
@@ -1414,6 +1462,44 @@ public class CFBamRamUInt16TypeTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamUInt16TypeBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamUInt16TypeBuff[0] ) );
+	}
+
+	public CFBamUInt16TypeBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamUInt16TypeBuff buff;
+		ArrayList<CFBamUInt16TypeBuff> filteredList = new ArrayList<CFBamUInt16TypeBuff>();
+		CFBamUInt16TypeBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamUInt16TypeBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamUInt16TypeBuff[0] ) );
+	}
+
+	public CFBamUInt16TypeBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamUInt16TypeBuff buff;
+		ArrayList<CFBamUInt16TypeBuff> filteredList = new ArrayList<CFBamUInt16TypeBuff>();
+		CFBamUInt16TypeBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -8752,6 +8838,82 @@ public class CFBamRamUInt16TypeTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamUInt16TypeBuff> matchSet = new LinkedList<CFBamUInt16TypeBuff>();
+		Iterator<CFBamUInt16TypeBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamUInt16TypeBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableUInt16Type().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteUInt16Type( Authorization, cur );
+		}
+	}
+
+	public void deleteUInt16TypeByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteUInt16TypeByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteUInt16TypeByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		CFBamUInt16TypeBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamUInt16TypeBuff> matchSet = new LinkedList<CFBamUInt16TypeBuff>();
+		Iterator<CFBamUInt16TypeBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamUInt16TypeBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableUInt16Type().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			deleteUInt16Type( Authorization, cur );
+		}
+	}
+
+	public void deleteUInt16TypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteUInt16TypeByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteUInt16TypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		CFBamUInt16TypeBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

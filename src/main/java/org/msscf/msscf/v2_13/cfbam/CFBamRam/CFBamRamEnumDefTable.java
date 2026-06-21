@@ -359,6 +359,54 @@ public class CFBamRamEnumDefTable
 		}
 	}
 
+	public CFBamEnumDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamEnumDefBuff> filteredList = new ArrayList<CFBamEnumDefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamEnumDefBuff ) ) {
+					filteredList.add( (CFBamEnumDefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamEnumDefBuff[0] ) );
+		}
+	}
+
+	public CFBamEnumDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamEnumDefBuff> filteredList = new ArrayList<CFBamEnumDefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamEnumDefBuff ) ) {
+					filteredList.add( (CFBamEnumDefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamEnumDefBuff[0] ) );
+		}
+	}
+
 	public CFBamEnumDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -575,6 +623,44 @@ public class CFBamRamEnumDefTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamEnumDefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamEnumDefBuff[0] ) );
+	}
+
+	public CFBamEnumDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamEnumDefBuff buff;
+		ArrayList<CFBamEnumDefBuff> filteredList = new ArrayList<CFBamEnumDefBuff>();
+		CFBamEnumDefBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamEnumDefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamEnumDefBuff[0] ) );
+	}
+
+	public CFBamEnumDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamEnumDefBuff buff;
+		ArrayList<CFBamEnumDefBuff> filteredList = new ArrayList<CFBamEnumDefBuff>();
+		CFBamEnumDefBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -7921,6 +8007,110 @@ public class CFBamRamEnumDefTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamEnumDefBuff> matchSet = new LinkedList<CFBamEnumDefBuff>();
+		Iterator<CFBamEnumDefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamEnumDefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableEnumDef().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a872".equals( subClassCode ) ) {
+				schema.getTableEnumDef().deleteEnumDef( Authorization, cur );
+			}
+			else if( "a873".equals( subClassCode ) ) {
+				schema.getTableEnumType().deleteEnumType( Authorization, (CFBamEnumTypeBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of EnumDef must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteEnumDefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteEnumDefByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteEnumDefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteEnumDefByCodeVisIdx";
+		CFBamEnumDefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamEnumDefBuff> matchSet = new LinkedList<CFBamEnumDefBuff>();
+		Iterator<CFBamEnumDefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamEnumDefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableEnumDef().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a872".equals( subClassCode ) ) {
+				schema.getTableEnumDef().deleteEnumDef( Authorization, cur );
+			}
+			else if( "a873".equals( subClassCode ) ) {
+				schema.getTableEnumType().deleteEnumType( Authorization, (CFBamEnumTypeBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of EnumDef must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteEnumDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteEnumDefByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteEnumDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteEnumDefByScopeCodeVisIdx";
+		CFBamEnumDefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

@@ -359,6 +359,54 @@ public class CFBamRamDbKeyHash384DefTable
 		}
 	}
 
+	public CFBamDbKeyHash384DefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamDbKeyHash384DefBuff> filteredList = new ArrayList<CFBamDbKeyHash384DefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamDbKeyHash384DefBuff ) ) {
+					filteredList.add( (CFBamDbKeyHash384DefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamDbKeyHash384DefBuff[0] ) );
+		}
+	}
+
+	public CFBamDbKeyHash384DefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamDbKeyHash384DefBuff> filteredList = new ArrayList<CFBamDbKeyHash384DefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamDbKeyHash384DefBuff ) ) {
+					filteredList.add( (CFBamDbKeyHash384DefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamDbKeyHash384DefBuff[0] ) );
+		}
+	}
+
 	public CFBamDbKeyHash384DefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -575,6 +623,44 @@ public class CFBamRamDbKeyHash384DefTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamDbKeyHash384DefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamDbKeyHash384DefBuff[0] ) );
+	}
+
+	public CFBamDbKeyHash384DefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamDbKeyHash384DefBuff buff;
+		ArrayList<CFBamDbKeyHash384DefBuff> filteredList = new ArrayList<CFBamDbKeyHash384DefBuff>();
+		CFBamDbKeyHash384DefBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamDbKeyHash384DefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamDbKeyHash384DefBuff[0] ) );
+	}
+
+	public CFBamDbKeyHash384DefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamDbKeyHash384DefBuff buff;
+		ArrayList<CFBamDbKeyHash384DefBuff> filteredList = new ArrayList<CFBamDbKeyHash384DefBuff>();
+		CFBamDbKeyHash384DefBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -7972,6 +8058,122 @@ public class CFBamRamDbKeyHash384DefTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamDbKeyHash384DefBuff> matchSet = new LinkedList<CFBamDbKeyHash384DefBuff>();
+		Iterator<CFBamDbKeyHash384DefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamDbKeyHash384DefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableDbKeyHash384Def().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a84b".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Def().deleteDbKeyHash384Def( Authorization, cur );
+			}
+			else if( "a84c".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Col().deleteDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)cur );
+			}
+			else if( "a84d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Type().deleteDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)cur );
+			}
+			else if( "a84e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Gen().deleteDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of DbKeyHash384Def must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteDbKeyHash384DefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteDbKeyHash384DefByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteDbKeyHash384DefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteDbKeyHash384DefByCodeVisIdx";
+		CFBamDbKeyHash384DefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamDbKeyHash384DefBuff> matchSet = new LinkedList<CFBamDbKeyHash384DefBuff>();
+		Iterator<CFBamDbKeyHash384DefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamDbKeyHash384DefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableDbKeyHash384Def().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a84b".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Def().deleteDbKeyHash384Def( Authorization, cur );
+			}
+			else if( "a84c".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Col().deleteDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)cur );
+			}
+			else if( "a84d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Type().deleteDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)cur );
+			}
+			else if( "a84e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Gen().deleteDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of DbKeyHash384Def must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteDbKeyHash384DefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteDbKeyHash384DefByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteDbKeyHash384DefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteDbKeyHash384DefByScopeCodeVisIdx";
+		CFBamDbKeyHash384DefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

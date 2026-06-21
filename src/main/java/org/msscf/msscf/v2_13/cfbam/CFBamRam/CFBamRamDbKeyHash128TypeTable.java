@@ -1169,6 +1169,54 @@ public class CFBamRamDbKeyHash128TypeTable
 		}
 	}
 
+	public CFBamDbKeyHash128TypeBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamDbKeyHash128TypeBuff> filteredList = new ArrayList<CFBamDbKeyHash128TypeBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamDbKeyHash128TypeBuff ) ) {
+					filteredList.add( (CFBamDbKeyHash128TypeBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamDbKeyHash128TypeBuff[0] ) );
+		}
+	}
+
+	public CFBamDbKeyHash128TypeBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamDbKeyHash128TypeBuff> filteredList = new ArrayList<CFBamDbKeyHash128TypeBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamDbKeyHash128TypeBuff ) ) {
+					filteredList.add( (CFBamDbKeyHash128TypeBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamDbKeyHash128TypeBuff[0] ) );
+		}
+	}
+
 	public CFBamDbKeyHash128TypeBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId )
@@ -1414,6 +1462,44 @@ public class CFBamRamDbKeyHash128TypeTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamDbKeyHash128TypeBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamDbKeyHash128TypeBuff[0] ) );
+	}
+
+	public CFBamDbKeyHash128TypeBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamDbKeyHash128TypeBuff buff;
+		ArrayList<CFBamDbKeyHash128TypeBuff> filteredList = new ArrayList<CFBamDbKeyHash128TypeBuff>();
+		CFBamDbKeyHash128TypeBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamDbKeyHash128TypeBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamDbKeyHash128TypeBuff[0] ) );
+	}
+
+	public CFBamDbKeyHash128TypeBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamDbKeyHash128TypeBuff buff;
+		ArrayList<CFBamDbKeyHash128TypeBuff> filteredList = new ArrayList<CFBamDbKeyHash128TypeBuff>();
+		CFBamDbKeyHash128TypeBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -8891,6 +8977,110 @@ public class CFBamRamDbKeyHash128TypeTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamDbKeyHash128TypeBuff> matchSet = new LinkedList<CFBamDbKeyHash128TypeBuff>();
+		Iterator<CFBamDbKeyHash128TypeBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamDbKeyHash128TypeBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableDbKeyHash128Type().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a83d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Type().deleteDbKeyHash128Type( Authorization, cur );
+			}
+			else if( "a83e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Gen().deleteDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of DbKeyHash128Type must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteDbKeyHash128TypeByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteDbKeyHash128TypeByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteDbKeyHash128TypeByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteDbKeyHash128TypeByCodeVisIdx";
+		CFBamDbKeyHash128TypeBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamDbKeyHash128TypeBuff> matchSet = new LinkedList<CFBamDbKeyHash128TypeBuff>();
+		Iterator<CFBamDbKeyHash128TypeBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamDbKeyHash128TypeBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableDbKeyHash128Type().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a83d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Type().deleteDbKeyHash128Type( Authorization, cur );
+			}
+			else if( "a83e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Gen().deleteDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of DbKeyHash128Type must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteDbKeyHash128TypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteDbKeyHash128TypeByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteDbKeyHash128TypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteDbKeyHash128TypeByScopeCodeVisIdx";
+		CFBamDbKeyHash128TypeBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

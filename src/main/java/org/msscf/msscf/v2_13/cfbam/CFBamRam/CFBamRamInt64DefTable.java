@@ -359,6 +359,54 @@ public class CFBamRamInt64DefTable
 		}
 	}
 
+	public CFBamInt64DefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamInt64DefBuff> filteredList = new ArrayList<CFBamInt64DefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamInt64DefBuff ) ) {
+					filteredList.add( (CFBamInt64DefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamInt64DefBuff[0] ) );
+		}
+	}
+
+	public CFBamInt64DefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamInt64DefBuff> filteredList = new ArrayList<CFBamInt64DefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamInt64DefBuff ) ) {
+					filteredList.add( (CFBamInt64DefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamInt64DefBuff[0] ) );
+		}
+	}
+
 	public CFBamInt64DefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -575,6 +623,44 @@ public class CFBamRamInt64DefTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamInt64DefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamInt64DefBuff[0] ) );
+	}
+
+	public CFBamInt64DefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamInt64DefBuff buff;
+		ArrayList<CFBamInt64DefBuff> filteredList = new ArrayList<CFBamInt64DefBuff>();
+		CFBamInt64DefBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamInt64DefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamInt64DefBuff[0] ) );
+	}
+
+	public CFBamInt64DefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamInt64DefBuff buff;
+		ArrayList<CFBamInt64DefBuff> filteredList = new ArrayList<CFBamInt64DefBuff>();
+		CFBamInt64DefBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -7972,6 +8058,122 @@ public class CFBamRamInt64DefTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamInt64DefBuff> matchSet = new LinkedList<CFBamInt64DefBuff>();
+		Iterator<CFBamInt64DefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamInt64DefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableInt64Def().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a82a".equals( subClassCode ) ) {
+				schema.getTableInt64Def().deleteInt64Def( Authorization, cur );
+			}
+			else if( "a82b".equals( subClassCode ) ) {
+				schema.getTableInt64Type().deleteInt64Type( Authorization, (CFBamInt64TypeBuff)cur );
+			}
+			else if( "a877".equals( subClassCode ) ) {
+				schema.getTableId64Gen().deleteId64Gen( Authorization, (CFBamId64GenBuff)cur );
+			}
+			else if( "a87a".equals( subClassCode ) ) {
+				schema.getTableInt64Col().deleteInt64Col( Authorization, (CFBamInt64ColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of Int64Def must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteInt64DefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteInt64DefByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteInt64DefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteInt64DefByCodeVisIdx";
+		CFBamInt64DefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamInt64DefBuff> matchSet = new LinkedList<CFBamInt64DefBuff>();
+		Iterator<CFBamInt64DefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamInt64DefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableInt64Def().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a82a".equals( subClassCode ) ) {
+				schema.getTableInt64Def().deleteInt64Def( Authorization, cur );
+			}
+			else if( "a82b".equals( subClassCode ) ) {
+				schema.getTableInt64Type().deleteInt64Type( Authorization, (CFBamInt64TypeBuff)cur );
+			}
+			else if( "a877".equals( subClassCode ) ) {
+				schema.getTableId64Gen().deleteId64Gen( Authorization, (CFBamId64GenBuff)cur );
+			}
+			else if( "a87a".equals( subClassCode ) ) {
+				schema.getTableInt64Col().deleteInt64Col( Authorization, (CFBamInt64ColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of Int64Def must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteInt64DefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteInt64DefByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteInt64DefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteInt64DefByScopeCodeVisIdx";
+		CFBamInt64DefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

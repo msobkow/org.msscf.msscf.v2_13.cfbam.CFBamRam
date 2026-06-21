@@ -359,6 +359,54 @@ public class CFBamRamTimeDefTable
 		}
 	}
 
+	public CFBamTimeDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamTimeDefBuff> filteredList = new ArrayList<CFBamTimeDefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamTimeDefBuff ) ) {
+					filteredList.add( (CFBamTimeDefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamTimeDefBuff[0] ) );
+		}
+	}
+
+	public CFBamTimeDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamTimeDefBuff> filteredList = new ArrayList<CFBamTimeDefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamTimeDefBuff ) ) {
+					filteredList.add( (CFBamTimeDefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamTimeDefBuff[0] ) );
+		}
+	}
+
 	public CFBamTimeDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -575,6 +623,44 @@ public class CFBamRamTimeDefTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamTimeDefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamTimeDefBuff[0] ) );
+	}
+
+	public CFBamTimeDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamTimeDefBuff buff;
+		ArrayList<CFBamTimeDefBuff> filteredList = new ArrayList<CFBamTimeDefBuff>();
+		CFBamTimeDefBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamTimeDefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamTimeDefBuff[0] ) );
+	}
+
+	public CFBamTimeDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamTimeDefBuff buff;
+		ArrayList<CFBamTimeDefBuff> filteredList = new ArrayList<CFBamTimeDefBuff>();
+		CFBamTimeDefBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -7948,6 +8034,116 @@ public class CFBamRamTimeDefTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamTimeDefBuff> matchSet = new LinkedList<CFBamTimeDefBuff>();
+		Iterator<CFBamTimeDefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamTimeDefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableTimeDef().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a85e".equals( subClassCode ) ) {
+				schema.getTableTimeDef().deleteTimeDef( Authorization, cur );
+			}
+			else if( "a85f".equals( subClassCode ) ) {
+				schema.getTableTimeType().deleteTimeType( Authorization, (CFBamTimeTypeBuff)cur );
+			}
+			else if( "a883".equals( subClassCode ) ) {
+				schema.getTableTimeCol().deleteTimeCol( Authorization, (CFBamTimeColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of TimeDef must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteTimeDefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteTimeDefByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteTimeDefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteTimeDefByCodeVisIdx";
+		CFBamTimeDefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamTimeDefBuff> matchSet = new LinkedList<CFBamTimeDefBuff>();
+		Iterator<CFBamTimeDefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamTimeDefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableTimeDef().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a85e".equals( subClassCode ) ) {
+				schema.getTableTimeDef().deleteTimeDef( Authorization, cur );
+			}
+			else if( "a85f".equals( subClassCode ) ) {
+				schema.getTableTimeType().deleteTimeType( Authorization, (CFBamTimeTypeBuff)cur );
+			}
+			else if( "a883".equals( subClassCode ) ) {
+				schema.getTableTimeCol().deleteTimeCol( Authorization, (CFBamTimeColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of TimeDef must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteTimeDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteTimeDefByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteTimeDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteTimeDefByScopeCodeVisIdx";
+		CFBamTimeDefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

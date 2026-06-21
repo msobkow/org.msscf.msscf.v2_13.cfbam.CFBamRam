@@ -359,6 +359,54 @@ public class CFBamRamTZDateDefTable
 		}
 	}
 
+	public CFBamTZDateDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamTZDateDefBuff> filteredList = new ArrayList<CFBamTZDateDefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamTZDateDefBuff ) ) {
+					filteredList.add( (CFBamTZDateDefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamTZDateDefBuff[0] ) );
+		}
+	}
+
+	public CFBamTZDateDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamTZDateDefBuff> filteredList = new ArrayList<CFBamTZDateDefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamTZDateDefBuff ) ) {
+					filteredList.add( (CFBamTZDateDefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamTZDateDefBuff[0] ) );
+		}
+	}
+
 	public CFBamTZDateDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -575,6 +623,44 @@ public class CFBamRamTZDateDefTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamTZDateDefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamTZDateDefBuff[0] ) );
+	}
+
+	public CFBamTZDateDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamTZDateDefBuff buff;
+		ArrayList<CFBamTZDateDefBuff> filteredList = new ArrayList<CFBamTZDateDefBuff>();
+		CFBamTZDateDefBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamTZDateDefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamTZDateDefBuff[0] ) );
+	}
+
+	public CFBamTZDateDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamTZDateDefBuff buff;
+		ArrayList<CFBamTZDateDefBuff> filteredList = new ArrayList<CFBamTZDateDefBuff>();
+		CFBamTZDateDefBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -7948,6 +8034,116 @@ public class CFBamRamTZDateDefTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamTZDateDefBuff> matchSet = new LinkedList<CFBamTZDateDefBuff>();
+		Iterator<CFBamTZDateDefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamTZDateDefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableTZDateDef().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a855".equals( subClassCode ) ) {
+				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
+			}
+			else if( "a856".equals( subClassCode ) ) {
+				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
+			}
+			else if( "a87f".equals( subClassCode ) ) {
+				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of TZDateDef must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteTZDateDefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteTZDateDefByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteTZDateDefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteTZDateDefByCodeVisIdx";
+		CFBamTZDateDefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamTZDateDefBuff> matchSet = new LinkedList<CFBamTZDateDefBuff>();
+		Iterator<CFBamTZDateDefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamTZDateDefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableTZDateDef().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a855".equals( subClassCode ) ) {
+				schema.getTableTZDateDef().deleteTZDateDef( Authorization, cur );
+			}
+			else if( "a856".equals( subClassCode ) ) {
+				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
+			}
+			else if( "a87f".equals( subClassCode ) ) {
+				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of TZDateDef must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteTZDateDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteTZDateDefByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteTZDateDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteTZDateDefByScopeCodeVisIdx";
+		CFBamTZDateDefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

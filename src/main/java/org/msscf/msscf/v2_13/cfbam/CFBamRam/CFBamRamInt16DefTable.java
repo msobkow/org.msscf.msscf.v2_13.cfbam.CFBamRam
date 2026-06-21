@@ -359,6 +359,54 @@ public class CFBamRamInt16DefTable
 		}
 	}
 
+	public CFBamInt16DefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamInt16DefBuff> filteredList = new ArrayList<CFBamInt16DefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamInt16DefBuff ) ) {
+					filteredList.add( (CFBamInt16DefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamInt16DefBuff[0] ) );
+		}
+	}
+
+	public CFBamInt16DefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamInt16DefBuff> filteredList = new ArrayList<CFBamInt16DefBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamInt16DefBuff ) ) {
+					filteredList.add( (CFBamInt16DefBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamInt16DefBuff[0] ) );
+		}
+	}
+
 	public CFBamInt16DefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -575,6 +623,44 @@ public class CFBamRamInt16DefTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamInt16DefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamInt16DefBuff[0] ) );
+	}
+
+	public CFBamInt16DefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamInt16DefBuff buff;
+		ArrayList<CFBamInt16DefBuff> filteredList = new ArrayList<CFBamInt16DefBuff>();
+		CFBamInt16DefBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamInt16DefBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamInt16DefBuff[0] ) );
+	}
+
+	public CFBamInt16DefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamInt16DefBuff buff;
+		ArrayList<CFBamInt16DefBuff> filteredList = new ArrayList<CFBamInt16DefBuff>();
+		CFBamInt16DefBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -8032,6 +8118,134 @@ public class CFBamRamInt16DefTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamInt16DefBuff> matchSet = new LinkedList<CFBamInt16DefBuff>();
+		Iterator<CFBamInt16DefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamInt16DefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableInt16Def().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a826".equals( subClassCode ) ) {
+				schema.getTableInt16Def().deleteInt16Def( Authorization, cur );
+			}
+			else if( "a827".equals( subClassCode ) ) {
+				schema.getTableInt16Type().deleteInt16Type( Authorization, (CFBamInt16TypeBuff)cur );
+			}
+			else if( "a875".equals( subClassCode ) ) {
+				schema.getTableId16Gen().deleteId16Gen( Authorization, (CFBamId16GenBuff)cur );
+			}
+			else if( "a872".equals( subClassCode ) ) {
+				schema.getTableEnumDef().deleteEnumDef( Authorization, (CFBamEnumDefBuff)cur );
+			}
+			else if( "a873".equals( subClassCode ) ) {
+				schema.getTableEnumType().deleteEnumType( Authorization, (CFBamEnumTypeBuff)cur );
+			}
+			else if( "a878".equals( subClassCode ) ) {
+				schema.getTableInt16Col().deleteInt16Col( Authorization, (CFBamInt16ColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of Int16Def must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteInt16DefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteInt16DefByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteInt16DefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteInt16DefByCodeVisIdx";
+		CFBamInt16DefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamInt16DefBuff> matchSet = new LinkedList<CFBamInt16DefBuff>();
+		Iterator<CFBamInt16DefBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamInt16DefBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableInt16Def().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a826".equals( subClassCode ) ) {
+				schema.getTableInt16Def().deleteInt16Def( Authorization, cur );
+			}
+			else if( "a827".equals( subClassCode ) ) {
+				schema.getTableInt16Type().deleteInt16Type( Authorization, (CFBamInt16TypeBuff)cur );
+			}
+			else if( "a875".equals( subClassCode ) ) {
+				schema.getTableId16Gen().deleteId16Gen( Authorization, (CFBamId16GenBuff)cur );
+			}
+			else if( "a872".equals( subClassCode ) ) {
+				schema.getTableEnumDef().deleteEnumDef( Authorization, (CFBamEnumDefBuff)cur );
+			}
+			else if( "a873".equals( subClassCode ) ) {
+				schema.getTableEnumType().deleteEnumType( Authorization, (CFBamEnumTypeBuff)cur );
+			}
+			else if( "a878".equals( subClassCode ) ) {
+				schema.getTableInt16Col().deleteInt16Col( Authorization, (CFBamInt16ColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of Int16Def must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteInt16DefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteInt16DefByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteInt16DefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteInt16DefByScopeCodeVisIdx";
+		CFBamInt16DefBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}

@@ -359,6 +359,54 @@ public class CFBamRamAtomTable
 		}
 	}
 
+	public CFBamAtomBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamAtomBuff> filteredList = new ArrayList<CFBamAtomBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamAtomBuff ) ) {
+					filteredList.add( (CFBamAtomBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamAtomBuff[0] ) );
+		}
+	}
+
+	public CFBamAtomBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readDerivedByScopeCodeVisIdx";
+		CFBamValueBuff buffList[] = schema.getTableValue().readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			CFBamValueBuff buff;
+			ArrayList<CFBamAtomBuff> filteredList = new ArrayList<CFBamAtomBuff>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof CFBamAtomBuff ) ) {
+					filteredList.add( (CFBamAtomBuff)buff );
+				}
+			}
+			return( filteredList.toArray( new CFBamAtomBuff[0] ) );
+		}
+	}
+
 	public CFBamAtomBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
@@ -575,6 +623,44 @@ public class CFBamRamAtomTable
 			TenantId,
 			ScopeId,
 			NextId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamAtomBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamAtomBuff[0] ) );
+	}
+
+	public CFBamAtomBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByCodeVisIdx() ";
+		CFBamAtomBuff buff;
+		ArrayList<CFBamAtomBuff> filteredList = new ArrayList<CFBamAtomBuff>();
+		CFBamAtomBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
+				filteredList.add( (CFBamAtomBuff)buff );
+			}
+		}
+		return( filteredList.toArray( new CFBamAtomBuff[0] ) );
+	}
+
+	public CFBamAtomBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamValue.readBuffByScopeCodeVisIdx() ";
+		CFBamAtomBuff buff;
+		ArrayList<CFBamAtomBuff> filteredList = new ArrayList<CFBamAtomBuff>();
+		CFBamAtomBuff[] buffList = readDerivedByScopeCodeVisIdx( Authorization,
+			TenantId,
+			ScopeId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80c" ) ) {
@@ -10708,6 +10794,722 @@ public class CFBamRamAtomTable
 		if( argKey.getOptionalNextId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamAtomBuff> matchSet = new LinkedList<CFBamAtomBuff>();
+		Iterator<CFBamAtomBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamAtomBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableAtom().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a80d".equals( subClassCode ) ) {
+				schema.getTableAtom().deleteAtom( Authorization, cur );
+			}
+			else if( "a80e".equals( subClassCode ) ) {
+				schema.getTableBlobDef().deleteBlobDef( Authorization, (CFBamBlobDefBuff)cur );
+			}
+			else if( "a80f".equals( subClassCode ) ) {
+				schema.getTableBlobType().deleteBlobType( Authorization, (CFBamBlobTypeBuff)cur );
+			}
+			else if( "a86e".equals( subClassCode ) ) {
+				schema.getTableBlobCol().deleteBlobCol( Authorization, (CFBamBlobColBuff)cur );
+			}
+			else if( "a810".equals( subClassCode ) ) {
+				schema.getTableBoolDef().deleteBoolDef( Authorization, (CFBamBoolDefBuff)cur );
+			}
+			else if( "a811".equals( subClassCode ) ) {
+				schema.getTableBoolType().deleteBoolType( Authorization, (CFBamBoolTypeBuff)cur );
+			}
+			else if( "a86f".equals( subClassCode ) ) {
+				schema.getTableBoolCol().deleteBoolCol( Authorization, (CFBamBoolColBuff)cur );
+			}
+			else if( "a818".equals( subClassCode ) ) {
+				schema.getTableDateDef().deleteDateDef( Authorization, (CFBamDateDefBuff)cur );
+			}
+			else if( "a819".equals( subClassCode ) ) {
+				schema.getTableDateType().deleteDateType( Authorization, (CFBamDateTypeBuff)cur );
+			}
+			else if( "a870".equals( subClassCode ) ) {
+				schema.getTableDateCol().deleteDateCol( Authorization, (CFBamDateColBuff)cur );
+			}
+			else if( "a81f".equals( subClassCode ) ) {
+				schema.getTableDoubleDef().deleteDoubleDef( Authorization, (CFBamDoubleDefBuff)cur );
+			}
+			else if( "a820".equals( subClassCode ) ) {
+				schema.getTableDoubleType().deleteDoubleType( Authorization, (CFBamDoubleTypeBuff)cur );
+			}
+			else if( "a871".equals( subClassCode ) ) {
+				schema.getTableDoubleCol().deleteDoubleCol( Authorization, (CFBamDoubleColBuff)cur );
+			}
+			else if( "a822".equals( subClassCode ) ) {
+				schema.getTableFloatDef().deleteFloatDef( Authorization, (CFBamFloatDefBuff)cur );
+			}
+			else if( "a823".equals( subClassCode ) ) {
+				schema.getTableFloatType().deleteFloatType( Authorization, (CFBamFloatTypeBuff)cur );
+			}
+			else if( "a874".equals( subClassCode ) ) {
+				schema.getTableFloatCol().deleteFloatCol( Authorization, (CFBamFloatColBuff)cur );
+			}
+			else if( "a826".equals( subClassCode ) ) {
+				schema.getTableInt16Def().deleteInt16Def( Authorization, (CFBamInt16DefBuff)cur );
+			}
+			else if( "a827".equals( subClassCode ) ) {
+				schema.getTableInt16Type().deleteInt16Type( Authorization, (CFBamInt16TypeBuff)cur );
+			}
+			else if( "a875".equals( subClassCode ) ) {
+				schema.getTableId16Gen().deleteId16Gen( Authorization, (CFBamId16GenBuff)cur );
+			}
+			else if( "a872".equals( subClassCode ) ) {
+				schema.getTableEnumDef().deleteEnumDef( Authorization, (CFBamEnumDefBuff)cur );
+			}
+			else if( "a873".equals( subClassCode ) ) {
+				schema.getTableEnumType().deleteEnumType( Authorization, (CFBamEnumTypeBuff)cur );
+			}
+			else if( "a878".equals( subClassCode ) ) {
+				schema.getTableInt16Col().deleteInt16Col( Authorization, (CFBamInt16ColBuff)cur );
+			}
+			else if( "a828".equals( subClassCode ) ) {
+				schema.getTableInt32Def().deleteInt32Def( Authorization, (CFBamInt32DefBuff)cur );
+			}
+			else if( "a829".equals( subClassCode ) ) {
+				schema.getTableInt32Type().deleteInt32Type( Authorization, (CFBamInt32TypeBuff)cur );
+			}
+			else if( "a876".equals( subClassCode ) ) {
+				schema.getTableId32Gen().deleteId32Gen( Authorization, (CFBamId32GenBuff)cur );
+			}
+			else if( "a879".equals( subClassCode ) ) {
+				schema.getTableInt32Col().deleteInt32Col( Authorization, (CFBamInt32ColBuff)cur );
+			}
+			else if( "a82a".equals( subClassCode ) ) {
+				schema.getTableInt64Def().deleteInt64Def( Authorization, (CFBamInt64DefBuff)cur );
+			}
+			else if( "a82b".equals( subClassCode ) ) {
+				schema.getTableInt64Type().deleteInt64Type( Authorization, (CFBamInt64TypeBuff)cur );
+			}
+			else if( "a877".equals( subClassCode ) ) {
+				schema.getTableId64Gen().deleteId64Gen( Authorization, (CFBamId64GenBuff)cur );
+			}
+			else if( "a87a".equals( subClassCode ) ) {
+				schema.getTableInt64Col().deleteInt64Col( Authorization, (CFBamInt64ColBuff)cur );
+			}
+			else if( "a82c".equals( subClassCode ) ) {
+				schema.getTableNmTokenDef().deleteNmTokenDef( Authorization, (CFBamNmTokenDefBuff)cur );
+			}
+			else if( "a82d".equals( subClassCode ) ) {
+				schema.getTableNmTokenType().deleteNmTokenType( Authorization, (CFBamNmTokenTypeBuff)cur );
+			}
+			else if( "a87b".equals( subClassCode ) ) {
+				schema.getTableNmTokenCol().deleteNmTokenCol( Authorization, (CFBamNmTokenColBuff)cur );
+			}
+			else if( "a82e".equals( subClassCode ) ) {
+				schema.getTableNmTokensDef().deleteNmTokensDef( Authorization, (CFBamNmTokensDefBuff)cur );
+			}
+			else if( "a82f".equals( subClassCode ) ) {
+				schema.getTableNmTokensType().deleteNmTokensType( Authorization, (CFBamNmTokensTypeBuff)cur );
+			}
+			else if( "a87c".equals( subClassCode ) ) {
+				schema.getTableNmTokensCol().deleteNmTokensCol( Authorization, (CFBamNmTokensColBuff)cur );
+			}
+			else if( "a830".equals( subClassCode ) ) {
+				schema.getTableNumberDef().deleteNumberDef( Authorization, (CFBamNumberDefBuff)cur );
+			}
+			else if( "a831".equals( subClassCode ) ) {
+				schema.getTableNumberType().deleteNumberType( Authorization, (CFBamNumberTypeBuff)cur );
+			}
+			else if( "a87d".equals( subClassCode ) ) {
+				schema.getTableNumberCol().deleteNumberCol( Authorization, (CFBamNumberColBuff)cur );
+			}
+			else if( "a83b".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Def().deleteDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)cur );
+			}
+			else if( "a83c".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Col().deleteDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)cur );
+			}
+			else if( "a83d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Type().deleteDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)cur );
+			}
+			else if( "a83e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Gen().deleteDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)cur );
+			}
+			else if( "a83f".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Def().deleteDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)cur );
+			}
+			else if( "a840".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Col().deleteDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)cur );
+			}
+			else if( "a841".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Type().deleteDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)cur );
+			}
+			else if( "a842".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Gen().deleteDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)cur );
+			}
+			else if( "a843".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Def().deleteDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)cur );
+			}
+			else if( "a844".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Col().deleteDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)cur );
+			}
+			else if( "a845".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Type().deleteDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)cur );
+			}
+			else if( "a846".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Gen().deleteDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)cur );
+			}
+			else if( "a847".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Def().deleteDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)cur );
+			}
+			else if( "a848".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Col().deleteDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)cur );
+			}
+			else if( "a849".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Type().deleteDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)cur );
+			}
+			else if( "a84a".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Gen().deleteDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)cur );
+			}
+			else if( "a84b".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Def().deleteDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)cur );
+			}
+			else if( "a84c".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Col().deleteDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)cur );
+			}
+			else if( "a84d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Type().deleteDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)cur );
+			}
+			else if( "a84e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Gen().deleteDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)cur );
+			}
+			else if( "a84f".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Def().deleteDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)cur );
+			}
+			else if( "a850".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Col().deleteDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)cur );
+			}
+			else if( "a851".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Type().deleteDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)cur );
+			}
+			else if( "a852".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Gen().deleteDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)cur );
+			}
+			else if( "a853".equals( subClassCode ) ) {
+				schema.getTableStringDef().deleteStringDef( Authorization, (CFBamStringDefBuff)cur );
+			}
+			else if( "a854".equals( subClassCode ) ) {
+				schema.getTableStringType().deleteStringType( Authorization, (CFBamStringTypeBuff)cur );
+			}
+			else if( "a87e".equals( subClassCode ) ) {
+				schema.getTableStringCol().deleteStringCol( Authorization, (CFBamStringColBuff)cur );
+			}
+			else if( "a855".equals( subClassCode ) ) {
+				schema.getTableTZDateDef().deleteTZDateDef( Authorization, (CFBamTZDateDefBuff)cur );
+			}
+			else if( "a856".equals( subClassCode ) ) {
+				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
+			}
+			else if( "a87f".equals( subClassCode ) ) {
+				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
+			}
+			else if( "a857".equals( subClassCode ) ) {
+				schema.getTableTZTimeDef().deleteTZTimeDef( Authorization, (CFBamTZTimeDefBuff)cur );
+			}
+			else if( "a858".equals( subClassCode ) ) {
+				schema.getTableTZTimeType().deleteTZTimeType( Authorization, (CFBamTZTimeTypeBuff)cur );
+			}
+			else if( "a880".equals( subClassCode ) ) {
+				schema.getTableTZTimeCol().deleteTZTimeCol( Authorization, (CFBamTZTimeColBuff)cur );
+			}
+			else if( "a859".equals( subClassCode ) ) {
+				schema.getTableTZTimestampDef().deleteTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)cur );
+			}
+			else if( "a85a".equals( subClassCode ) ) {
+				schema.getTableTZTimestampType().deleteTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)cur );
+			}
+			else if( "a881".equals( subClassCode ) ) {
+				schema.getTableTZTimestampCol().deleteTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)cur );
+			}
+			else if( "a85c".equals( subClassCode ) ) {
+				schema.getTableTextDef().deleteTextDef( Authorization, (CFBamTextDefBuff)cur );
+			}
+			else if( "a85d".equals( subClassCode ) ) {
+				schema.getTableTextType().deleteTextType( Authorization, (CFBamTextTypeBuff)cur );
+			}
+			else if( "a882".equals( subClassCode ) ) {
+				schema.getTableTextCol().deleteTextCol( Authorization, (CFBamTextColBuff)cur );
+			}
+			else if( "a85e".equals( subClassCode ) ) {
+				schema.getTableTimeDef().deleteTimeDef( Authorization, (CFBamTimeDefBuff)cur );
+			}
+			else if( "a85f".equals( subClassCode ) ) {
+				schema.getTableTimeType().deleteTimeType( Authorization, (CFBamTimeTypeBuff)cur );
+			}
+			else if( "a883".equals( subClassCode ) ) {
+				schema.getTableTimeCol().deleteTimeCol( Authorization, (CFBamTimeColBuff)cur );
+			}
+			else if( "a860".equals( subClassCode ) ) {
+				schema.getTableTimestampDef().deleteTimestampDef( Authorization, (CFBamTimestampDefBuff)cur );
+			}
+			else if( "a861".equals( subClassCode ) ) {
+				schema.getTableTimestampType().deleteTimestampType( Authorization, (CFBamTimestampTypeBuff)cur );
+			}
+			else if( "a884".equals( subClassCode ) ) {
+				schema.getTableTimestampCol().deleteTimestampCol( Authorization, (CFBamTimestampColBuff)cur );
+			}
+			else if( "a862".equals( subClassCode ) ) {
+				schema.getTableTokenDef().deleteTokenDef( Authorization, (CFBamTokenDefBuff)cur );
+			}
+			else if( "a863".equals( subClassCode ) ) {
+				schema.getTableTokenType().deleteTokenType( Authorization, (CFBamTokenTypeBuff)cur );
+			}
+			else if( "a885".equals( subClassCode ) ) {
+				schema.getTableTokenCol().deleteTokenCol( Authorization, (CFBamTokenColBuff)cur );
+			}
+			else if( "a864".equals( subClassCode ) ) {
+				schema.getTableUInt16Def().deleteUInt16Def( Authorization, (CFBamUInt16DefBuff)cur );
+			}
+			else if( "a865".equals( subClassCode ) ) {
+				schema.getTableUInt16Type().deleteUInt16Type( Authorization, (CFBamUInt16TypeBuff)cur );
+			}
+			else if( "a886".equals( subClassCode ) ) {
+				schema.getTableUInt16Col().deleteUInt16Col( Authorization, (CFBamUInt16ColBuff)cur );
+			}
+			else if( "a866".equals( subClassCode ) ) {
+				schema.getTableUInt32Def().deleteUInt32Def( Authorization, (CFBamUInt32DefBuff)cur );
+			}
+			else if( "a867".equals( subClassCode ) ) {
+				schema.getTableUInt32Type().deleteUInt32Type( Authorization, (CFBamUInt32TypeBuff)cur );
+			}
+			else if( "a887".equals( subClassCode ) ) {
+				schema.getTableUInt32Col().deleteUInt32Col( Authorization, (CFBamUInt32ColBuff)cur );
+			}
+			else if( "a868".equals( subClassCode ) ) {
+				schema.getTableUInt64Def().deleteUInt64Def( Authorization, (CFBamUInt64DefBuff)cur );
+			}
+			else if( "a869".equals( subClassCode ) ) {
+				schema.getTableUInt64Type().deleteUInt64Type( Authorization, (CFBamUInt64TypeBuff)cur );
+			}
+			else if( "a888".equals( subClassCode ) ) {
+				schema.getTableUInt64Col().deleteUInt64Col( Authorization, (CFBamUInt64ColBuff)cur );
+			}
+			else if( "a86a".equals( subClassCode ) ) {
+				schema.getTableUuidDef().deleteUuidDef( Authorization, (CFBamUuidDefBuff)cur );
+			}
+			else if( "a86c".equals( subClassCode ) ) {
+				schema.getTableUuidType().deleteUuidType( Authorization, (CFBamUuidTypeBuff)cur );
+			}
+			else if( "a88b".equals( subClassCode ) ) {
+				schema.getTableUuidGen().deleteUuidGen( Authorization, (CFBamUuidGenBuff)cur );
+			}
+			else if( "a889".equals( subClassCode ) ) {
+				schema.getTableUuidCol().deleteUuidCol( Authorization, (CFBamUuidColBuff)cur );
+			}
+			else if( "a86b".equals( subClassCode ) ) {
+				schema.getTableUuid6Def().deleteUuid6Def( Authorization, (CFBamUuid6DefBuff)cur );
+			}
+			else if( "a86d".equals( subClassCode ) ) {
+				schema.getTableUuid6Type().deleteUuid6Type( Authorization, (CFBamUuid6TypeBuff)cur );
+			}
+			else if( "a88c".equals( subClassCode ) ) {
+				schema.getTableUuid6Gen().deleteUuid6Gen( Authorization, (CFBamUuid6GenBuff)cur );
+			}
+			else if( "a88a".equals( subClassCode ) ) {
+				schema.getTableUuid6Col().deleteUuid6Col( Authorization, (CFBamUuid6ColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of Atom must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteAtomByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = schema.getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteAtomByCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteAtomByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteAtomByCodeVisIdx";
+		CFBamAtomBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamAtomBuff> matchSet = new LinkedList<CFBamAtomBuff>();
+		Iterator<CFBamAtomBuff> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamAtomBuff> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = schema.getTableAtom().readDerivedByIdIdx( Authorization,
+				cur.getRequiredTenantId(),
+				cur.getRequiredId() );
+			String subClassCode = cur.getClassCode();
+			if( "a80d".equals( subClassCode ) ) {
+				schema.getTableAtom().deleteAtom( Authorization, cur );
+			}
+			else if( "a80e".equals( subClassCode ) ) {
+				schema.getTableBlobDef().deleteBlobDef( Authorization, (CFBamBlobDefBuff)cur );
+			}
+			else if( "a80f".equals( subClassCode ) ) {
+				schema.getTableBlobType().deleteBlobType( Authorization, (CFBamBlobTypeBuff)cur );
+			}
+			else if( "a86e".equals( subClassCode ) ) {
+				schema.getTableBlobCol().deleteBlobCol( Authorization, (CFBamBlobColBuff)cur );
+			}
+			else if( "a810".equals( subClassCode ) ) {
+				schema.getTableBoolDef().deleteBoolDef( Authorization, (CFBamBoolDefBuff)cur );
+			}
+			else if( "a811".equals( subClassCode ) ) {
+				schema.getTableBoolType().deleteBoolType( Authorization, (CFBamBoolTypeBuff)cur );
+			}
+			else if( "a86f".equals( subClassCode ) ) {
+				schema.getTableBoolCol().deleteBoolCol( Authorization, (CFBamBoolColBuff)cur );
+			}
+			else if( "a818".equals( subClassCode ) ) {
+				schema.getTableDateDef().deleteDateDef( Authorization, (CFBamDateDefBuff)cur );
+			}
+			else if( "a819".equals( subClassCode ) ) {
+				schema.getTableDateType().deleteDateType( Authorization, (CFBamDateTypeBuff)cur );
+			}
+			else if( "a870".equals( subClassCode ) ) {
+				schema.getTableDateCol().deleteDateCol( Authorization, (CFBamDateColBuff)cur );
+			}
+			else if( "a81f".equals( subClassCode ) ) {
+				schema.getTableDoubleDef().deleteDoubleDef( Authorization, (CFBamDoubleDefBuff)cur );
+			}
+			else if( "a820".equals( subClassCode ) ) {
+				schema.getTableDoubleType().deleteDoubleType( Authorization, (CFBamDoubleTypeBuff)cur );
+			}
+			else if( "a871".equals( subClassCode ) ) {
+				schema.getTableDoubleCol().deleteDoubleCol( Authorization, (CFBamDoubleColBuff)cur );
+			}
+			else if( "a822".equals( subClassCode ) ) {
+				schema.getTableFloatDef().deleteFloatDef( Authorization, (CFBamFloatDefBuff)cur );
+			}
+			else if( "a823".equals( subClassCode ) ) {
+				schema.getTableFloatType().deleteFloatType( Authorization, (CFBamFloatTypeBuff)cur );
+			}
+			else if( "a874".equals( subClassCode ) ) {
+				schema.getTableFloatCol().deleteFloatCol( Authorization, (CFBamFloatColBuff)cur );
+			}
+			else if( "a826".equals( subClassCode ) ) {
+				schema.getTableInt16Def().deleteInt16Def( Authorization, (CFBamInt16DefBuff)cur );
+			}
+			else if( "a827".equals( subClassCode ) ) {
+				schema.getTableInt16Type().deleteInt16Type( Authorization, (CFBamInt16TypeBuff)cur );
+			}
+			else if( "a875".equals( subClassCode ) ) {
+				schema.getTableId16Gen().deleteId16Gen( Authorization, (CFBamId16GenBuff)cur );
+			}
+			else if( "a872".equals( subClassCode ) ) {
+				schema.getTableEnumDef().deleteEnumDef( Authorization, (CFBamEnumDefBuff)cur );
+			}
+			else if( "a873".equals( subClassCode ) ) {
+				schema.getTableEnumType().deleteEnumType( Authorization, (CFBamEnumTypeBuff)cur );
+			}
+			else if( "a878".equals( subClassCode ) ) {
+				schema.getTableInt16Col().deleteInt16Col( Authorization, (CFBamInt16ColBuff)cur );
+			}
+			else if( "a828".equals( subClassCode ) ) {
+				schema.getTableInt32Def().deleteInt32Def( Authorization, (CFBamInt32DefBuff)cur );
+			}
+			else if( "a829".equals( subClassCode ) ) {
+				schema.getTableInt32Type().deleteInt32Type( Authorization, (CFBamInt32TypeBuff)cur );
+			}
+			else if( "a876".equals( subClassCode ) ) {
+				schema.getTableId32Gen().deleteId32Gen( Authorization, (CFBamId32GenBuff)cur );
+			}
+			else if( "a879".equals( subClassCode ) ) {
+				schema.getTableInt32Col().deleteInt32Col( Authorization, (CFBamInt32ColBuff)cur );
+			}
+			else if( "a82a".equals( subClassCode ) ) {
+				schema.getTableInt64Def().deleteInt64Def( Authorization, (CFBamInt64DefBuff)cur );
+			}
+			else if( "a82b".equals( subClassCode ) ) {
+				schema.getTableInt64Type().deleteInt64Type( Authorization, (CFBamInt64TypeBuff)cur );
+			}
+			else if( "a877".equals( subClassCode ) ) {
+				schema.getTableId64Gen().deleteId64Gen( Authorization, (CFBamId64GenBuff)cur );
+			}
+			else if( "a87a".equals( subClassCode ) ) {
+				schema.getTableInt64Col().deleteInt64Col( Authorization, (CFBamInt64ColBuff)cur );
+			}
+			else if( "a82c".equals( subClassCode ) ) {
+				schema.getTableNmTokenDef().deleteNmTokenDef( Authorization, (CFBamNmTokenDefBuff)cur );
+			}
+			else if( "a82d".equals( subClassCode ) ) {
+				schema.getTableNmTokenType().deleteNmTokenType( Authorization, (CFBamNmTokenTypeBuff)cur );
+			}
+			else if( "a87b".equals( subClassCode ) ) {
+				schema.getTableNmTokenCol().deleteNmTokenCol( Authorization, (CFBamNmTokenColBuff)cur );
+			}
+			else if( "a82e".equals( subClassCode ) ) {
+				schema.getTableNmTokensDef().deleteNmTokensDef( Authorization, (CFBamNmTokensDefBuff)cur );
+			}
+			else if( "a82f".equals( subClassCode ) ) {
+				schema.getTableNmTokensType().deleteNmTokensType( Authorization, (CFBamNmTokensTypeBuff)cur );
+			}
+			else if( "a87c".equals( subClassCode ) ) {
+				schema.getTableNmTokensCol().deleteNmTokensCol( Authorization, (CFBamNmTokensColBuff)cur );
+			}
+			else if( "a830".equals( subClassCode ) ) {
+				schema.getTableNumberDef().deleteNumberDef( Authorization, (CFBamNumberDefBuff)cur );
+			}
+			else if( "a831".equals( subClassCode ) ) {
+				schema.getTableNumberType().deleteNumberType( Authorization, (CFBamNumberTypeBuff)cur );
+			}
+			else if( "a87d".equals( subClassCode ) ) {
+				schema.getTableNumberCol().deleteNumberCol( Authorization, (CFBamNumberColBuff)cur );
+			}
+			else if( "a83b".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Def().deleteDbKeyHash128Def( Authorization, (CFBamDbKeyHash128DefBuff)cur );
+			}
+			else if( "a83c".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Col().deleteDbKeyHash128Col( Authorization, (CFBamDbKeyHash128ColBuff)cur );
+			}
+			else if( "a83d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Type().deleteDbKeyHash128Type( Authorization, (CFBamDbKeyHash128TypeBuff)cur );
+			}
+			else if( "a83e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash128Gen().deleteDbKeyHash128Gen( Authorization, (CFBamDbKeyHash128GenBuff)cur );
+			}
+			else if( "a83f".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Def().deleteDbKeyHash160Def( Authorization, (CFBamDbKeyHash160DefBuff)cur );
+			}
+			else if( "a840".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Col().deleteDbKeyHash160Col( Authorization, (CFBamDbKeyHash160ColBuff)cur );
+			}
+			else if( "a841".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Type().deleteDbKeyHash160Type( Authorization, (CFBamDbKeyHash160TypeBuff)cur );
+			}
+			else if( "a842".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash160Gen().deleteDbKeyHash160Gen( Authorization, (CFBamDbKeyHash160GenBuff)cur );
+			}
+			else if( "a843".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Def().deleteDbKeyHash224Def( Authorization, (CFBamDbKeyHash224DefBuff)cur );
+			}
+			else if( "a844".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Col().deleteDbKeyHash224Col( Authorization, (CFBamDbKeyHash224ColBuff)cur );
+			}
+			else if( "a845".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Type().deleteDbKeyHash224Type( Authorization, (CFBamDbKeyHash224TypeBuff)cur );
+			}
+			else if( "a846".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash224Gen().deleteDbKeyHash224Gen( Authorization, (CFBamDbKeyHash224GenBuff)cur );
+			}
+			else if( "a847".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Def().deleteDbKeyHash256Def( Authorization, (CFBamDbKeyHash256DefBuff)cur );
+			}
+			else if( "a848".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Col().deleteDbKeyHash256Col( Authorization, (CFBamDbKeyHash256ColBuff)cur );
+			}
+			else if( "a849".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Type().deleteDbKeyHash256Type( Authorization, (CFBamDbKeyHash256TypeBuff)cur );
+			}
+			else if( "a84a".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash256Gen().deleteDbKeyHash256Gen( Authorization, (CFBamDbKeyHash256GenBuff)cur );
+			}
+			else if( "a84b".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Def().deleteDbKeyHash384Def( Authorization, (CFBamDbKeyHash384DefBuff)cur );
+			}
+			else if( "a84c".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Col().deleteDbKeyHash384Col( Authorization, (CFBamDbKeyHash384ColBuff)cur );
+			}
+			else if( "a84d".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Type().deleteDbKeyHash384Type( Authorization, (CFBamDbKeyHash384TypeBuff)cur );
+			}
+			else if( "a84e".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash384Gen().deleteDbKeyHash384Gen( Authorization, (CFBamDbKeyHash384GenBuff)cur );
+			}
+			else if( "a84f".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Def().deleteDbKeyHash512Def( Authorization, (CFBamDbKeyHash512DefBuff)cur );
+			}
+			else if( "a850".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Col().deleteDbKeyHash512Col( Authorization, (CFBamDbKeyHash512ColBuff)cur );
+			}
+			else if( "a851".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Type().deleteDbKeyHash512Type( Authorization, (CFBamDbKeyHash512TypeBuff)cur );
+			}
+			else if( "a852".equals( subClassCode ) ) {
+				schema.getTableDbKeyHash512Gen().deleteDbKeyHash512Gen( Authorization, (CFBamDbKeyHash512GenBuff)cur );
+			}
+			else if( "a853".equals( subClassCode ) ) {
+				schema.getTableStringDef().deleteStringDef( Authorization, (CFBamStringDefBuff)cur );
+			}
+			else if( "a854".equals( subClassCode ) ) {
+				schema.getTableStringType().deleteStringType( Authorization, (CFBamStringTypeBuff)cur );
+			}
+			else if( "a87e".equals( subClassCode ) ) {
+				schema.getTableStringCol().deleteStringCol( Authorization, (CFBamStringColBuff)cur );
+			}
+			else if( "a855".equals( subClassCode ) ) {
+				schema.getTableTZDateDef().deleteTZDateDef( Authorization, (CFBamTZDateDefBuff)cur );
+			}
+			else if( "a856".equals( subClassCode ) ) {
+				schema.getTableTZDateType().deleteTZDateType( Authorization, (CFBamTZDateTypeBuff)cur );
+			}
+			else if( "a87f".equals( subClassCode ) ) {
+				schema.getTableTZDateCol().deleteTZDateCol( Authorization, (CFBamTZDateColBuff)cur );
+			}
+			else if( "a857".equals( subClassCode ) ) {
+				schema.getTableTZTimeDef().deleteTZTimeDef( Authorization, (CFBamTZTimeDefBuff)cur );
+			}
+			else if( "a858".equals( subClassCode ) ) {
+				schema.getTableTZTimeType().deleteTZTimeType( Authorization, (CFBamTZTimeTypeBuff)cur );
+			}
+			else if( "a880".equals( subClassCode ) ) {
+				schema.getTableTZTimeCol().deleteTZTimeCol( Authorization, (CFBamTZTimeColBuff)cur );
+			}
+			else if( "a859".equals( subClassCode ) ) {
+				schema.getTableTZTimestampDef().deleteTZTimestampDef( Authorization, (CFBamTZTimestampDefBuff)cur );
+			}
+			else if( "a85a".equals( subClassCode ) ) {
+				schema.getTableTZTimestampType().deleteTZTimestampType( Authorization, (CFBamTZTimestampTypeBuff)cur );
+			}
+			else if( "a881".equals( subClassCode ) ) {
+				schema.getTableTZTimestampCol().deleteTZTimestampCol( Authorization, (CFBamTZTimestampColBuff)cur );
+			}
+			else if( "a85c".equals( subClassCode ) ) {
+				schema.getTableTextDef().deleteTextDef( Authorization, (CFBamTextDefBuff)cur );
+			}
+			else if( "a85d".equals( subClassCode ) ) {
+				schema.getTableTextType().deleteTextType( Authorization, (CFBamTextTypeBuff)cur );
+			}
+			else if( "a882".equals( subClassCode ) ) {
+				schema.getTableTextCol().deleteTextCol( Authorization, (CFBamTextColBuff)cur );
+			}
+			else if( "a85e".equals( subClassCode ) ) {
+				schema.getTableTimeDef().deleteTimeDef( Authorization, (CFBamTimeDefBuff)cur );
+			}
+			else if( "a85f".equals( subClassCode ) ) {
+				schema.getTableTimeType().deleteTimeType( Authorization, (CFBamTimeTypeBuff)cur );
+			}
+			else if( "a883".equals( subClassCode ) ) {
+				schema.getTableTimeCol().deleteTimeCol( Authorization, (CFBamTimeColBuff)cur );
+			}
+			else if( "a860".equals( subClassCode ) ) {
+				schema.getTableTimestampDef().deleteTimestampDef( Authorization, (CFBamTimestampDefBuff)cur );
+			}
+			else if( "a861".equals( subClassCode ) ) {
+				schema.getTableTimestampType().deleteTimestampType( Authorization, (CFBamTimestampTypeBuff)cur );
+			}
+			else if( "a884".equals( subClassCode ) ) {
+				schema.getTableTimestampCol().deleteTimestampCol( Authorization, (CFBamTimestampColBuff)cur );
+			}
+			else if( "a862".equals( subClassCode ) ) {
+				schema.getTableTokenDef().deleteTokenDef( Authorization, (CFBamTokenDefBuff)cur );
+			}
+			else if( "a863".equals( subClassCode ) ) {
+				schema.getTableTokenType().deleteTokenType( Authorization, (CFBamTokenTypeBuff)cur );
+			}
+			else if( "a885".equals( subClassCode ) ) {
+				schema.getTableTokenCol().deleteTokenCol( Authorization, (CFBamTokenColBuff)cur );
+			}
+			else if( "a864".equals( subClassCode ) ) {
+				schema.getTableUInt16Def().deleteUInt16Def( Authorization, (CFBamUInt16DefBuff)cur );
+			}
+			else if( "a865".equals( subClassCode ) ) {
+				schema.getTableUInt16Type().deleteUInt16Type( Authorization, (CFBamUInt16TypeBuff)cur );
+			}
+			else if( "a886".equals( subClassCode ) ) {
+				schema.getTableUInt16Col().deleteUInt16Col( Authorization, (CFBamUInt16ColBuff)cur );
+			}
+			else if( "a866".equals( subClassCode ) ) {
+				schema.getTableUInt32Def().deleteUInt32Def( Authorization, (CFBamUInt32DefBuff)cur );
+			}
+			else if( "a867".equals( subClassCode ) ) {
+				schema.getTableUInt32Type().deleteUInt32Type( Authorization, (CFBamUInt32TypeBuff)cur );
+			}
+			else if( "a887".equals( subClassCode ) ) {
+				schema.getTableUInt32Col().deleteUInt32Col( Authorization, (CFBamUInt32ColBuff)cur );
+			}
+			else if( "a868".equals( subClassCode ) ) {
+				schema.getTableUInt64Def().deleteUInt64Def( Authorization, (CFBamUInt64DefBuff)cur );
+			}
+			else if( "a869".equals( subClassCode ) ) {
+				schema.getTableUInt64Type().deleteUInt64Type( Authorization, (CFBamUInt64TypeBuff)cur );
+			}
+			else if( "a888".equals( subClassCode ) ) {
+				schema.getTableUInt64Col().deleteUInt64Col( Authorization, (CFBamUInt64ColBuff)cur );
+			}
+			else if( "a86a".equals( subClassCode ) ) {
+				schema.getTableUuidDef().deleteUuidDef( Authorization, (CFBamUuidDefBuff)cur );
+			}
+			else if( "a86c".equals( subClassCode ) ) {
+				schema.getTableUuidType().deleteUuidType( Authorization, (CFBamUuidTypeBuff)cur );
+			}
+			else if( "a88b".equals( subClassCode ) ) {
+				schema.getTableUuidGen().deleteUuidGen( Authorization, (CFBamUuidGenBuff)cur );
+			}
+			else if( "a889".equals( subClassCode ) ) {
+				schema.getTableUuidCol().deleteUuidCol( Authorization, (CFBamUuidColBuff)cur );
+			}
+			else if( "a86b".equals( subClassCode ) ) {
+				schema.getTableUuid6Def().deleteUuid6Def( Authorization, (CFBamUuid6DefBuff)cur );
+			}
+			else if( "a86d".equals( subClassCode ) ) {
+				schema.getTableUuid6Type().deleteUuid6Type( Authorization, (CFBamUuid6TypeBuff)cur );
+			}
+			else if( "a88c".equals( subClassCode ) ) {
+				schema.getTableUuid6Gen().deleteUuid6Gen( Authorization, (CFBamUuid6GenBuff)cur );
+			}
+			else if( "a88a".equals( subClassCode ) ) {
+				schema.getTableUuid6Col().deleteUuid6Col( Authorization, (CFBamUuid6ColBuff)cur );
+			}
+			else {
+				throw new CFLibUnsupportedClassException( getClass(),
+					S_ProcName,
+					"subClassCode",
+					cur,
+					"Instance of or subclass of Atom must not be \"" + subClassCode + "\"" );
+			}
+		}
+	}
+
+	public void deleteAtomByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = schema.getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteAtomByScopeCodeVisIdx( Authorization, key );
+	}
+
+	public void deleteAtomByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey )
+	{
+		final String S_ProcName = "deleteAtomByScopeCodeVisIdx";
+		CFBamAtomBuff cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
