@@ -4,12 +4,12 @@
   <parent>
     <groupId>org.msscf.msscf</groupId>
     <artifactId>org.msscf.msscf.v2_13</artifactId>
-    <version>2.13.42-alpha15-202610311230</version>
+    <version>2.13.42-alpha15-202611010900</version>
   </parent>
 
   <groupId>org.msscf.msscf.v2_13</groupId>
   <artifactId>org.msscf.msscf.v2_13.cfbam.CFBamRam</artifactId>
-  <version>2.13.42-alpha15-202610311230</version>
+  <version>2.13.42-alpha15-202611010900</version>
   <name>org.msscf.msscf.v2_13.cfbam.CFBamRam</name>
   <description>msscf CFBamRam 2.13 CFBam RAM persistence</description>
   <url>https://msscf.org/msscf/</url>
@@ -24,38 +24,38 @@
     <dependency>
       <groupId>org.msscf.msscf.v2_13</groupId>
       <artifactId>org.msscf.msscf.v2_13.cflib.CFLib</artifactId>
-      <version>2.13.42-alpha15-202610311230</version>
+      <version>2.13.42-alpha15-202611010900</version>
     </dependency>
     <dependency>
       <groupId>org.msscf.msscf.v2_13</groupId>
       <artifactId>org.msscf.msscf.v2_13.cfbam</artifactId>
-      <version>2.13.42-alpha15-202610311230</version>
+      <version>2.13.42-alpha15-202611010900</version>
     </dependency>
     <dependency>
       <groupId>org.msscf.msscf.v2_13</groupId>
       <artifactId>org.msscf.msscf.v2_13.cfsec</artifactId>
-      <version>2.13.42-alpha15-202610311230</version>
+      <version>2.13.42-alpha15-202611010900</version>
     </dependency>
     <dependency>
       <groupId>org.msscf.msscf.v2_13</groupId>
       <artifactId>org.msscf.msscf.v2_13.cfint</artifactId>
-      <version>2.13.42-alpha15-202610311230</version>
+      <version>2.13.42-alpha15-202611010900</version>
     </dependency>
     <dependency>
       <groupId>org.msscf.msscf.v2_13</groupId>
       <artifactId>org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader</artifactId>
-      <version>2.13.42-alpha15-202610311230</version>
+      <version>2.13.42-alpha15-202611010900</version>
     </dependency>
 
     <dependency>
       <groupId>org.msscf.msscf.v2_13</groupId>
       <artifactId>org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader</artifactId>
-      <version>2.13.42-alpha15-202610311230</version>
+      <version>2.13.42-alpha15-202611010900</version>
     </dependency>
     <dependency>
       <groupId>org.msscf.msscf.v2_13</groupId>
       <artifactId>org.msscf.msscf.v2_13.cfint.CFIntSaxLoader</artifactId>
-      <version>2.13.42-alpha15-202610311230</version>
+      <version>2.13.42-alpha15-202611010900</version>
     </dependency>
   </dependencies>
 
